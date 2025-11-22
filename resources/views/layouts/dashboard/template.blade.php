@@ -19,6 +19,9 @@
     <link href="{{ asset('dashboard/assets/css/nucleo-svg.css') }}" rel="stylesheet" />
     <!-- CSS Files -->
     <link id="pagestyle" href="{{ asset('dashboard/assets/css/soft-ui-dashboard.css?v=1.0.3') }}" rel="stylesheet" />
+
+     {{--  datatables CSS  --}}
+  <link rel="stylesheet" href="https://cdn.datatables.net/2.3.4/css/dataTables.bootstrap5.css">
 </head>
 
 <body class="g-sidenav-show  bg-gray-100">
@@ -27,10 +30,11 @@
     
     <main class="main-content position-relative max-height-vh-100 h-100 mt-1 border-radius-lg ">
         <!-- Navbar -->
-        @include('layouts.dashboard.navbar')
+        {{-- @include('layouts.dashboard.navbar') --}}
         <!-- End Navbar -->
         @include('sweetalert::alert')
         @yield('content')
+        @include('layouts.dashboard.footer')
        
     </main>
     
@@ -307,6 +311,14 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
     <script src="{{ asset('dashboard/assets/js/soft-ui-dashboard.min.js?v=1.0.3') }}"></script>
+
+    {{-- datatables --}}
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="https://cdn.datatables.net/2.3.4/js/dataTables.js"></script>
+    <script src="https://cdn.datatables.net/2.3.4/js/dataTables.bootstrap5.js"></script>
+    {{-- end datatables --}}
+    @stack('scripts')
+    @stack('style')
 </body>
 
 </html>
