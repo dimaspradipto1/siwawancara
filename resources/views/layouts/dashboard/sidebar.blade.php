@@ -38,6 +38,7 @@
                     <span class="nav-link-text ms-1">Dashboard</span>
                 </a>
             </li>
+            @if(auth()->user()->is_admin || auth()->user()->is_timtes)
             <li class="nav-item">
                 <a class="nav-link  " href="../pages/tables.html">
                     <div
@@ -47,6 +48,8 @@
                     <span class="nav-link-text ms-1">mahasiswa</span>
                 </a>
             </li>
+            @endif
+
             <li class="nav-item">
                 <a class="nav-link  " href="../pages/billing.html">
                     <div
@@ -56,6 +59,8 @@
                     <span class="nav-link-text ms-1">penilaian</span>
                 </a>
             </li>
+
+            @if(auth()->user()->is_admin)
             <li class="nav-item mt-3">
                 <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Account pages</h6>
             </li>
@@ -88,6 +93,8 @@
                     <span class="nav-link-text ms-1">pengguna</span>
                 </a>
             </li>
+            @endif
+            
             <div class="sidenav-footer mx-3 ">
                 <div class="card card-background shadow-none card-background-mask-secondary" id="sidenavCard">
                     <div class="full-background"
@@ -107,7 +114,7 @@
                 </div> --}}
                 </div>
                 <a class="btn bg-gradient-primary mt-4 w-100"
-                    href="https://www.creative-tim.com/product/soft-ui-dashboard-pro?ref=sidebarfree"
+                    href="{{ route('logout') }}"
                     type="button">logout</a>
             </div>
         </ul>
