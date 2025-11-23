@@ -128,92 +128,67 @@
 </nav>
 <div class="container-fluid py-4">
     <div class="row">
-        <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+        <div class="col-xl-4 col-sm-6 mb-xl-0 mb-4">
             <div class="card">
                 <div class="card-body p-3">
                     <div class="row">
                         <div class="col-8">
                             <div class="numbers">
-                                <p class="text-sm mb-0 text-capitalize font-weight-bold">Today's Money</p>
+                                <p class="text-sm mb-0 text-capitalize font-weight-bold">Mahasiswa</p>
                                 <h5 class="font-weight-bolder mb-0">
-                                    $53,000
-                                    <span class="text-success text-sm font-weight-bolder">+55%</span>
+                                   {{ $mahasiswa }}
                                 </h5>
+                            </div>
+                        </div>
+                        <div class="col-4 text-end">
+                            <v
+                        class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md" >
+                                <i class="fa-solid fa-users" style="height: 30px; width: 30px; color: white; margin-top: 10px;"></i>
+                            </v>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-4 col-sm-6 mb-xl-0 mb-4">
+            <div class="card">
+                <div class="card-body p-3">
+                    <div class="row">
+                        <div class="col-8">
+                            <div class="numbers">
+                                <p class="text-sm mb-0 text-capitalize font-weight-bold">Interviewer</p>
+                                    <h5 class="font-weight-bolder mb-0">
+                                        {{ $interviewer }}
+                                    </h5>
                             </div>
                         </div>
                         <div class="col-4 text-end">
                             <div
                                 class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
-                                <i class="ni ni-money-coins text-lg opacity-10" aria-hidden="true"></i>
+                                <i class="fa-solid fa-user-gear" style="height: 30px; width: 30px; color: white; margin-top: 10px;"></i>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+        <div class="col-xl-4 col-sm-6 mb-xl-0 mb-4">
             <div class="card">
                 <div class="card-body p-3">
                     <div class="row">
                         <div class="col-8">
                             <div class="numbers">
-                                <p class="text-sm mb-0 text-capitalize font-weight-bold">Today's Users</p>
+                                <p class="text-sm mb-0 text-capitalize font-weight-bold">Pengguna</p>
                                 <h5 class="font-weight-bolder mb-0">
-                                    2,300
-                                    <span class="text-success text-sm font-weight-bolder">+3%</span>
+                                    {{ $user }}
                                 </h5>
                             </div>
                         </div>
                         <div class="col-4 text-end">
                             <div
                                 class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
-                                <i class="ni ni-world text-lg opacity-10" aria-hidden="true"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
-            <div class="card">
-                <div class="card-body p-3">
-                    <div class="row">
-                        <div class="col-8">
-                            <div class="numbers">
-                                <p class="text-sm mb-0 text-capitalize font-weight-bold">New Clients</p>
-                                <h5 class="font-weight-bolder mb-0">
-                                    +3,462
-                                    <span class="text-danger text-sm font-weight-bolder">-2%</span>
-                                </h5>
-                            </div>
-                        </div>
-                        <div class="col-4 text-end">
-                            <div
-                                class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
-                                <i class="ni ni-paper-diploma text-lg opacity-10" aria-hidden="true"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-xl-3 col-sm-6">
-            <div class="card">
-                <div class="card-body p-3">
-                    <div class="row">
-                        <div class="col-8">
-                            <div class="numbers">
-                                <p class="text-sm mb-0 text-capitalize font-weight-bold">Sales</p>
-                                <h5 class="font-weight-bolder mb-0">
-                                    $103,430
-                                    <span class="text-success text-sm font-weight-bolder">+5%</span>
-                                </h5>
-                            </div>
-                        </div>
-                        <div class="col-4 text-end">
-                            <div
-                                class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
-                                <i class="ni ni-cart text-lg opacity-10" aria-hidden="true"></i>
+                                <i class="fa-solid fa-user" style="height: 30px; width: 30px; color: white; margin-top: 10px;"></i>
                             </div>
                         </div>
                     </div>
@@ -228,26 +203,19 @@
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="d-flex flex-column h-100">
-                                <p class="mb-1 pt-2 text-bold">Built by developers</p>
-                                <h5 class="font-weight-bolder">Soft UI Dashboard</h5>
-                                <p class="mb-5">From colors, cards, typography to complex elements, you will
-                                    find the full documentation.</p>
-                                <a class="text-body text-sm font-weight-bold mb-0 icon-move-right mt-auto"
-                                    href="javascript:;">
-                                    Read More
-                                    <i class="fas fa-arrow-right text-sm ms-1" aria-hidden="true"></i>
-                                </a>
+                                <h5 class="font-weight-bolder">Selamat datang</h5>
+                                <p class="mb-5" style="font-size: 14px; text-align: justify;">Dashboard ini dirancang untuk mendukung Anda dalam melakukan proses wawancara secara efisien dan terstruktur. Silakan akses data peserta dan formulir penilaian melalui menu yang tersedia.</p>
                             </div>
                         </div>
                         <div class="col-lg-5 ms-auto text-center mt-5 mt-lg-0">
                             <div class="bg-gradient-primary border-radius-lg h-100">
-                                <img src="../assets/img/shapes/waves-white.svg"
+                                <img src="dashboard/assets/img/shapes/waves-white.svg"
                                     class="position-absolute h-100 w-50 top-0 d-lg-block d-none"
                                     alt="waves">
                                 <div
                                     class="position-relative d-flex align-items-center justify-content-center h-100">
                                     <img class="w-100 position-relative z-index-2 pt-4"
-                                        src="../assets/img/illustrations/rocket-white.png" alt="rocket">
+                                        src="dashboard/assets/img/illustrations/rocket-white.png" alt="rocket">
                                 </div>
                             </div>
                         </div>
@@ -261,20 +229,14 @@
                     style="background-image: url('../assets/img/ivancik.jpg');">
                     <span class="mask bg-gradient-dark"></span>
                     <div class="card-body position-relative z-index-1 d-flex flex-column h-100 p-3">
-                        <h5 class="text-white font-weight-bolder mb-4 pt-2">Work with the rockets</h5>
-                        <p class="text-white">Wealth creation is an evolutionarily recent positive-sum game. It
-                            is all about who take the opportunity first.</p>
-                        <a class="text-white text-sm font-weight-bold mb-0 icon-move-right mt-auto"
-                            href="javascript:;">
-                            Read More
-                            <i class="fas fa-arrow-right text-sm ms-1" aria-hidden="true"></i>
-                        </a>
+                        <h5 class="text-white font-weight-bolder mb-4 pt-2">VIsi</h5>
+                        <p class="text-white">Unggul, Berintegritas, Berjiwa Entrepreneurship.</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="row mt-4">
+    {{-- <div class="row mt-4">
         <div class="col-lg-5 mb-lg-0 mb-4">
             <div class="card z-index-2">
                 <div class="card-body p-3">
@@ -455,8 +417,8 @@
                 </div>
             </div>
         </div>
-    </div>
-    <div class="row my-4">
+    </div> --}}
+    {{-- <div class="row my-4">
         <div class="col-lg-8 col-md-6 mb-md-0 mb-4">
             <div class="card">
                 <div class="card-header pb-0">
@@ -864,8 +826,7 @@
                 </div>
             </div>
         </div>
-    </div>
-    @include('layouts.dashboard.footer')
+    </div> --}}
     
 </div>
 @endsection

@@ -97,7 +97,7 @@
                         onclick="navbarFixed(this)">
                 </div>
                 <hr class="horizontal dark my-sm-4">
-                <a class="btn bg-gradient-dark w-100"
+                {{-- <a class="btn bg-gradient-dark w-100"
                     href="https://www.creative-tim.com/product/soft-ui-dashboard-pro">Free Download</a>
                 <a class="btn btn-outline-dark w-100"
                     href="https://www.creative-tim.com/learning-lab/bootstrap/license/soft-ui-dashboard">View
@@ -114,7 +114,7 @@
                     <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.creative-tim.com/product/soft-ui-dashboard"
                         class="btn btn-dark mb-0 me-2" target="_blank">
                         <i class="fab fa-facebook-square me-1" aria-hidden="true"></i> Share
-                    </a>
+                    </a> --}}
                 </div>
             </div>
         </div>
