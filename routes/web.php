@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\MahasiswaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,4 +38,11 @@ Route::middleware(['auth','checkrole'])->group(function(){
     Route::get('/user/{id}/update-password', [UserController::class, 'showUpdatePasswordForm'])->name('user.showUpdatePasswordForm');
     Route::post('/user/{id}/update-password', [UserController::class, 'updatePassword'])->name('user.updatePassword');
     Route::post('/user/import', [UserController::class, 'import'])->name('user.import');
+    Route::resource('mahasiswa', MahasiswaController::class);
+    Route::post('/mahasiswa/import', [MahasiswaController::class, 'import'])->name('mahasiswa.import');
+    Route::post('/mahasiswa/bulk-delete', [MahasiswaController::class, 'bulkDelete'])
+    ->name('mahasiswa.bulkDelete');
+
+Route::post('/mahasiswa/delete-all', [MahasiswaController::class, 'deleteAll'])
+    ->name('mahasiswa.deleteAll');
 });

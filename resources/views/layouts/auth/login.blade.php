@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('dashboard/assets/img/logouis.png') }}">
     <link rel="icon" type="image/png" href="{{ asset('dashboard/assets/img/logouis.png') }}">
     <title>
         Login wawancara
@@ -1225,12 +1225,12 @@
     <!-- End Navbar -->
     <section class="min-vh-100 mb-8">
         <div class="page-header align-items-start min-vh-50 pt-5 pb-11 m-3 border-radius-lg"
-            style="background-image: url('dashboard/assets/img/curved-images/curved14.jpg');">
+            style="background-image: url('{{ asset('dashboard/assets/img/gedung.jpg') }}');">
             <span class="mask bg-gradient-dark opacity-6"></span>
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-lg-5 text-center mx-auto">
-                        <h1 class="text-white mb-2 mt-5">Selamat datang</h1>
+                        <h1 class="text-white mb-2 mt-5 text-uppercase">Selamat Datang</h1>
                         <p class="text-lead text-white"> Silahkan login untuk melanjutkan ke sistem wawancara</p>
                     </div>
                 </div>
@@ -1241,7 +1241,7 @@
                 <div class="col-xl-4 col-lg-5 col-md-7 mx-auto">
                     <div class="card z-index-0">
                         <div class="card-header text-center pt-4">
-                            <h5>Login sistem wawancara</h5>
+                            <h5>Login siwawancara</h5>
                         </div>
                         {{-- <div class="row px-xl-5 px-sm-4 px-3">
                         <div class="col-3 ms-auto px-1">

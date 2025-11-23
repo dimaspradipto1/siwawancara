@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('dashboard/assets/img/logouis.png') }}">
     <link rel="icon" type="image/png" href="{{ asset('dashboard/assets/img/logouis.png') }}">
     <title>
         Dashboard wawancara
@@ -13,10 +13,9 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
     <!-- Nucleo Icons -->
     <link href="{{ asset('dashboard/assets/css/nucleo-icons.css') }}" rel="stylesheet" />
-    <link href="dashboard/assets/css/nucleo-svg.css" rel="stylesheet" />
-    <!-- Font Awesome Icons -->
-    <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
     <link href="{{ asset('dashboard/assets/css/nucleo-svg.css') }}" rel="stylesheet" />
+    <link href="{{ asset('dashboard/assets/css/nucleo-svg.css') }}" rel="stylesheet" />
+
     <!-- CSS Files -->
     <link id="pagestyle" href="{{ asset('dashboard/assets/css/soft-ui-dashboard.css?v=1.0.3') }}" rel="stylesheet" />
 
@@ -305,10 +304,13 @@
             Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
         }
     </script>
+
     {{-- fontawesome --}}
     <script src="https://kit.fontawesome.com/63b8672806.js" crossorigin="anonymous"></script>
+    
     <!-- Github buttons -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
+
     <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
     <script src="{{ asset('dashboard/assets/js/soft-ui-dashboard.min.js?v=1.0.3') }}"></script>
 
