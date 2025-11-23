@@ -13,18 +13,19 @@ return new class extends Migration
     {
         Schema::create('penilaians', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->foreignId('mahasiswa_id')->constrained()->cascadeOnDelete();
-            $table->integer('indikator1');
-            $table->integer('indikator2');
-            $table->integer('indikator3');
-            $table->integer('indikator4');
-            $table->integer('indikator5');
-            $table->integer('indikator6');
-            $table->string('total_point');
-            $table->string('nilai_akhir');
-            $table->text('prestasi_akademik');
-            $table->text('nilai_keislaman');
-            $table->text('komentar_interviewer');
+            $table->integer('indikator1')->nullable();
+            $table->integer('indikator2')->nullable();
+            $table->integer('indikator3')->nullable();
+            $table->integer('indikator4')->nullable();
+            $table->integer('indikator5')->nullable();
+            $table->integer('indikator6')->nullable();
+            $table->string('total_point')->nullable();
+            $table->string('nilai_akhir')->nullable();
+            $table->text('prestasi_akademik')->nullable();
+            $table->text('nilai_keislaman')->nullable();
+            $table->text('komentar_interviewer')->nullable();
             $table->timestamps();
         });
     }

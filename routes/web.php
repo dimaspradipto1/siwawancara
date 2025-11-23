@@ -5,6 +5,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\MahasiswaController;
+use App\Http\Controllers\PenilaianController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,7 +30,6 @@ Route::controller(LoginController::class)->group(function(){
     Route::post('/loginproses', 'loginproses')->name('loginproses');
     Route::post('/registerproses', 'registerproses')->name('registerproses');
     Route::get('/logout', 'logout')->name('logout');
-   
 });
 
 Route::middleware(['auth','checkrole'])->group(function(){
@@ -41,8 +41,10 @@ Route::middleware(['auth','checkrole'])->group(function(){
     Route::resource('mahasiswa', MahasiswaController::class);
     Route::post('/mahasiswa/import', [MahasiswaController::class, 'import'])->name('mahasiswa.import');
     Route::post('/mahasiswa/bulk-delete', [MahasiswaController::class, 'bulkDelete'])
-    ->name('mahasiswa.bulkDelete');
-
-Route::post('/mahasiswa/delete-all', [MahasiswaController::class, 'deleteAll'])
-    ->name('mahasiswa.deleteAll');
+            ->name('mahasiswa.bulkDelete');
+    Route::post('/mahasiswa/delete-all', [MahasiswaController::class, 'deleteAll'])
+            ->name('mahasiswa.deleteAll');
+    Route::resource('penilaian', PenilaianController::class);
+    Route::post('/penilaian/cariPendaftar', [PenilaianController::class, 'cariPendaftar'])->name('penilaian.cariPendaftar');
+    Route::get('/export', [PenilaianController::class, 'export'])->name('export');
 });

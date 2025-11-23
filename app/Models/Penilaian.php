@@ -14,4 +14,10 @@ class Penilaian extends Model
     {
         return $this->belongsTo(Mahasiswa::class);
     }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
 }

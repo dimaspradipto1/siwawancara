@@ -3,6 +3,7 @@
 namespace App\Imports;
 
 use App\Models\Mahasiswa;
+use App\Models\Penilaian;
 use Maatwebsite\Excel\Concerns\ToModel;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
 
@@ -10,7 +11,6 @@ class MahasiswaImport implements ToModel, WithHeadingRow
 {
     public function model(array $row)
     {
-        // ambil value + trim
         $kode   = trim($row['kode_pendaftar'] ?? '');
         $nama   = trim($row['nama_mahasiswa'] ?? '');
         $jalur  = trim($row['jalur_pendaftar'] ?? '');
@@ -23,28 +23,32 @@ class MahasiswaImport implements ToModel, WithHeadingRow
         $alamat = trim($row['alamat'] ?? '');
         $status = trim($row['status_pekerjaan'] ?? '');
 
-        // skip kalau wajib kosong
         if ($kode === '' || $nama === '' || $jalur === '' || $sistem === '' || $p1 === '' || $jk === '' || $nowa === '' || $email === '' || $alamat === '' || $status === '') {
             return null;
         }
 
-        // JK wajib cuma 2 pilihan
         if ($jk !== 'Laki-laki' && $jk !== 'Perempuan') {
             return null;
         }
 
-        return new Mahasiswa([
+        $mahasiswa = Mahasiswa::create([
             'kode_pendaftar'    => $kode,
             'nama_mahasiswa'    => $nama,
             'jalur_pendaftar'   => $jalur,
             'sistem_kuliah'     => $sistem,
             'prodi_pilihan1'    => $p1,
-            'prodi_pilihan2'    => $p2, // boleh kosong tapi jangan null -> sudah '' kalau kosong
+            'prodi_pilihan2'    => $p2,
             'jk'                => $jk,
             'nowa'              => $nowa,
             'email'             => $email,
             'alamat'            => $alamat,
             'status_pekerjaan'  => $status,
         ]);
+
+        // Penilaian::create([
+        //     'mahasiswa_id' => $mahasiswa->id
+        // ]);
+
+        return $mahasiswa;
     }
 }
