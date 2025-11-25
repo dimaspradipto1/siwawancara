@@ -218,8 +218,8 @@
                                           <label for="password">Jenis Kelamin</label>
                                           <select name="jk" class="form-control" required>
                                             <option disabled>Pilih Jenis Kelamin</option>
-                                            <option value="Laki-laki">Laki-laki</option>
-                                            <option value="Perempuan">Perempuan</option>
+                                            <option value="PRIA">PRIA</option>
+                                            <option value="WANITA">WANITA</option>
                                           </select>
                                         </div>
                                         <div class="col-md-12 mb-md-0 mb-4">
