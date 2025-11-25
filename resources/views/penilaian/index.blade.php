@@ -95,15 +95,13 @@
                                         Tambah Penilaian
                                     </a>
                                 </li>
-                                @if(Auth::user()->is_admin)
-                                    
+                                @if(Auth::user()->is_admin || Auth::user()->is_timtes) 
                                 <li>
                                     <a class="dropdown-item d-flex align-items-center gap-2 text-success"
                                     href="{{ route('export') }}" target="_blank">
                                      <i class="fa-solid fa-file-excel text-success"></i>
                                      Export Excel
                                     </a>
-                                 
                                 </li>
                                 @endif
 
