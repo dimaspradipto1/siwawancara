@@ -159,7 +159,7 @@
                                         <div class="col-md-12 mb-md-0 mb-4">
                                           <label for="jalur_pendaftar">Jalur Pendaftar</label>
                                           <select name="jalur_pendaftar" class="form-control">
-                                            <option disabled>pilih jalur pendaftar</option>
+                                            <option value="">pilih jalur pendaftar</option>
                                           <option value="MANDIRI">MANDIRI</option>
                                           <option value="MANDIRI ALUMNI">MANDIRI ALUMNI</option>
                                           <option value="MANDIRI ALUMNI-S2">MANDIRI ALUMNI-S2</option>
@@ -173,7 +173,7 @@
                                         <div class="col-md-12 mb-md-0 mb-4">
                                           <label for="sistem_kuliah">Sistem Kuliah</label>
                                           <select name="sistem_kuliah" class="form-control">
-                                            <option disabled>pilih sistem kuliah</option>
+                                            <option value="">pilih sistem kuliah</option>
                                             <option value="Reguler A">Reguler A</option>
                                             <option value="Reguler B">Reguler B</option>
                                             <option value="Reguler C">Reguler C</option>
@@ -183,7 +183,7 @@
                                         <div class="col-md-12 mb-md-0 mb-4">
                                           <label for="password">Prodi Pilihan 1</label>
                                           <select name="prodi_pilihan1" class="form-control">
-                                            <option disabled>Pilih Prodi Pilihan 1</option>
+                                            <option value="">Pilih Prodi Pilihan 1</option>
                                             <option value="S1-Kesehatan dan Keleamatan Kerja">S1-Kesehatan dan Keleamatan Kerja</option>
                                             <option value="S1-Kesehatan Lingkungan">S1-Kesehatan Lingkungan</option>
                                             <option value="S1-S1 Akuntansi">S1-S1 Akuntansi</option>
@@ -200,7 +200,7 @@
                                         <div class="col-md-12 mb-md-0 mb-4">
                                           <label for="password">Prodi Pilihan 2</label>
                                           <select name="prodi_pilihan2" class="form-control">
-                                            <option disabled>Pilih Prodi Pilihan 2</option>
+                                            <option value="">Pilih Prodi Pilihan 2</option>
                                             <option value="S1-Kesehatan dan Keleamatan Kerja">S1-Kesehatan dan Keleamatan Kerja</option>
                                             <option value="S1-Kesehatan Lingkungan">S1-Kesehatan Lingkungan</option>    
                                             <option value="S1-S1 Akuntansi">S1-S1 Akuntansi</option>
@@ -217,7 +217,7 @@
                                         <div class="col-md-12 mb-md-0 mb-4">
                                           <label for="password">Jenis Kelamin</label>
                                           <select name="jk" class="form-control" required>
-                                            <option disabled>Pilih Jenis Kelamin</option>
+                                            <option value="">Pilih Jenis Kelamin</option>
                                             <option value="PRIA">PRIA</option>
                                             <option value="WANITA">WANITA</option>
                                           </select>
@@ -237,7 +237,7 @@
                                         <div class="col-md-12 mb-md-0 mb-4">
                                           <label for="password">Status Pekerjaan</label>
                                           <select name="status_pekerjaan" class="form-control">
-                                            <option>Pilih Status Pekerjaan</option>
+                                            <option value="">Pilih Status Pekerjaan</option>
                                             <option value="BELUM BEKERJA">Belum Bekerja</option>
                                             <option value="BEKERJA">BEKERJA</option>
                                             <option value="GURU">GURU</option>

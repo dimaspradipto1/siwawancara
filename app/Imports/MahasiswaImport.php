@@ -27,7 +27,7 @@ class MahasiswaImport implements ToModel, WithHeadingRow
             return null;
         }
 
-        if ($jk !== 'Laki-laki' && $jk !== 'Perempuan') {
+        if ($jk !== 'PRIA' && $jk !== 'WANITA') {
             return null;
         }
 
@@ -44,10 +44,6 @@ class MahasiswaImport implements ToModel, WithHeadingRow
             'alamat'            => $alamat,
             'status_pekerjaan'  => $status,
         ]);
-
-        // Penilaian::create([
-        //     'mahasiswa_id' => $mahasiswa->id
-        // ]);
 
         return $mahasiswa;
     }
