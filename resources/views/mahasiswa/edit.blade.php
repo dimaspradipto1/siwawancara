@@ -8,9 +8,9 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
                     <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Pages</a></li>
-                    <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Ubah Mahasiswa</li>
-                </ol>
-                <h6 class="font-weight-bolder mb-0">Ubah Mahasiswa</h6>
+                    <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Edit Mahasiswa</li>
+                    </ol>
+                <h6 class="font-weight-bolder mb-0">Edit Mahasiswa</h6>
             </nav>
             <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
                 <div class="ms-md-auto pe-md-3 d-flex align-items-center">
@@ -137,7 +137,7 @@
                             <div class="card-header pb-0 p-3">
                                 <div class="row">
                                     <div class="col-6 d-flex align-items-center">
-                                        <h6 class="mb-0">Form Ubah Mahasiswa</h6>
+                                        <h6 class="mb-0">Form Edit Mahasiswa</h6>
                                     </div>
                               
                                 </div>
@@ -160,7 +160,7 @@
                                         <div class="col-md-12 mb-md-0 mb-4">
                                           <label for="jalur_pendaftar">Jalur Pendaftar</label>
                                           <select name="jalur_pendaftar" class="form-control">
-                                            <option value="">Pilih Jalur Pendaftar</option>
+                                        <option disabled>pilih jalur pendaftar</option>
                                           <option value="MANDIRI" {{ $mahasiswa->jalur_pendaftar == 'MANDIRI' ? 'selected' : '' }}>MANDIRI</option>
                                           <option value="MANDIRI ALUMNI" {{ $mahasiswa->jalur_pendaftar == 'MANDIRI ALUMNI' ? 'selected' : '' }}>MANDIRI ALUMNI</option>
                                           <option value="MANDIRI ALUMNI-S2" {{ $mahasiswa->jalur_pendaftar == 'MANDIRI ALUMNI-S2' ? 'selected' : '' }}>MANDIRI ALUMNI-S2</option>
@@ -174,7 +174,7 @@
                                         <div class="col-md-12 mb-md-0 mb-4">
                                           <label for="sistem_kuliah">Sistem Kuliah</label>
                                           <select name="sistem_kuliah" class="form-control">
-                                            <option value="">Pilih Sistem Kuliah</option>
+                                            <option disabled>pilih sistem kuliah</option>
                                             <option value="Reguler A" {{ $mahasiswa->sistem_kuliah == 'Reguler A' ? 'selected' : '' }}>Reguler A</option>
                                             <option value="Reguler B" {{ $mahasiswa->sistem_kuliah == 'Reguler B' ? 'selected' : '' }}>Reguler B</option>
                                             <option value="Reguler C" {{ $mahasiswa->sistem_kuliah == 'Reguler C' ? 'selected' : '' }}>Reguler C</option>
@@ -184,8 +184,8 @@
                                         <div class="col-md-12 mb-md-0 mb-4">
                                           <label for="password">Prodi Pilihan 1</label>
                                           <select name="prodi_pilihan1" class="form-control">
-                                            <option value="">Pilih Prodi Pilihan 1</option>
-                                            <option value="S1-Kesehatan dan Keleamatan Kerja">S1-Kesehatan dan Keleamatan Kerja</option>
+                                            <option disabled>Pilih Prodi Pilihan 1</option>
+                                            <option value="S1-Kesehatan dan Keleamatan Kerja" {{ $mahasiswa->prodi_pilihan1 == 'S1-Kesehatan dan Keleamatan Kerja' ? 'selected' : '' }}>S1-Kesehatan dan Keleamatan Kerja</option>
                                             <option value="S1-Kesehatan Lingkungan" {{ $mahasiswa->prodi_pilihan1 == 'S1-Kesehatan Lingkungan' ? 'selected' : '' }}>S1-Kesehatan Lingkungan</option>
                                             <option value="S1-S1 Akuntansi" {{ $mahasiswa->prodi_pilihan1 == 'S1-S1 Akuntansi' ? 'selected' : '' }}>S1-S1 Akuntansi</option>
                                             <option value="S1-S1 Manajemen" {{ $mahasiswa->prodi_pilihan1 == 'S1-S1 Manajemen' ? 'selected' : '' }}>S1-S1 Manajemen</option>
@@ -201,7 +201,7 @@
                                         <div class="col-md-12 mb-md-0 mb-4">
                                           <label for="password">Prodi Pilihan 2</label>
                                           <select name="prodi_pilihan2" class="form-control">
-                                            <option value="">Pilih Prodi Pilihan 2</option>
+                                            <option disabled>Pilih Prodi Pilihan 2</option>
                                             <option value="S1-Kesehatan dan Keleamatan Kerja" {{ $mahasiswa->prodi_pilihan2 == 'S1-Kesehatan dan Keleamatan Kerja' ? 'selected' : '' }}>S1-Kesehatan dan Keleamatan Kerja</option>
                                             <option value="S1-Kesehatan Lingkungan" {{ $mahasiswa->prodi_pilihan2 == 'S1-Kesehatan Lingkungan' ? 'selected' : '' }}>S1-Kesehatan Lingkungan</option>    
                                             <option value="S1-S1 Akuntansi" {{ $mahasiswa->prodi_pilihan2 == 'S1-S1 Akuntansi' ? 'selected' : '' }}>S1-S1 Akuntansi</option>
@@ -217,19 +217,19 @@
                                         </div>
                                         <div class="col-md-12 mb-md-0 mb-4">
                                           <label for="password">Jenis Kelamin</label>
-                                          <select name="jk" class="form-control">
-                                            <option>Pilih Jenis Kelamin</option>
-                                            <option value="Laki-laki" {{ $mahasiswa->jk == 'Laki-laki' ? 'selected' : '' }}>Laki-laki</option>
-                                            <option value="Perempuan" {{ $mahasiswa->jk == 'Perempuan' ? 'selected' : '' }}>Perempuan</option>
+                                          <select name="jk" class="form-control" required>
+                                            <option disabled>Pilih Jenis Kelamin</option>
+                                            <option value="PRIA" {{ $mahasiswa->jk == 'PRIA' ? 'selected' : '' }}>PRIA</option>
+                                            <option value="WANITA" {{ $mahasiswa->jk == 'WANITA' ? 'selected' : '' }}>WANITA</option>
                                           </select>
                                         </div>
                                         <div class="col-md-12 mb-md-0 mb-4">
                                           <label for="password">No Whatsapp</label>
-                                          <input type="number" name="nowa" class="form-control" value="{{ $mahasiswa->nowa }}">
+                                          <input type="number" name="nowa" value="{{ $mahasiswa->nowa }}" class="form-control" required>
                                         </div>  
                                         <div class="col-md-12 mb-md-0 mb-4">
                                           <label for="password">Email</label>
-                                          <input type="email" name="email" class="form-control" value="{{ $mahasiswa->email }}">
+                                          <input type="email" name="email" value="{{ $mahasiswa->email }}" class="form-control" required>
                                         </div>
                                         <div class="col-md-12 mb-md-0 mb-4">
                                           <label for="password">Alamat</label>
@@ -238,14 +238,22 @@
                                         <div class="col-md-12 mb-md-0 mb-4">
                                           <label for="password">Status Pekerjaan</label>
                                           <select name="status_pekerjaan" class="form-control">
-                                            <option value="">Pilih Status Pekerjaan</option>
-                                            <option value="Belum Bekerja" {{ $mahasiswa->status_pekerjaan == 'Belum Bekerja' ? 'selected' : '' }}>Belum Bekerja</option>
-                                            <option value="Bekerja" {{ $mahasiswa->status_pekerjaan == 'Bekerja' ? 'selected' : '' }}>Bekerja</option>
+                                            <option>Pilih Status Pekerjaan</option>
+                                            <option value="BELUM BEKERJA" {{ $mahasiswa->status_pekerjaan == 'BELUM BEKERJA' ? 'selected' : '' }}>Belum Bekerja</option>
+                                            <option value="BEKERJA" {{ $mahasiswa->status_pekerjaan == 'BEKERJA' ? 'selected' : '' }}>BEKERJA</option>
+                                            <option value="GURU" {{ $mahasiswa->status_pekerjaan == 'GURU' ? 'selected' : '' }}>GURU</option>
+                                            <option value="IBU RUMAH TANGGA" {{ $mahasiswa->status_pekerjaan == 'IBU RUMAH TANGGA' ? 'selected' : '' }}>IBU RUMAH TANGGA</option>
+                                            <option value="MAGANG" {{ $mahasiswa->status_pekerjaan == 'MAGANG' ? 'selected' : '' }}>MAGANG</option>
+                                            <option value="PELAJAR" {{ $mahasiswa->status_pekerjaan == 'PELAJAR' ? 'selected' : '' }}>PELAJAR</option>
+                                            <option value="PNS" {{ $mahasiswa->status_pekerjaan == 'PNS' ? 'selected' : '' }}>PNS</option>
+                                            <option value="TENAGA PENGAJAR/INSTRUKTUR/FASILITATOR" {{ $mahasiswa->status_pekerjaan == 'TENAGA PENGAJAR/INSTRUKTUR/FASILITATOR' ? 'selected' : '' }}>TENAGA PENGAJAR/INSTRUKTUR/FASILITATOR</option>
+                                            <option value="TIDAK BEKERJA" {{ $mahasiswa->status_pekerjaan == 'TIDAK BEKERJA' ? 'selected' : '' }}>TIDAK BEKERJA</option>
+                                            <option value="WIRASWASTA" {{ $mahasiswa->status_pekerjaan == 'WIRASWASTA' ? 'selected' : '' }}>WIRASWASTA</option>
                                           </select>
                                         </div>
                                       
                                         <div class="col-12 text-start py-3">
-                                          <button type="submit" class="btn btn-dark text-white text-uppercase">simpan</button>
+                                          <button type="submit" class="btn btn-dark text-white text-uppercase">update</button>
                                           <a href="{{ route('mahasiswa.index') }}" class="btn btn-danger text-white text-uppercase">kembali</a>
                                         </div>
                                       </form>

@@ -218,8 +218,8 @@
                                           <label for="password">Jenis Kelamin</label>
                                           <select name="jk" class="form-control" required>
                                             <option disabled>Pilih Jenis Kelamin</option>
-                                            <option value="Laki-laki">Laki-laki</option>
-                                            <option value="Perempuan">Perempuan</option>
+                                            <option value="PRIA">PRIA</option>
+                                            <option value="WANITA">WANITA</option>
                                           </select>
                                         </div>
                                         <div class="col-md-12 mb-md-0 mb-4">
@@ -238,8 +238,16 @@
                                           <label for="password">Status Pekerjaan</label>
                                           <select name="status_pekerjaan" class="form-control">
                                             <option>Pilih Status Pekerjaan</option>
-                                            <option value="Belum Bekerja">Belum Bekerja</option>
-                                            <option value="Bekerja">Bekerja</option>
+                                            <option value="BELUM BEKERJA">Belum Bekerja</option>
+                                            <option value="BEKERJA">BEKERJA</option>
+                                            <option value="GURU">GURU</option>
+                                            <option value="IBU RUMAH TANGGA">IBU RUMAH TANGGA</option>
+                                            <option value="MAGANG">MAGANG</option>
+                                            <option value="PELAJAR">PELAJAR</option>
+                                            <option value="PNS">PNS</option>
+                                            <option value="TENAGA PENGAJAR/INSTRUKTUR/FASILITATOR">TENAGA PENGAJAR/INSTRUKTUR/FASILITATOR</option>
+                                            <option value="TIDAK BEKERJA">TIDAK BEKERJA</option>
+                                            <option value="WIRASWASTA">WIRASWASTA</option>
                                           </select>
                                         </div>
                                       
