@@ -187,11 +187,11 @@
 @endsection
 
 @push('scripts')
-    {!! $dataTable->scripts() !!}
+    {!! str_replace('http:', 'https:', $dataTable->scripts()) !!}
 
     <script>
         $(function() {
-            const table = $('#mahasiswa-table').DataTable();
+	    const table = $('#mahasiswa-table').DataTable();
 
             // SELECT ALL
             $(document).on('change', '#select-all', function() {

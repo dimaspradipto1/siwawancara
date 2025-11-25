@@ -23,6 +23,14 @@ use App\Http\Controllers\PenilaianController;
 // });
 
 // Route::get('/', [DashboardController::class, 'dashboard'])->name('dashboard');
+Route::get('/debug-https', function () {
+    return [
+        'secure' => request()->secure(),
+        'proto' => request()->header('X-Forwarded-Proto'),
+        'url' => url()->current(),
+        'server_port' => request()->server('SERVER_PORT'),
+    ];
+});
 
 Route::controller(LoginController::class)->group(function(){
     Route::get('/', 'login')->name('login');
