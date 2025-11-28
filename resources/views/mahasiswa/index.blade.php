@@ -188,7 +188,7 @@
 
 @push('scripts')
     {!! str_replace('http:', 'https:', $dataTable->scripts()) !!}
-
+    {{-- {!! $dataTable->scripts() !!} --}}
     <script>
         $(function() {
 	    const table = $('#mahasiswa-table').DataTable();
