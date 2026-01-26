@@ -19,14 +19,14 @@
     <!-- CSS Files -->
     <link id="pagestyle" href="{{ asset('dashboard/assets/css/soft-ui-dashboard.css?v=1.0.3') }}" rel="stylesheet" />
 
-     {{--  datatables CSS  --}}
-  <link rel="stylesheet" href="https://cdn.datatables.net/2.3.4/css/dataTables.bootstrap5.css">
+    {{--  datatables CSS  --}}
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.3.4/css/dataTables.bootstrap5.css">
 </head>
 
 <body class="g-sidenav-show  bg-gray-100">
     @include('layouts.dashboard.sidebar')
 
-    
+
     <main class="main-content position-relative max-height-vh-100 h-100 mt-1 border-radius-lg ">
         <!-- Navbar -->
         {{-- @include('layouts.dashboard.navbar') --}}
@@ -34,9 +34,9 @@
         @include('sweetalert::alert')
         @yield('content')
         @include('layouts.dashboard.footer')
-       
+
     </main>
-    
+
     <div class="fixed-plugin">
         <a class="fixed-plugin-button text-dark position-fixed px-3 py-2">
             <i class="fa fa-cog py-2"> </i>
@@ -115,11 +115,14 @@
                         class="btn btn-dark mb-0 me-2" target="_blank">
                         <i class="fab fa-facebook-square me-1" aria-hidden="true"></i> Share
                     </a> --}}
-                </div>
             </div>
         </div>
     </div>
+    </div>
     <!--   Core JS Files   -->
+    {{-- Load jQuery first before any other scripts --}}
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+
     <script src="{{ asset('dashboard/assets/js/core/popper.min.js') }}"></script>
     <script src="{{ asset('dashboard/assets/js/core/bootstrap.min.js') }}"></script>
     <script src="{{ asset('dashboard/assets/js/plugins/perfect-scrollbar.min.js') }}"></script>
@@ -307,15 +310,14 @@
 
     {{-- fontawesome --}}
     <script src="https://kit.fontawesome.com/63b8672806.js" crossorigin="anonymous"></script>
-    
+
     <!-- Github buttons -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
 
     <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
     <script src="{{ asset('dashboard/assets/js/soft-ui-dashboard.min.js?v=1.0.3') }}"></script>
 
-    {{-- datatables --}}
-    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    {{-- datatables - jQuery already loaded above --}}
     <script src="https://cdn.datatables.net/2.3.4/js/dataTables.js"></script>
     <script src="https://cdn.datatables.net/2.3.4/js/dataTables.bootstrap5.js"></script>
     {{-- end datatables --}}

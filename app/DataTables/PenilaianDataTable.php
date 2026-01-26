@@ -25,6 +25,9 @@ class PenilaianDataTable extends DataTable
             ->addColumn('kode_pendaftar', function ($query) {
                 return $query->mahasiswa->kode_pendaftar ?? '-';
             })
+            ->addColumn('interviewer', function ($query) {
+                return $query->user ? $query->user->name : 'N/A';
+            })
             ->addColumn('mahasiswa', function ($query) {
                 return $query->mahasiswa->nama_mahasiswa;
             })
@@ -43,7 +46,7 @@ class PenilaianDataTable extends DataTable
                 }
             })
             ->setRowId('id')
-            ->rawColumns(['action', 'DT_RowIndex', 'mahasiswa']);
+            ->rawColumns(['action', 'DT_RowIndex', 'mahasiswa', 'interviewer']);
 
         // Filter pencarian kolom relasi kode_pendaftar dan mahasiswa
         $dataTable->filterColumn('kode_pendaftar', function ($query, $keyword) {
@@ -59,6 +62,13 @@ class PenilaianDataTable extends DataTable
             });
         });
 
+        // Menangani pencarian pada kolom interviewer
+        $dataTable->filterColumn('interviewer', function ($query, $keyword) {
+            $query->whereHas('user', function ($subQuery) use ($keyword) {
+                $subQuery->where('name', 'like', "%{$keyword}%");
+            });
+        });
+
         return $dataTable;
     }
 
@@ -67,15 +77,7 @@ class PenilaianDataTable extends DataTable
      */
     public function query(Penilaian $model): QueryBuilder
     {
-        $query = Penilaian::query()
-            ->join('mahasiswas', 'penilaians.mahasiswa_id', '=', 'mahasiswas.id')
-            ->with('mahasiswa');
-
-        if (auth()->user()->is_admin || auth()->user()->is_timtes) {
-            return $query;
-        } else {
-            return $query->where('user_id', auth()->user()->id);
-        }
+        return $model->newQuery();
     }
 
     /**
@@ -109,28 +111,28 @@ class PenilaianDataTable extends DataTable
                 ->title('NO')
                 ->width(60)
                 ->addClass('text-center'),
-
+            Column::computed('interviewer')
+                ->title('Nama Interviewer')
+                ->addClass('text-center')
+                ->orderable(false)
+                ->searchable(true),
             Column::computed('kode_pendaftar')
                 ->title('Kode Pendaftar')
                 ->addClass('text-center')
                 ->orderable(false)
                 ->searchable(true),
-
             Column::make('mahasiswa')
                 ->title('Mahasiswa')
-                ->addClass('text-center')
+                ->addClass('text-start')
                 ->searchable(true),
-
             Column::make('total_point')
                 ->title('Total Point')
                 ->addClass('text-center')
                 ->searchable(false),
-
             Column::make('nilai_akhir')
                 ->title('Nilai Akhir')
                 ->addClass('text-center')
                 ->searchable(false),
-
             Column::computed('action')
                 ->exportable(false)
                 ->printable(false)

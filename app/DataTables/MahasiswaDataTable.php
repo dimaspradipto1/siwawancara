@@ -56,20 +56,40 @@ class MahasiswaDataTable extends DataTable
     public function html(): HtmlBuilder
     {
         return $this->builder()
-                    ->setTableId('mahasiswa-table')
-                    ->columns($this->getColumns())
-                    ->minifiedAjax()
-                    //->dom('Bfrtip')
-                    ->orderBy(1)
-                    ->selectStyleSingle()
-                    ->buttons([
-                        Button::make('excel'),
-                        Button::make('csv'),
-                        Button::make('pdf'),
-                        Button::make('print'),
-                        Button::make('reset'),
-                        Button::make('reload')
-                    ]);
+            ->setTableId('mahasiswa-table')
+            ->columns($this->getColumns())
+            ->minifiedAjax()
+            //->dom('Bfrtip')
+            ->orderBy(1)
+            ->selectStyleSingle()
+            ->buttons([
+                Button::make('excel'),
+                Button::make('csv'),
+                Button::make('pdf'),
+                Button::make('print'),
+                Button::make('reset'),
+                Button::make('reload')
+            ])
+            ->parameters([
+                'processing' => true,
+                'language' => [
+                    'processing' => '<div class="spinner-border text-primary" role="status"><span class="visually-hidden">Loading...</span></div>',
+                    'loadingRecords' => 'Memuat data...',
+                    'zeroRecords' => 'Tidak ada data yang ditemukan',
+                    'emptyTable' => 'Tidak ada data tersedia',
+                    'info' => 'Menampilkan _START_ sampai _END_ dari _TOTAL_ data',
+                    'infoEmpty' => 'Menampilkan 0 sampai 0 dari 0 data',
+                    'infoFiltered' => '(disaring dari _MAX_ total data)',
+                    'search' => 'Cari:',
+                    'paginate' => [
+                        'first' => 'Pertama',
+                        'last' => 'Terakhir',
+                        'next' => 'Selanjutnya',
+                        'previous' => 'Sebelumnya'
+                    ],
+                    'lengthMenu' => 'Tampilkan _MENU_ data per halaman',
+                ]
+            ]);
     }
 
     /**
@@ -79,11 +99,11 @@ class MahasiswaDataTable extends DataTable
     {
         return [
             Column::computed('checkbox')
-            ->title('<input type="checkbox" id="select-all">')
-            ->exportable(false)
-            ->printable(false)
-            ->width(20)
-            ->addClass('text-center'),
+                ->title('<input type="checkbox" id="select-all">')
+                ->exportable(false)
+                ->printable(false)
+                ->width(20)
+                ->addClass('text-center'),
             Column::make('DT_RowIndex')
                 ->title('NO')
                 ->width(60)

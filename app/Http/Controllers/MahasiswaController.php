@@ -31,47 +31,6 @@ class MahasiswaController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    // public function store(Request $request)
-    // {
-    //     $validatedData = $request->validate([
-    //         'kode_pendaftar' => 'required|string|max:255',
-    //         'nama_mahasiswa' => 'required|string|max:255',
-    //         'jalur_pendaftar' => 'required|string|max:255',
-    //         'sistem_kuliah' => 'required|string|max:255',
-    //         'prodi_pilihan1' => 'required|string|max:255',
-    //         'prodi_pilihan2' => 'nullable|string|max:255',
-    //         'jk' => 'required|string|in:Laki-laki,Perempuan',
-    //         'nowa' => 'required|string|max:15', 
-    //         'email' => 'required|email|unique:mahasiswas,email',
-    //         'alamat' => 'required|string|max:1000',
-    //         'status_pekerjaan' => 'required|string|max:255',
-    //     ]);
-    
-    //     Mahasiswa::create([
-    //         'kode_pendaftar' => $validatedData['kode_pendaftar'],
-    //         'nama_mahasiswa' => $validatedData['nama_mahasiswa'],
-    //         'jalur_pendaftar' => $validatedData['jalur_pendaftar'],
-    //         'sistem_kuliah' => $validatedData['sistem_kuliah'],
-    //         'prodi_pilihan1' => $validatedData['prodi_pilihan1'],
-    //         'prodi_pilihan2' => $validatedData['prodi_pilihan2'], 
-    //         'jk' => $validatedData['jk'],
-    //         'nowa' => $validatedData['nowa'],
-    //         'email' => $validatedData['email'],
-    //         'alamat' => $validatedData['alamat'],
-    //         'status_pekerjaan' => $validatedData['status_pekerjaan'],
-    //     ]);
-
-    //     Penilaian::create([
-    //         'mahasiswa_id' => $mahasiswa->id,
-    //     ]);
-    
-    //     Alert::success('Success', 'Mahasiswa berhasil ditambahkan')
-    //          ->autoclose(2000)
-    //          ->toToast();
-    
-    //     return redirect()->route('mahasiswa.index');
-    // }
-
     public function store(Request $request)
     {
         $data = $request->all();    

@@ -134,93 +134,115 @@
                 <div class="card mb-4">
                     <div class="d-flex justify-content-end">
                         <a href="{{ route('penilaian.index') }}" class="btn btn-danger text-white text-capitalize"><i
-                            class="fa-solid fa-arrow-left"></i> Kembali ke halaman penilaian</a>
+                                class="fa-solid fa-arrow-left"></i> Kembali ke halaman penilaian</a>
                     </div>
                     <div class="card-header pb-0">
-                        <img src="{{ asset('dashboard/assets/img/header.png') }}" alt=""
-                            width="1160" class="img-fluid mx-auto d-block">
+                        <img src="{{ asset('dashboard/assets/img/header.png') }}" alt="" width="1160"
+                            class="img-fluid mx-auto d-block">
                         <hr>
                         <h3 class="text-center text-uppercase text-bold">data peserta</h3>
                     </div>
                     <div class="card-body px-0 pt-0 pb-2">
                         <div class="table-responsive p-0">
                             <div class="card-body">
-                                <form role="form text-left" action="{{ route('penilaian.store') }}"
-                                    method="POST" id="pendaftarForm">
+                                <form role="form text-left" action="{{ route('penilaian.store') }}" method="POST"
+                                    id="pendaftarForm">
                                     @csrf
 
                                     <table class="table mb-3">
                                         <tbody>
                                             <tr>
-                                                <td class="text-uppercase font-weight-bold" style="width: 10%;">Kode Pendaftar</td>
+                                                <td class="text-uppercase font-weight-bold" style="width: 10%;">Kode
+                                                    Pendaftar</td>
                                                 <td>
-                                                    <input type="number" class="form-control" name="kode_pendaftar" id="kode_pendaftar" placeholder="Kode Pendaftar" style="max-width: 800px;" autocomplete="off">
+                                                    <input type="number" class="form-control" name="kode_pendaftar"
+                                                        id="kode_pendaftar" placeholder="Kode Pendaftar"
+                                                        style="max-width: 800px;" autocomplete="off">
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td class="text-uppercase font-weight-bold">Mahasiswa ID</td>
                                                 <td>
-                                                    <input type="text" class="form-control" name="mahasiswa_id" id="mahasiswa_id" style="max-width: 800px;" readonly>
+                                                    <input type="text" class="form-control" name="mahasiswa_id"
+                                                        id="mahasiswa_id" style="max-width: 800px;" readonly>
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td class="text-uppercase font-weight-bold">Nama Pendaftar</td>
                                                 <td>
-                                                    <input type="text" class="form-control" name="nama_mahasiswa" placeholder="nama pendaftar" id="nama_mahasiswa" style="max-width: 800px;" readonly>
+                                                    <input type="text" class="form-control" name="nama_mahasiswa"
+                                                        placeholder="nama pendaftar" id="nama_mahasiswa"
+                                                        style="max-width: 800px;" readonly>
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td class="text-uppercase font-weight-bold">Jalur Pendaftar</td>
                                                 <td>
-                                                    <input type="text" class="form-control" name="jalur_pendaftar" id="jalur_pendaftar" placeholder="jalur pendaftar" style="max-width: 800px;" readonly>
+                                                    <input type="text" class="form-control" name="jalur_pendaftar"
+                                                        id="jalur_pendaftar" placeholder="jalur pendaftar"
+                                                        style="max-width: 800px;" readonly>
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td class="text-uppercase font-weight-bold">Sistem Kuliah</td>
                                                 <td>
-                                                    <input type="text" class="form-control" name="sistem_kuliah" id="sistem_kuliah" style="max-width: 800px;" readonly>
+                                                    <input type="text" class="form-control" name="sistem_kuliah"
+                                                        id="sistem_kuliah" style="max-width: 800px;" readonly>
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td class="text-uppercase font-weight-bold">Prodi Pilihan 1</td>
                                                 <td>
-                                                    <input type="text" class="form-control" name="prodi_pilihan1" id="prodi_pilihan1" placeholder="prodi pilihan 1" style="max-width: 800px;" readonly>
+                                                    <input type="text" class="form-control" name="prodi_pilihan1"
+                                                        id="prodi_pilihan1" placeholder="prodi pilihan 1"
+                                                        style="max-width: 800px;" readonly>
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td class="text-uppercase font-weight-bold">Prodi Pilihan 2</td>
                                                 <td>
-                                                    <input type="text" class="form-control" name="prodi_pilihan2" id="prodi_pilihan2" placeholder="prodi pilihan 2" style="max-width: 800px;" readonly>
+                                                    <input type="text" class="form-control" name="prodi_pilihan2"
+                                                        id="prodi_pilihan2" placeholder="prodi pilihan 2"
+                                                        style="max-width: 800px;" readonly>
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td class="text-uppercase font-weight-bold">Jenis Kelamin</td>
                                                 <td>
-                                                    <input type="text" class="form-control" name="jk" id="jk" placeholder="jenis kelamin" style="max-width: 800px;" readonly>
+                                                    <input type="text" class="form-control" name="jk"
+                                                        id="jk" placeholder="jenis kelamin"
+                                                        style="max-width: 800px;" readonly>
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td class="text-uppercase font-weight-bold">Nomor HP</td>
                                                 <td>
-                                                    <input type="text" class="form-control" name="nowa" id="nowa" placeholder="no hp" style="max-width: 800px;" readonly>
+                                                    <input type="text" class="form-control" name="nowa"
+                                                        id="nowa" placeholder="no hp" style="max-width: 800px;"
+                                                        readonly>
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td class="text-uppercase font-weight-bold">Email</td>
                                                 <td>
-                                                    <input type="email" class="form-control" name="email" id="email" placeholder="email" style="max-width: 800px;" readonly>
+                                                    <input type="email" class="form-control" name="email"
+                                                        id="email" placeholder="email" style="max-width: 800px;"
+                                                        readonly>
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td class="text-uppercase font-weight-bold">Alamat</td>
                                                 <td>
-                                                    <textarea name="alamat" id="alamat" cols="30" rows="3" class="form-control" style="max-width: 800px;" placeholder="alamat" readonly></textarea>
+                                                    <textarea name="alamat" id="alamat" cols="30" rows="3" class="form-control"
+                                                        style="max-width: 800px;" placeholder="alamat" readonly></textarea>
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td class="text-uppercase font-weight-bold">Status Pekerjaan</td>
                                                 <td>
-                                                    <input type="text" class="form-control" name="status_pekerjaan" id="status_pekerjaan" placeholder="status pekerjaan" style="max-width: 800px;" readonly>
+                                                    <input type="text" class="form-control" name="status_pekerjaan"
+                                                        id="status_pekerjaan" placeholder="status pekerjaan"
+                                                        style="max-width: 800px;" readonly>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -240,8 +262,9 @@
                                                     style="display: flex; justify-content: space-between; align-items: center;">
                                                     <h6 class="mb-0" style="margin: 0;">1. Motivasi, Tujuan Studi, dan
                                                         Pemahaman Program Studi</h6>
-                                                    <input type="number" class="form-control indikator" name="indikator1"
-                                                        id="indikator1" class="indikator" placeholder="bobot" aria-label="indikator1"
+                                                    <input type="number" class="form-control indikator"
+                                                        name="indikator1" id="indikator1" class="indikator"
+                                                        placeholder="bobot" aria-label="indikator1"
                                                         aria-describedby="email-addon" style="max-width: 100px;"
                                                         min="1" max="5">
                                                 </div>
@@ -297,8 +320,9 @@
                                                     style="display: flex; justify-content: space-between; align-items: center;">
                                                     <h6 class="mb-0" style="margin: 0;">2. Kesiapan Akademik dan
                                                         Kesiapan Mengikuti Peraturan Akademik</h6>
-                                                    <input type="number" class="form-control indikator" name="indikator2"
-                                                        id="indikator2" class="indikator" placeholder="bobot" aria-label="indikator1"
+                                                    <input type="number" class="form-control indikator"
+                                                        name="indikator2" id="indikator2" class="indikator"
+                                                        placeholder="bobot" aria-label="indikator1"
                                                         aria-describedby="email-addon" style="max-width: 100px;"
                                                         min="1" max="5">
                                                 </div>
@@ -355,8 +379,9 @@
                                                     style="display: flex; justify-content: space-between; align-items: center;">
                                                     <h6 class="mb-0" style="margin: 0;">3. Komitmen, Keseriusan, dan
                                                         Kemandirian dalam Kuliah</h6>
-                                                    <input type="number" class="form-control indikator" name="indikator3"
-                                                        id="indikator3" class="indikator" placeholder="bobot" aria-label="indikator1"
+                                                    <input type="number" class="form-control indikator"
+                                                        name="indikator3" id="indikator3" class="indikator"
+                                                        placeholder="bobot" aria-label="indikator1"
                                                         aria-describedby="email-addon" style="max-width: 100px;"
                                                         min="1" max="5">
                                                 </div>
@@ -415,8 +440,9 @@
                                                     style="display: flex; justify-content: space-between; align-items: center;">
                                                     <h6 class="mb-0" style="margin: 0;">4. Kepribadian, Etika, dan
                                                         Kemampuan Berkomunikasi</h6>
-                                                    <input type="number" class="form-control indikator" name="indikator4"
-                                                        id="indikator4" class="indikator" placeholder="bobot" aria-label="indikator1"
+                                                    <input type="number" class="form-control indikator"
+                                                        name="indikator4" id="indikator4" class="indikator"
+                                                        placeholder="bobot" aria-label="indikator1"
                                                         aria-describedby="email-addon" style="max-width: 100px;"
                                                         min="1" max="5">
                                                 </div>
@@ -471,8 +497,9 @@
                                                 <div class="card-header pb-0 px-3"
                                                     style="display: flex; justify-content: space-between; align-items: center;">
                                                     <h6 class="mb-0" style="margin: 0;">5. Kesiapan Finansial</h6>
-                                                    <input type="number" class="form-control indikator" name="indikator5"
-                                                        id="indikator5" class="indikator" placeholder="bobot" aria-label="indikator1"
+                                                    <input type="number" class="form-control indikator"
+                                                        name="indikator5" id="indikator5" class="indikator"
+                                                        placeholder="bobot" aria-label="indikator1"
                                                         aria-describedby="email-addon" style="max-width: 100px;"
                                                         min="1" max="5">
                                                 </div>
@@ -527,8 +554,9 @@
                                                     style="display: flex; justify-content: space-between; align-items: center;">
                                                     <h6 class="mb-0" style="margin: 0;">6. Adaptasi terhadap Lingkungan
                                                         Kampus</h6>
-                                                    <input type="number" class="form-control indikator" name="indikator6"
-                                                        id="indikator6" class="indikator" placeholder="bobot" aria-label="indikator1"
+                                                    <input type="number" class="form-control indikator"
+                                                        name="indikator6" id="indikator6" class="indikator"
+                                                        placeholder="bobot" aria-label="indikator1"
                                                         aria-describedby="email-addon" style="max-width: 100px;"
                                                         min="1" max="5">
                                                 </div>
@@ -586,18 +614,18 @@
                                                     style="display: flex; justify-content: space-between; align-items: center;">
                                                     <h6 class="mb-0 text-info" style="margin: 0;">total point</h6>
                                                     <input type="number" class="form-control" name="total_nilai"
-                                                        class="indikator" placeholder="total_nilai point" aria-label="total_nilai"
-                                                        id="total_nilai" aria-describedby="email-addon"
-                                                        style="max-width: 120px;">
+                                                        class="indikator" placeholder="total_nilai point"
+                                                        aria-label="total_nilai" id="total_nilai"
+                                                        aria-describedby="email-addon" style="max-width: 120px;">
                                                 </div>
                                                 <div class="card-header pb-0 px-3 mb-2 text-uppercase"
                                                     style="display: flex; justify-content: space-between; align-items: center;">
                                                     <h6 class="mb-0 text-success" style="margin: 0;">nilai akhir ( TOTAL
                                                         POINT/30*100)</h6>
                                                     <input type="text" class="form-control" name="nilai_akhir"
-                                                        class="indikator" placeholder="nilai akhir" aria-label="nilai_akhir"
-                                                        id="nilai_akhir" aria-describedby="email-addon"
-                                                        style="max-width: 120px;">
+                                                        class="indikator" placeholder="nilai akhir"
+                                                        aria-label="nilai_akhir" id="nilai_akhir"
+                                                        aria-describedby="email-addon" style="max-width: 120px;">
                                                 </div>
 
 
@@ -608,23 +636,29 @@
                                             <div class="card h-100 mb-4">
                                                 <div class="card-header pb-0 px-3">
                                                     <div class="mb-3">
-                                                        <label for="prestasi_akademik"
-                                                            class=" text-uppercase">prestasi akademik nonakademik</label>
-                                                            <p class="text-danger" style="font-size: 10px; font-style: bold; margin-top: -5px;">*wajib diisi</p>
+                                                        <label for="prestasi_akademik" class=" text-uppercase">prestasi
+                                                            akademik nonakademik</label>
+                                                        <p class="text-danger"
+                                                            style="font-size: 10px; font-style: bold; margin-top: -5px;">
+                                                            *wajib diisi</p>
                                                         <textarea name="prestasi_akademik" id="" cols="30" rows="3" class="form-control"
                                                             placeholder="prestasi akademik dan nonakademik"></textarea>
                                                     </div>
                                                     <div class="mb-3">
                                                         <label for="nilai_keislaman" class=" text-uppercase">nilai
                                                             keislaman</label>
-                                                            <p class="text-danger" style="font-size: 10px; font-style: bold; margin-top: -5px;">*wajib diisi</p>
+                                                        <p class="text-danger"
+                                                            style="font-size: 10px; font-style: bold; margin-top: -5px;">
+                                                            *wajib diisi</p>
                                                         <textarea name="nilai_keislaman" id="" cols="30" rows="3" class="form-control"
                                                             placeholder="nilai keislaman"></textarea>
                                                     </div>
                                                     <div class="mb-3">
                                                         <label for="komentar_interviewer" class=" text-uppercase">komentar
                                                             interviewer</label><br>
-                                                            <p class="text-danger" style="font-size: 10px; font-style: bold; margin-top: -5px;">*wajib diisi</p>
+                                                        <p class="text-danger"
+                                                            style="font-size: 10px; font-style: bold; margin-top: -5px;">
+                                                            *wajib diisi</p>
                                                         <textarea name="komentar_interviewer" id="" cols="30" rows="3" class="form-control"
                                                             placeholder="komentar interviewer"></textarea>
                                                     </div>
@@ -632,7 +666,7 @@
                                                         <button type="submit"
                                                             class="btn bg-gradient-success w-100 my-4 mb-2 text-uppercase ">submit</button>
                                                     </div>
-            
+
                                                 </div>
                                             </div>
                                         </div>
@@ -643,7 +677,7 @@
                                             <th></th>
                                         </thead>
                                     </table> --}}
-                                        {{-- <div class="text-center">
+                                    {{-- <div class="text-center">
                                             <button type="submit"
                                                 class="btn bg-gradient-success w-100 my-4 mb-2 text-uppercase ">submit</button>
                                         </div> --}}
@@ -659,87 +693,154 @@
 @endsection
 
 @push('scripts')
-<script>
-$(document).ready(function() {
-    // Menangani perubahan pada input kode pendaftar
-    $('#kode_pendaftar').on('input', function() {
-        var kodePendaftar = $(this).val(); // Ambil nilai dari input kode_pendaftar
+    <script>
+        $(document).ready(function() {
+            // Menangani perubahan pada input kode pendaftar
+            $('#kode_pendaftar').on('input', function() {
+                var kodePendaftar = $(this).val(); // Ambil nilai dari input kode_pendaftar
 
-        if (kodePendaftar) {
-            $.ajax({
-                url: '/penilaian/cariPendaftar', // URL untuk mendapatkan data berdasarkan kode_pendaftar
-                method: 'POST',
-                data: {
-                    _token: '{{ csrf_token() }}', // Kirim CSRF token untuk keamanan
-                    kode_pendaftar: kodePendaftar // Kirim kode_pendaftar ke server
-                },
-                success: function(response) {
-                    // Jika data ditemukan, isi form dengan data yang dikembalikan
-                    if (response.success) {
-                        var pendaftarData = response.data[0]; // Ambil data pertama dari hasil query
-                        $('input[name="mahasiswa_id"]').val(pendaftarData.id);
-                        $('input[name="nama_mahasiswa"]').val(pendaftarData.nama_mahasiswa);
-                        $('input[name="jalur_pendaftar"]').val(pendaftarData.jalur_pendaftar);
-                        $('input[name="sistem_kuliah"]').val(pendaftarData.sistem_kuliah);
-                        $('input[name="prodi_pilihan1"]').val(pendaftarData.prodi_pilihan1);
-                        $('input[name="prodi_pilihan2"]').val(pendaftarData.prodi_pilihan2);
-                        $('input[name="jk"]').val(pendaftarData.jk);
-                        $('input[name="nowa"]').val(pendaftarData.nowa);
-                        $('input[name="email"]').val(pendaftarData.email);
-                        $('textarea[name="alamat"]').val(pendaftarData.alamat);
-                        $('input[name="status_pekerjaan"]').val(pendaftarData.status_pekerjaan);
-                    } else {
-                        kosongkanForm();
-                    }
-                },
-                error: function() {
-                    alert("Terjadi kesalahan. Silakan coba lagi.");
-                    kosongkanForm();
+                if (kodePendaftar) {
+                    $.ajax({
+                        url: '/penilaian/cariPendaftar', // URL untuk mendapatkan data berdasarkan kode_pendaftar
+                        method: 'POST',
+                        data: {
+                            _token: '{{ csrf_token() }}', // Kirim CSRF token untuk keamanan
+                            kode_pendaftar: kodePendaftar // Kirim kode_pendaftar ke server
+                        },
+                        success: function(response) {
+                            // Jika data ditemukan, isi form dengan data yang dikembalikan
+                            if (response.success) {
+                                var pendaftarData = response.data[
+                                0]; // Ambil data pertama dari hasil query
+                                $('input[name="mahasiswa_id"]').val(pendaftarData.id);
+                                $('input[name="nama_mahasiswa"]').val(pendaftarData
+                                    .nama_mahasiswa);
+                                $('input[name="jalur_pendaftar"]').val(pendaftarData
+                                    .jalur_pendaftar);
+                                $('input[name="sistem_kuliah"]').val(pendaftarData
+                                    .sistem_kuliah);
+                                $('input[name="prodi_pilihan1"]').val(pendaftarData
+                                    .prodi_pilihan1);
+                                $('input[name="prodi_pilihan2"]').val(pendaftarData
+                                    .prodi_pilihan2);
+                                $('input[name="jk"]').val(pendaftarData.jk);
+                                $('input[name="nowa"]').val(pendaftarData.nowa);
+                                $('input[name="email"]').val(pendaftarData.email);
+                                $('textarea[name="alamat"]').val(pendaftarData.alamat);
+                                $('input[name="status_pekerjaan"]').val(pendaftarData
+                                    .status_pekerjaan);
+
+                                // Cek apakah mahasiswa sudah pernah dinilai
+                                checkExistingPenilaian(pendaftarData.id);
+                            } else {
+                                kosongkanForm();
+                                enableSubmitButton();
+                            }
+                        },
+                        error: function() {
+                            alert("Terjadi kesalahan. Silakan coba lagi.");
+                            kosongkanForm();
+                            enableSubmitButton();
+                        }
+                    });
+                } else {
+                    kosongkanForm(); // Jika input kosong, kosongkan form
+                    enableSubmitButton();
                 }
             });
-        } else {
-            kosongkanForm(); // Jika input kosong, kosongkan form
-        }
-    });
 
-    // Fungsi untuk mengosongkan form jika tidak ada data yang ditemukan
-    function kosongkanForm() {
-        $('input[name="mahasiswa_id"]').val('');
-        $('input[name="nama_mahasiswa"]').val('');
-        $('input[name="kode_pendaftar"]').val('');
-        $('input[name="jalur_pendaftar"]').val('');
-        $('input[name="sistem_kuliah"]').val('');
-        $('input[name="prodi_pilihan1"]').val('');
-        $('input[name="prodi_pilihan2"]').val('');
-        $('input[name="jk"]').val('');
-        $('input[name="nowa"]').val('');
-        $('input[name="email"]').val('');
-        $('textarea[name="alamat"]').val('');
-        $('input[name="status_pekerjaan"]').val('');
-    }
-
-    // Menangani perubahan nilai indikator
-    $('.indikator').on('input', function() {
-        // Menghitung total nilai berdasarkan indikator
-        var totalPoints = 0;
-
-        // Menjumlahkan nilai dari indikator 1 sampai indikator 6
-        for (var i = 1; i <= 6; i++) {
-            var indikatorValue = $('#indikator' + i).val();
-            if (indikatorValue) {
-                totalPoints += parseInt(indikatorValue);
+            // Fungsi untuk mengecek apakah mahasiswa sudah pernah dinilai
+            function checkExistingPenilaian(mahasiswaId) {
+                $.ajax({
+                    url: '/penilaian/checkExisting',
+                    method: 'POST',
+                    data: {
+                        _token: '{{ csrf_token() }}',
+                        mahasiswa_id: mahasiswaId
+                    },
+                    success: function(response) {
+                        if (response.exists) {
+                            // Tampilkan peringatan dan disable tombol submit
+                            showWarningMessage('Mahasiswa ini sudah pernah dinilai!');
+                            disableSubmitButton();
+                        } else {
+                            hideWarningMessage();
+                            enableSubmitButton();
+                        }
+                    },
+                    error: function() {
+                        console.error('Gagal mengecek penilaian existing');
+                        enableSubmitButton();
+                    }
+                });
             }
-        }
 
-        // Menampilkan total nilai di form
-        $('#total_nilai').val(totalPoints);
+            // Fungsi untuk menampilkan pesan peringatan
+            function showWarningMessage(message) {
+                // Hapus pesan lama jika ada
+                $('.penilaian-warning').remove();
 
-        // Menghitung nilai akhir berdasarkan total nilai
-        var nilaiAkhir = ((totalPoints / 30) * 100).toFixed(2).replace(',', '.'); // Mengganti koma dengan titik
-        $('#nilai_akhir').val(nilaiAkhir);
-    });
-});
+                // Tambahkan pesan peringatan
+                var warningHtml =
+                    '<div class="alert alert-danger alert-dismissible fade show penilaian-warning" role="alert">' +
+                    '<strong>Peringatan!</strong> ' + message +
+                    '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>' +
+                    '</div>';
+                $('#pendaftarForm').prepend(warningHtml);
+            }
 
-</script>
+            // Fungsi untuk menyembunyikan pesan peringatan
+            function hideWarningMessage() {
+                $('.penilaian-warning').remove();
+            }
+
+            // Fungsi untuk disable tombol submit
+            function disableSubmitButton() {
+                $('button[type="submit"]').prop('disabled', true).addClass('disabled');
+            }
+
+            // Fungsi untuk enable tombol submit
+            function enableSubmitButton() {
+                $('button[type="submit"]').prop('disabled', false).removeClass('disabled');
+            }
+
+            // Fungsi untuk mengosongkan form jika tidak ada data yang ditemukan
+            function kosongkanForm() {
+                $('input[name="mahasiswa_id"]').val('');
+                $('input[name="nama_mahasiswa"]').val('');
+                $('input[name="kode_pendaftar"]').val('');
+                $('input[name="jalur_pendaftar"]').val('');
+                $('input[name="sistem_kuliah"]').val('');
+                $('input[name="prodi_pilihan1"]').val('');
+                $('input[name="prodi_pilihan2"]').val('');
+                $('input[name="jk"]').val('');
+                $('input[name="nowa"]').val('');
+                $('input[name="email"]').val('');
+                $('textarea[name="alamat"]').val('');
+                $('input[name="status_pekerjaan"]').val('');
+            }
+
+            // Menangani perubahan nilai indikator
+            $('.indikator').on('input', function() {
+                // Menghitung total nilai berdasarkan indikator
+                var totalPoints = 0;
+
+                // Menjumlahkan nilai dari indikator 1 sampai indikator 6
+                for (var i = 1; i <= 6; i++) {
+                    var indikatorValue = $('#indikator' + i).val();
+                    if (indikatorValue) {
+                        totalPoints += parseInt(indikatorValue);
+                    }
+                }
+
+                // Menampilkan total nilai di form
+                $('#total_nilai').val(totalPoints);
+
+                // Menghitung nilai akhir berdasarkan total nilai
+                var nilaiAkhir = ((totalPoints / 30) * 100).toFixed(2).replace(',',
+                '.'); // Mengganti koma dengan titik
+                $('#nilai_akhir').val(nilaiAkhir);
+            });
+        });
+    </script>
 @endpush
-

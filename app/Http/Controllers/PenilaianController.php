@@ -47,13 +47,24 @@ class PenilaianController extends Controller
             'nilai_keislaman' => 'nullable|string',
             'komentar_interviewer' => 'nullable|string',
         ]);
-    
+
+        // Cek apakah mahasiswa sudah pernah dinilai
+        $existingPenilaian = Penilaian::where('mahasiswa_id', $validatedData['mahasiswa_id'])->first();
+
+        if ($existingPenilaian) {
+            Alert::error('Error', 'Mahasiswa dengan kode pendaftar ini sudah pernah dinilai!')
+                ->autoclose(3000)
+                ->toToast()
+                ->timerProgressBar();
+            return redirect()->back()->withInput();
+        }
+
         // Menghitung total points
         $totalPoints = $validatedData['indikator1'] + $validatedData['indikator2'] + $validatedData['indikator3'] + $validatedData['indikator4'] + $validatedData['indikator5'] + $validatedData['indikator6'];
-    
+
         // Menghitung nilai akhir (total points / 30 * 100)
         $nilaiAkhir = ($totalPoints / 30) * 100;
-    
+
         // Menyimpan data penilaian ke database
         Penilaian::create([
             'user_id' => Auth::id(),
@@ -70,11 +81,11 @@ class PenilaianController extends Controller
             'nilai_keislaman' => $validatedData['nilai_keislaman'],
             'komentar_interviewer' => $validatedData['komentar_interviewer'],
         ]);
-    
+
         Alert::success('Success', 'Penilaian berhasil ditambahkan')->autoclose(2000)->toToast();
         return redirect()->route('penilaian.index');
     }
-    
+
 
 
     /**
@@ -136,5 +147,15 @@ class PenilaianController extends Controller
         }
     }
 
+    public function checkExisting(Request $request)
+    {
+        $mahasiswaId = $request->mahasiswa_id;
 
+        // Cek apakah mahasiswa sudah pernah dinilai
+        $exists = Penilaian::where('mahasiswa_id', $mahasiswaId)->exists();
+
+        return response()->json([
+            'exists' => $exists
+        ]);
+    }
 }

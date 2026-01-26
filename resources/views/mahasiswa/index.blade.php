@@ -92,18 +92,17 @@
                         </button> --}}
 
                         <div class="dropdown">
-                            <button class="btn btn-dark text-white text-uppercase dropdown-toggle d-flex align-items-center gap-2"
-                                    type="button"
-                                    id="actionDropdown"
-                                    data-bs-toggle="dropdown"
-                                    aria-expanded="false">
-                                    <i class="fa-solid fa-plus"></i> Pilih Aksi
+                            <button
+                                class="btn btn-dark text-white text-uppercase dropdown-toggle d-flex align-items-center gap-2"
+                                type="button" id="actionDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fa-solid fa-plus"></i> Pilih Aksi
                             </button>
 
-                            <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="actionDropdown" style="min-width: 220px;">
+                            <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="actionDropdown"
+                                style="min-width: 220px;">
                                 <li>
                                     <a class="dropdown-item d-flex align-items-center gap-2 text-dark"
-                                       href="{{ route('mahasiswa.create') }}">
+                                        href="{{ route('mahasiswa.create') }}">
                                         <i class="fa-solid fa-plus text-dark"></i>
                                         Tambah Mahasiswa
                                     </a>
@@ -111,29 +110,27 @@
 
                                 <li>
                                     <a class="dropdown-item d-flex align-items-center gap-2 text-success"
-                                       href="javascript:;"
-                                       data-bs-toggle="modal"
-                                       data-bs-target="#importModal">
+                                        href="javascript:;" data-bs-toggle="modal" data-bs-target="#importModal">
                                         <i class="fa-solid fa-file-excel text-success"></i>
                                         Import Excel
                                     </a>
                                 </li>
 
-                                <li><hr class="dropdown-divider"></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
 
                                 <li>
-                                    <a class="dropdown-item d-flex align-items-center gap-2 text-dark"
-                                       href="javascript:;"
-                                       id="btn-delete-selected">
+                                    <a class="dropdown-item d-flex align-items-center gap-2 text-dark" href="javascript:;"
+                                        id="btn-delete-selected">
                                         <i class="fa-solid fa-trash"></i>
                                         Hapus Terpilih
                                     </a>
                                 </li>
 
                                 <li>
-                                    <a class="dropdown-item d-flex align-items-center gap-2 text-danger"
-                                       href="javascript:;"
-                                       id="btn-delete-all">
+                                    <a class="dropdown-item d-flex align-items-center gap-2 text-danger" href="javascript:;"
+                                        id="btn-delete-all">
                                         <i class="fa-solid fa-trash-can"></i>
                                         Hapus Semua
                                     </a>
@@ -152,7 +149,8 @@
                                     <button type="button" class="btn-close" data-bs-dismiss="modal"
                                         aria-label="Close"></button>
                                 </div>
-                                <form action="{{ route('mahasiswa.import') }}" method="POST" enctype="multipart/form-data">
+                                <form action="{{ route('mahasiswa.import') }}" method="POST"
+                                    enctype="multipart/form-data">
                                     @csrf
                                     <div class="modal-body">
                                         <div class="mb-3">
@@ -187,11 +185,51 @@
 @endsection
 
 @push('scripts')
-    {!! str_replace('http:', 'https:', $dataTable->scripts()) !!}
-    {{-- {!! $dataTable->scripts() !!} --}}
+    {{-- {!! str_replace('http:', 'https:', $dataTable->scripts()) !!} --}}
+    {!! $dataTable->scripts() !!}
+
+    <style>
+        /* Custom DataTables Processing Indicator */
+        div.dataTables_wrapper div.dataTables_processing {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: auto;
+            height: auto;
+            margin-left: -50px;
+            margin-top: -25px;
+            padding: 20px 30px;
+            border: none;
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            text-align: center;
+            font-size: 14px;
+            color: #344767;
+        }
+
+        /* Spinner Animation */
+        .spinner-border {
+            width: 2rem;
+            height: 2rem;
+            border-width: 0.25em;
+        }
+
+        /* Table Loading State */
+        table.dataTable.processing {
+            opacity: 0.6;
+        }
+    </style>
+
     <script>
         $(function() {
-	    const table = $('#mahasiswa-table').DataTable();
+            const table = $('#mahasiswa-table').DataTable();
+
+            // Add error handling for AJAX
+            $.fn.dataTable.ext.errMode = function(settings, helpPage, message) {
+                console.error('DataTables Error:', message);
+                alert('Terjadi kesalahan saat memuat data. Silakan cek console untuk detail.');
+            };
 
             // SELECT ALL
             $(document).on('change', '#select-all', function() {

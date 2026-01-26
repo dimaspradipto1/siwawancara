@@ -125,6 +125,6 @@
 
 
 @push('scripts')
-    {!! str_replace('http:', 'https:', $dataTable->scripts()) !!}
-    {{-- {!! $dataTable->scripts() !!} --}}
+    {{-- {!! str_replace('http:', 'https:', $dataTable->scripts()) !!} --}}
+    {!! $dataTable->scripts() !!}
 @endpush
