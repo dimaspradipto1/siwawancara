@@ -92,10 +92,9 @@
                         </button> --}}
 
                         <div class="dropdown">
-                            <button
-                                class="btn btn-dark text-white text-uppercase dropdown-toggle d-flex align-items-center gap-2"
+                            <button class="btn btn-dark text-white text-uppercase d-flex align-items-center gap-2"
                                 type="button" id="actionDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="fa-solid fa-plus"></i> Pilih Aksi
+                                <i class="fas fa-plus"></i> Pilih Aksi <i class="fas fa-chevron-down ms-1"></i>
                             </button>
 
                             <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="actionDropdown"
@@ -103,7 +102,7 @@
                                 <li>
                                     <a class="dropdown-item d-flex align-items-center gap-2 text-dark"
                                         href="{{ route('mahasiswa.create') }}">
-                                        <i class="fa-solid fa-plus text-dark"></i>
+                                        <i class="fas fa-plus text-dark"></i>
                                         Tambah Mahasiswa
                                     </a>
                                 </li>
@@ -111,7 +110,7 @@
                                 <li>
                                     <a class="dropdown-item d-flex align-items-center gap-2 text-success"
                                         href="javascript:;" data-bs-toggle="modal" data-bs-target="#importModal">
-                                        <i class="fa-solid fa-file-excel text-success"></i>
+                                        <i class="fas fa-file-excel text-success"></i>
                                         Import Excel
                                     </a>
                                 </li>
@@ -123,7 +122,7 @@
                                 <li>
                                     <a class="dropdown-item d-flex align-items-center gap-2 text-dark" href="javascript:;"
                                         id="btn-delete-selected">
-                                        <i class="fa-solid fa-trash"></i>
+                                        <i class="fas fa-trash"></i>
                                         Hapus Terpilih
                                     </a>
                                 </li>
@@ -131,7 +130,7 @@
                                 <li>
                                     <a class="dropdown-item d-flex align-items-center gap-2 text-danger" href="javascript:;"
                                         id="btn-delete-all">
-                                        <i class="fa-solid fa-trash-can"></i>
+                                        <i class="fas fa-trash"></i>
                                         Hapus Semua
                                     </a>
                                 </li>
@@ -223,7 +222,7 @@
 
     <script>
         $(function() {
-            const table = $('#mahasiswa-table').DataTable();
+            const table = window.LaravelDataTables['mahasiswa-table'];
 
             // Add error handling for AJAX
             $.fn.dataTable.ext.errMode = function(settings, helpPage, message) {

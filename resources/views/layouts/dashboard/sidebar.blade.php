@@ -45,7 +45,7 @@
                         class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="fa-solid fa-user-graduate"></i>
                     </div>
-                    <span class="nav-link-text ms-1">mahasiswa</span>
+                    <span class="nav-link-text ms-1 text-capitalize">mahasiswa</span>
                 </a>
             </li>
             @endif
@@ -56,7 +56,16 @@
                         class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="fa-solid fa-star"></i>
                     </div>
-                    <span class="nav-link-text ms-1">penilaian</span>
+                    <span class="nav-link-text ms-1">form penilaian</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link  " href="{{ route('penilaian.index') }}">
+                    <div
+                        class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="fa-solid fa-table"></i>
+                    </div>
+                    <span class="nav-link-text ms-1 text-capitalize">data penilaian</span>
                 </a>
             </li>
 
@@ -90,7 +99,7 @@
                             </g>
                         </svg>
                     </div>
-                    <span class="nav-link-text ms-1">pengguna</span>
+                    <span class="nav-link-text ms-1 text-capitalize">pengguna</span>
                 </a>
             </li>
             @endif

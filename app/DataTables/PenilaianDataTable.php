@@ -34,11 +34,11 @@ class PenilaianDataTable extends DataTable
             ->addColumn('action', function ($query) {
                 if (auth()->user()->is_admin) {
                     return '
-                    <a href="' . route('penilaian.show', $query->id) . '" class="btn btn-sm btn-dark text-white px-3" ><i class="fa-solid fa-eye"></i></a>
+                    <a href="' . route('penilaian.show', $query->id) . '" class="btn btn-sm btn-dark text-white px-3" ><i class="fas fa-eye"></i></a>
                     <form action="' . route('penilaian.destroy', $query->id) . '" method="POST" style="display: inline">
                         ' . csrf_field() . '
                         ' . method_field('DELETE') . '
-                        <button type="submit" class="btn btn-sm btn-danger px-3" onclick="return confirm(\'Yakin ingin menghapus data ini?\')"><i class="fa-solid fa-trash"></i></button>
+                        <button type="submit" class="btn btn-sm btn-danger px-3" onclick="return confirm(\'Yakin ingin menghapus data ini?\')"><i class="fas fa-trash"></i></button>
                     </form>
                 ';
                 } else {
@@ -113,7 +113,7 @@ class PenilaianDataTable extends DataTable
                 ->addClass('text-center'),
             Column::computed('interviewer')
                 ->title('Nama Interviewer')
-                ->addClass('text-center')
+                ->addClass('text-start')
                 ->orderable(false)
                 ->searchable(true),
             Column::computed('kode_pendaftar')
