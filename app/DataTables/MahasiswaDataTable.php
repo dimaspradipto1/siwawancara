@@ -25,15 +25,15 @@ class MahasiswaDataTable extends DataTable
             ->addIndexColumn()
             ->addColumn('DT_RowIndex', '')
             ->addColumn('checkbox', function ($row) {
-                return '<input type="checkbox" class="row-checkbox" value="'.$row->id.'">';
+                return '<input type="checkbox" class="row-checkbox" value="' . $row->id . '">';
             })
             ->addColumn('action', function ($query) {
                 return '
-                    <a href="'.route('mahasiswa.show', $query->id).'" class="btn btn-sm btn-dark text-white px-3" ><i class="fa-solid fa-eye"></i></a>
-                    <a href="'.route('mahasiswa.edit', $query->id).'" class="btn btn-sm btn-warning text-white px-3" ><i class="fa-solid fa-pen-to-square"></i></a>
-                    <form action="'.route('mahasiswa.destroy', $query->id).'" method="POST" style="display: inline">
-                        '.csrf_field().'
-                        '.method_field('DELETE').'
+                    <a href="' . route('mahasiswa.show', $query->id) . '" class="btn btn-sm btn-dark text-white px-3" ><i class="fa-solid fa-eye"></i></a>
+                    <a href="' . route('mahasiswa.edit', $query->id) . '" class="btn btn-sm btn-warning text-white px-3" ><i class="fa-solid fa-pen-to-square"></i></a>
+                    <form action="' . route('mahasiswa.destroy', $query->id) . '" method="POST" style="display: inline">
+                        ' . csrf_field() . '
+                        ' . method_field('DELETE') . '
                         <button type="submit" class="btn btn-sm btn-danger px-3" onclick="return confrm(\'Yakin ingin menghapus data ini?\')"><i class="fa-solid fa-trash"></i></button>
                     </form>
                 ';
@@ -82,10 +82,10 @@ class MahasiswaDataTable extends DataTable
                     'infoFiltered' => '(disaring dari _MAX_ total data)',
                     'search' => 'Cari:',
                     'paginate' => [
-                        'first' => 'Pertama',
-                        'last' => 'Terakhir',
-                        'next' => 'Selanjutnya',
-                        'previous' => 'Sebelumnya'
+                        'first' => '<i class="fas fa-angle-double-left"></i>',
+                        'last' => '<i class="fas fa-angle-double-right"></i>',
+                        'next' => '<i class="fas fa-angle-right"></i>',
+                        'previous' => '<i class="fas fa-angle-left"></i>'
                     ],
                     'lengthMenu' => 'Tampilkan _MENU_ data per halaman',
                 ]

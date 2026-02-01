@@ -79,30 +79,28 @@
                 <div class="card mb-4">
                     <div class="card-header pb-0 d-flex align-items-center justify-content-end gap-2">
                         <div class="dropdown">
-                            <button class="btn btn-dark text-white text-uppercase dropdown-toggle d-flex align-items-center gap-2"
-                                    type="button"
-                                    id="actionDropdown"
-                                    data-bs-toggle="dropdown"
-                                    aria-expanded="false">
-                                    <i class="fa-solid fa-plus"></i> Pilih Aksi
+                            <button class="btn btn-dark text-white text-uppercase d-flex align-items-center gap-2"
+                                type="button" id="actionDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fas fa-plus"></i> Pilih Aksi <i class="fas fa-chevron-down ms-1"></i>
                             </button>
 
-                            <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="actionDropdown" style="min-width: 220px;">
+                            <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="actionDropdown"
+                                style="min-width: 220px;">
                                 <li>
                                     <a class="dropdown-item d-flex align-items-center gap-2 text-dark"
-                                       href="{{ route('penilaian.create') }}">
-                                        <i class="fa-solid fa-plus text-dark"></i>
+                                        href="{{ route('penilaian.create') }}">
+                                        <i class="fas fa-plus text-dark"></i>
                                         Tambah Penilaian
                                     </a>
                                 </li>
-                                @if(Auth::user()->is_admin || Auth::user()->is_timtes) 
-                                <li>
-                                    <a class="dropdown-item d-flex align-items-center gap-2 text-success"
-                                    href="{{ route('export') }}" target="_blank">
-                                     <i class="fa-solid fa-file-excel text-success"></i>
-                                     Export Excel
-                                    </a>
-                                </li>
+                                @if (Auth::user()->is_admin || Auth::user()->is_timtes)
+                                    <li>
+                                        <a class="dropdown-item d-flex align-items-center gap-2 text-success"
+                                            href="{{ route('export') }}" target="_blank">
+                                            <i class="fas fa-file-excel text-success"></i>
+                                            Export Excel
+                                        </a>
+                                    </li>
                                 @endif
 
                             </ul>
