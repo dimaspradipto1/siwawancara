@@ -21,16 +21,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-<<<<<<< HEAD
-        //
-    	\URL::forceScheme('https');
-=======
-        // if (config('app.env') === 'production') {
-        //     URL::forceScheme('https');
-        // }
+        if (config('app.env') === 'production') {
+            URL::forceScheme('https');
+        }
 
-        // Menambahkan paginator dengan Bootstrap
-        // Paginator::useBootstrap();
->>>>>>> e7b2badd4a9d2e9429f950c30349dd84a75f08b3
+        Paginator::useBootstrap();
     }
 }
