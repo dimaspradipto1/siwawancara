@@ -184,9 +184,15 @@
 @endsection
 
 @push('scripts')
-    {{-- {!! str_replace('http:', 'https:', $dataTable->scripts()) !!} --}}
-    {!! $dataTable->scripts() !!}
-
+    
+    
+    @if (app()->environment('production'))
+        {{-- kode khusus production --}}
+        {!! str_replace('http:', 'https:', $dataTable->scripts()) !!}
+    @else
+        {!! $dataTable->scripts() !!}
+    @endif
+    
     <style>
         /* Custom DataTables Processing Indicator */
         div.dataTables_wrapper div.dataTables_processing {
