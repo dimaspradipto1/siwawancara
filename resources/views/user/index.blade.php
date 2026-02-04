@@ -126,10 +126,6 @@
 @endsection
 
 @push('scripts')
-    @if (app()->environment('production'))
-        {{-- kode khusus production --}}
-        {!! str_replace('http:', 'https:', $dataTable->scripts()) !!}
-    @else
-        {!! $dataTable->scripts() !!}
-    @endif
+    {!! str_replace('http:', 'https:', $dataTable->scripts()) !!}
+    {!! $dataTable->scripts() !!}
 @endpush
