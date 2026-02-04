@@ -3,12 +3,13 @@
 namespace App\DataTables;
 
 use App\Models\Penilaian;
-use Illuminate\Database\Eloquent\Builder as QueryBuilder;
-use Yajra\DataTables\EloquentDataTable;
-use Yajra\DataTables\Html\Builder as HtmlBuilder;
 use Yajra\DataTables\Html\Button;
 use Yajra\DataTables\Html\Column;
+use Illuminate\Support\Facades\Auth;
+use Yajra\DataTables\EloquentDataTable;
 use Yajra\DataTables\Services\DataTable;
+use Yajra\DataTables\Html\Builder as HtmlBuilder;
+use Illuminate\Database\Eloquent\Builder as QueryBuilder;
 
 class PenilaianDataTable extends DataTable
 {
@@ -19,7 +20,7 @@ class PenilaianDataTable extends DataTable
      */
     public function dataTable(QueryBuilder $query): EloquentDataTable
     {
-        $dataTable = (new EloquentDataTable($query))
+        return (new EloquentDataTable($query))
             ->addIndexColumn()
             ->addColumn('DT_RowIndex', '') // Index kolom
             ->addColumn('kode_pendaftar', function ($query) {
@@ -46,30 +47,26 @@ class PenilaianDataTable extends DataTable
                 }
             })
             ->setRowId('id')
-            ->rawColumns(['action', 'DT_RowIndex', 'mahasiswa', 'interviewer']);
+            ->rawColumns(['action', 'DT_RowIndex', 'mahasiswa', 'interviewer'])
 
-        // Filter pencarian kolom relasi kode_pendaftar dan mahasiswa
-        $dataTable->filterColumn('kode_pendaftar', function ($query, $keyword) {
-            $query->whereHas('mahasiswa', function ($subQuery) use ($keyword) {
-                $subQuery->where('kode_pendaftar', 'like', "%{$keyword}%");
+            // Filter pencarian kolom relasi kode_pendaftar dan mahasiswa
+            ->filterColumn('kode_pendaftar', function ($query, $keyword) {
+                $query->whereHas('mahasiswa', function ($subQuery) use ($keyword) {
+                    $subQuery->where('kode_pendaftar', 'like', "%{$keyword}%");
+                });
+            })
+            // Menangani pencarian pada kolom mahasiswa
+            ->filterColumn('mahasiswa', function ($query, $keyword) {
+                $query->whereHas('mahasiswa', function ($subQuery) use ($keyword) {
+                    $subQuery->where('nama_mahasiswa', 'like', "%{$keyword}%");
+                });
+            })
+            // Menangani pencarian pada kolom interviewer
+            ->filterColumn('interviewer', function ($query, $keyword) {
+                $query->whereHas('user', function ($subQuery) use ($keyword) {
+                    $subQuery->where('name', 'like', "%{$keyword}%");
+                });
             });
-        });
-
-        // Menangani pencarian pada kolom mahasiswa
-        $dataTable->filterColumn('mahasiswa', function ($query, $keyword) {
-            $query->whereHas('mahasiswa', function ($subQuery) use ($keyword) {
-                $subQuery->where('nama_mahasiswa', 'like', "%{$keyword}%");
-            });
-        });
-
-        // Menangani pencarian pada kolom interviewer
-        $dataTable->filterColumn('interviewer', function ($query, $keyword) {
-            $query->whereHas('user', function ($subQuery) use ($keyword) {
-                $subQuery->where('name', 'like', "%{$keyword}%");
-            });
-        });
-
-        return $dataTable;
     }
 
     /**
@@ -77,7 +74,15 @@ class PenilaianDataTable extends DataTable
      */
     public function query(Penilaian $model): QueryBuilder
     {
-        return $model->newQuery();
+        $query = $model->newQuery();
+
+        // Jika user adalah interviewer, tampilkan hanya data miliknya
+        // Jika user adalah admin, tampilkan semua data
+        if (Auth::user()->is_interviewer && !Auth::user()->is_admin) {
+            $query->where('user_id', Auth::user()->id);
+        }
+
+        return $query;
     }
 
     /**
@@ -91,6 +96,7 @@ class PenilaianDataTable extends DataTable
             ->minifiedAjax(route('penilaian.index'))
             ->orderBy(1)
             ->selectStyleSingle()
+            ->scrollX(true)
             ->buttons([
                 Button::make('excel'),
                 Button::make('csv'),
@@ -106,16 +112,22 @@ class PenilaianDataTable extends DataTable
      */
     public function getColumns(): array
     {
-        return [
+        $columns = [
             Column::make('DT_RowIndex')
                 ->title('NO')
                 ->width(60)
                 ->addClass('text-center'),
-            Column::computed('interviewer')
+        ];
+
+        if (auth()->user()->is_admin) {
+            $columns[] = Column::computed('interviewer')
                 ->title('Nama Interviewer')
                 ->addClass('text-start')
                 ->orderable(false)
-                ->searchable(true),
+                ->searchable(true);
+        }
+
+        $columns = array_merge($columns, [
             Column::computed('kode_pendaftar')
                 ->title('Kode Pendaftar')
                 ->addClass('text-center')
@@ -133,12 +145,19 @@ class PenilaianDataTable extends DataTable
                 ->title('Nilai Akhir')
                 ->addClass('text-center')
                 ->searchable(false),
-            Column::computed('action')
+        ]);
+
+        // Tambahkan kolom action hanya untuk admin
+        if (auth()->user()->is_admin) {
+            $columns[] = Column::computed('action')
+                ->title('Aksi')
                 ->exportable(false)
                 ->printable(false)
                 ->width(60)
-                ->addClass('text-center'),
-        ];
+                ->addClass('text-center');
+        }
+
+        return $columns;
     }
 
     protected function filename(): string

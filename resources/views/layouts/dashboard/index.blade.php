@@ -50,7 +50,7 @@
                             <a class="dropdown-item border-radius-md" href="javascript:;">
                                 <div class="d-flex py-1">
                                     <div class="my-auto">
-                                        <img src="../assets/img/team-2.jpg" class="avatar avatar-sm  me-3 ">
+                                        <img src="{{ asset('assets/img/team-2.jpg') }}" class="avatar avatar-sm  me-3 ">
                                     </div>
                                     <div class="d-flex flex-column justify-content-center">
                                         <h6 class="text-sm font-weight-normal mb-1">
@@ -68,7 +68,7 @@
                             <a class="dropdown-item border-radius-md" href="javascript:;">
                                 <div class="d-flex py-1">
                                     <div class="my-auto">
-                                        <img src="../assets/img/small-logos/logo-spotify.svg"
+                                        <img src="{{ asset('assets/img/small-logos/logo-spotify.svg') }}"
                                             class="avatar avatar-sm bg-gradient-dark  me-3 ">
                                     </div>
                                     <div class="d-flex flex-column justify-content-center">
@@ -195,6 +195,51 @@
                 </div>
             </div>
         </div>
+        <div class="col-xl-4 col-sm-6 mb-xl-0 mb-4 mt-4">
+            <div class="card">
+                <div class="card-body p-3">
+                    <div class="row">
+                        <div class="col-8">
+                            <div class="numbers">
+                                <p class="text-sm mb-0 text-capitalize font-weight-bold">Penilaian</p>
+                                <h5 class="font-weight-bolder mb-0">
+                                    {{ $penilaian }}
+                                </h5>
+                            </div>
+                        </div>
+                        <div class="col-4 text-end">
+                            <div
+                                class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
+                                <i class="fa-solid fa-star" style="height: 30px; width: 30px; color: white; margin-top: 10px;"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-4 col-sm-6 mb-xl-0 mb-4 mt-4">
+            <div class="card">
+                <div class="card-body p-3">
+                    <div class="row">
+                        <div class="col-8">
+                            <div class="numbers">
+                                <p class="text-sm mb-0 text-capitalize font-weight-bold">Belum diinterview</p>
+                                <h5 class="font-weight-bolder mb-0">
+                                    {{-- {{ $belum_diwawancarai }} --}}
+                                    {{ $mahasiswa - $penilaian }}
+                                </h5>
+                            </div>
+                        </div>
+                        <div class="col-4 text-end">
+                            <div
+                                class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
+                                <i class="fa-solid fa-clipboard-list" style="height: 30px; width: 30px; color: white; margin-top: 10px;"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <div class="row mt-4">
         <div class="col-lg-7 mb-lg-0 mb-4">
@@ -209,13 +254,13 @@
                         </div>
                         <div class="col-lg-5 ms-auto text-center mt-5 mt-lg-0">
                             <div class="bg-gradient-primary border-radius-lg h-100">
-                                <img src="dashboard/assets/img/shapes/waves-white.svg"
+                                <img src="{{ asset('assets/img/shapes/waves-white.svg') }}"
                                     class="position-absolute h-100 w-50 top-0 d-lg-block d-none"
                                     alt="waves">
                                 <div
                                     class="position-relative d-flex align-items-center justify-content-center h-100">
                                     <img class="w-100 position-relative z-index-2 pt-4"
-                                        src="dashboard/assets/img/illustrations/rocket-white.png" alt="rocket">
+                                        src="{{ asset('assets/img/illustrations/rocket-white.png') }}" alt="rocket">
                                 </div>
                             </div>
                         </div>

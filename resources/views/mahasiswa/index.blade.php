@@ -172,7 +172,8 @@
                     <div class="card-body px-0 pt-0 pb-2">
                         <div class="table-responsive p-0">
                             {{ $dataTable->table([
-                                'style' => 'width:100%; overflow-x: auto',
+                                'class' => 'table table-bordered table-striped text-nowrap',
+                                'style' => 'width:100%;',
                             ]) }}
                         </div>
                     </div>

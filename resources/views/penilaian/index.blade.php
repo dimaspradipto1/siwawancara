@@ -110,7 +110,8 @@
                     <div class="card-body px-0 pt-0 pb-2">
                         <div class="table-responsive p-0">
                             {{ $dataTable->table([
-                                'style' => 'width:100%; overflow-x: auto',
+                                'class' => 'table table-striped table-bordered table-hover text-nowrap',
+                                'style' => 'width:100%;',
                             ]) }}
                         </div>
                     </div>
@@ -123,9 +124,8 @@
 
 
 @push('scripts')
-    
+
     @if (app()->environment('production'))
-        {{-- kode khusus production --}}
         {!! str_replace('http:', 'https:', $dataTable->scripts()) !!}
     @else
         {!! $dataTable->scripts() !!}

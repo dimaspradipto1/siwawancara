@@ -62,6 +62,7 @@ class MahasiswaDataTable extends DataTable
             //->dom('Bfrtip')
             ->orderBy(1)
             ->selectStyleSingle()
+            ->scrollX(true)
             ->buttons([
                 Button::make('excel'),
                 Button::make('csv'),

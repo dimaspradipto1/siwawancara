@@ -137,7 +137,7 @@
                                 class="fa-solid fa-arrow-left"></i> Kembali ke halaman penilaian</a>
                     </div>
                     <div class="card-header pb-0">
-                        <img src="{{ asset('dashboard/assets/img/header.png') }}" alt="" width="1160"
+                        <img src="{{ asset('assets/img/header.png') }}" alt="" width="1160"
                             class="img-fluid mx-auto d-block">
                         <hr>
                         <h3 class="text-center text-uppercase text-bold">data peserta</h3>
@@ -711,7 +711,7 @@
                             // Jika data ditemukan, isi form dengan data yang dikembalikan
                             if (response.success) {
                                 var pendaftarData = response.data[
-                                0]; // Ambil data pertama dari hasil query
+                                    0]; // Ambil data pertama dari hasil query
                                 $('input[name="mahasiswa_id"]').val(pendaftarData.id);
                                 $('input[name="nama_mahasiswa"]').val(pendaftarData
                                     .nama_mahasiswa);
@@ -782,7 +782,7 @@
 
                 // Tambahkan pesan peringatan
                 var warningHtml =
-                    '<div class="alert alert-danger alert-dismissible fade show penilaian-warning" role="alert">' +
+                    '<div class="alert alert-danger alert-dismissible fade show penilaian-warning text-white" role="alert">' +
                     '<strong>Peringatan!</strong> ' + message +
                     '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>' +
                     '</div>';
@@ -838,7 +838,7 @@
 
                 // Menghitung nilai akhir berdasarkan total nilai
                 var nilaiAkhir = ((totalPoints / 30) * 100).toFixed(2).replace(',',
-                '.'); // Mengganti koma dengan titik
+                    '.'); // Mengganti koma dengan titik
                 $('#nilai_akhir').val(nilaiAkhir);
             });
         });
