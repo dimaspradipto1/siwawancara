@@ -74,6 +74,59 @@
 
     {{-- Content --}}
     <div class="container-fluid py-4">
+
+        {{-- Stat Cards --}}
+        <div class="row mb-4 g-3">
+            {{-- Total Mahasiswa --}}
+            <div class="col-xl-4 col-sm-6">
+                <div class="card h-100" style="border-left: 4px solid #344767; border-radius: 12px;">
+                    <div class="card-body d-flex align-items-center gap-3 py-3">
+                        <div class="d-flex align-items-center justify-content-center rounded-circle text-white"
+                            style="width:56px;height:56px;background:linear-gradient(135deg,#344767,#627594);flex-shrink:0;">
+                            <i class="fas fa-users fa-lg"></i>
+                        </div>
+                        <div>
+                            <p class="text-xs font-weight-bold text-uppercase text-secondary mb-1">Total Mahasiswa</p>
+                            <h4 class="font-weight-bolder mb-0">{{ number_format($totalMahasiswa) }}</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {{-- Sudah Wawancara --}}
+            <div class="col-xl-4 col-sm-6">
+                <div class="card h-100" style="border-left: 4px solid #2dce89; border-radius: 12px;">
+                    <div class="card-body d-flex align-items-center gap-3 py-3">
+                        <div class="d-flex align-items-center justify-content-center rounded-circle text-white"
+                            style="width:56px;height:56px;background:linear-gradient(135deg,#2dce89,#1aae6f);flex-shrink:0;">
+                            <i class="fas fa-check-circle fa-lg"></i>
+                        </div>
+                        <div>
+                            <p class="text-xs font-weight-bold text-uppercase text-secondary mb-1">Sudah Wawancara</p>
+                            <h4 class="font-weight-bolder mb-0">{{ number_format($sudahWawancara) }}</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {{-- Belum Wawancara --}}
+            <div class="col-xl-4 col-sm-6">
+                <div class="card h-100" style="border-left: 4px solid #f5365c; border-radius: 12px;">
+                    <div class="card-body d-flex align-items-center gap-3 py-3">
+                        <div class="d-flex align-items-center justify-content-center rounded-circle text-white"
+                            style="width:56px;height:56px;background:linear-gradient(135deg,#f5365c,#c8063d);flex-shrink:0;">
+                            <i class="fas fa-clock fa-lg"></i>
+                        </div>
+                        <div>
+                            <p class="text-xs font-weight-bold text-uppercase text-secondary mb-1">Belum Wawancara</p>
+                            <h4 class="font-weight-bolder mb-0">{{ number_format($belumWawancara) }}</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{-- End Stat Cards --}}
+
         <div class="row">
             <div class="col-12">
                 <div class="card mb-4">
@@ -188,7 +241,6 @@
     
     
     @if (app()->environment('production'))
-        {{-- kode khusus production --}}
         {!! str_replace('http:', 'https:', $dataTable->scripts()) !!}
     @else
         {!! $dataTable->scripts() !!}

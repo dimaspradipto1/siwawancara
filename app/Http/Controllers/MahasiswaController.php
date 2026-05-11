@@ -17,7 +17,15 @@ class MahasiswaController extends Controller
      */
     public function index(MahasiswaDataTable $dataTable)
     {
-        return $dataTable->render('mahasiswa.index');
+        $totalMahasiswa      = Mahasiswa::count();
+        $sudahWawancara      = Mahasiswa::has('penilaians')->count();
+        $belumWawancara      = $totalMahasiswa - $sudahWawancara;
+
+        return $dataTable->render('mahasiswa.index', compact(
+            'totalMahasiswa',
+            'sudahWawancara',
+            'belumWawancara'
+        ));
     }
 
     /**

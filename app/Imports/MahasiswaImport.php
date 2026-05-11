@@ -9,42 +9,43 @@ use Maatwebsite\Excel\Concerns\WithHeadingRow;
 
 class MahasiswaImport implements ToModel, WithHeadingRow
 {
+    /**
+     * Isi nilai kosong dengan default, normalisasi jk (L→PRIA, P→WANITA)
+     */
+    private function fillEmpty(string $value, string $default = 'missing data'): string
+    {
+        $value = trim($value);
+        return $value === '' ? $default : $value;
+    }
+
     public function model(array $row)
     {
-        $kode   = trim($row['kode_pendaftar'] ?? '');
-        $nama   = trim($row['nama_mahasiswa'] ?? '');
-        $jalur  = trim($row['jalur_pendaftar'] ?? '');
-        $sistem = trim($row['sistem_kuliah'] ?? '');
-        $p1     = trim($row['prodi_pilihan1'] ?? '');
-        $p2     = trim($row['prodi_pilihan2'] ?? '');
-        $jk     = trim($row['jk'] ?? '');
-        $nowa   = trim($row['nowa'] ?? '');
-        $email  = trim($row['email'] ?? '');
-        $alamat = trim($row['alamat'] ?? '');
-        $status = trim($row['status_pekerjaan'] ?? '');
-
-        if ($kode === '' || $nama === '' || $jalur === '' || $sistem === '' || $p1 === '' || $jk === '' || $nowa === '' || $email === '' || $alamat === '' || $status === '') {
+        // Skip baris yang benar-benar kosong (tidak ada kode pendaftar)
+        $kode = trim($row['kode_pendaftar'] ?? '');
+        if ($kode === '') {
             return null;
         }
 
-        if ($jk !== 'PRIA' && $jk !== 'WANITA') {
-            return null;
+        // Normalisasi jk: L → PRIA, P → WANITA
+        $jkRaw = strtoupper(trim($row['jk'] ?? ''));
+        if ($jkRaw === 'L') {
+            $jkRaw = 'PRIA';
+        } elseif ($jkRaw === 'P') {
+            $jkRaw = 'WANITA';
         }
 
-        $mahasiswa = Mahasiswa::create([
+        return new Mahasiswa([
             'kode_pendaftar'    => $kode,
-            'nama_mahasiswa'    => $nama,
-            'jalur_pendaftar'   => $jalur,
-            'sistem_kuliah'     => $sistem,
-            'prodi_pilihan1'    => $p1,
-            'prodi_pilihan2'    => $p2,
-            'jk'                => $jk,
-            'nowa'              => $nowa,
-            'email'             => $email,
-            'alamat'            => $alamat,
-            'status_pekerjaan'  => $status,
+            'nama_mahasiswa'    => $this->fillEmpty($row['nama_mahasiswa'] ?? ''),
+            'jalur_pendaftar'   => $this->fillEmpty($row['jalur_pendaftar'] ?? ''),
+            'sistem_kuliah'     => $this->fillEmpty($row['sistem_kuliah'] ?? ''),
+            'prodi_pilihan1'    => $this->fillEmpty($row['prodi_pilihan1'] ?? ''),
+            'prodi_pilihan2'    => $this->fillEmpty($row['prodi_pilihan2'] ?? ''),
+            'jk'                => $this->fillEmpty($jkRaw),
+            'nowa'              => $this->fillEmpty($row['nowa'] ?? ''),
+            'email'             => $this->fillEmpty($row['email'] ?? ''),
+            'alamat'            => $this->fillEmpty($row['alamat'] ?? ''),
+            'status_pekerjaan'  => $this->fillEmpty($row['status_pekerjaan'] ?? ''),
         ]);
-
-        return $mahasiswa;
     }
 }
