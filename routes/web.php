@@ -55,5 +55,6 @@ Route::middleware(['auth', 'checkrole'])->group(function () {
     Route::resource('penilaian', PenilaianController::class);
     Route::post('/penilaian/cariPendaftar', [PenilaianController::class, 'cariPendaftar'])->name('penilaian.cariPendaftar');
     Route::post('/penilaian/checkExisting', [PenilaianController::class, 'checkExisting'])->name('penilaian.checkExisting');
+    Route::get('/penilaian/get-stats', [PenilaianController::class, 'getStats'])->name('penilaian.get-stats');
     Route::get('/export', [PenilaianController::class, 'export'])->name('export');
 });

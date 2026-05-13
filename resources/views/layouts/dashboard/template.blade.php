@@ -21,13 +21,26 @@
 
     {{--  datatables CSS  --}}
     <link rel="stylesheet" href="https://cdn.datatables.net/2.3.4/css/dataTables.bootstrap5.css">
+
+    <style>
+        /* Fix double scrollbar */
+        html, body {
+            overflow-x: hidden !important;
+        }
+        
+        @media (min-width: 1200px) {
+            .main-content {
+                overflow-y: hidden !important;
+            }
+        }
+    </style>
 </head>
 
 <body class="g-sidenav-show  bg-gray-100">
     @include('layouts.dashboard.sidebar')
 
 
-    <main class="main-content position-relative max-height-vh-100 h-100 mt-1 border-radius-lg ">
+    <main class="main-content position-relative mt-1 border-radius-lg ">
         <!-- Navbar -->
         {{-- @include('layouts.dashboard.navbar') --}}
         <!-- End Navbar -->

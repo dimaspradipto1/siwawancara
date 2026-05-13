@@ -262,11 +262,15 @@
                                                     style="display: flex; justify-content: space-between; align-items: center;">
                                                     <h6 class="mb-0" style="margin: 0;">1. Motivasi, Tujuan Studi, dan
                                                         Pemahaman Program Studi</h6>
-                                                    <input type="number" class="form-control indikator"
-                                                        name="indikator1" id="indikator1" class="indikator"
-                                                        placeholder="bobot" aria-label="indikator1"
-                                                        aria-describedby="email-addon" style="max-width: 100px;"
-                                                        min="1" max="5">
+                                                    <select class="form-control indikator" name="indikator1" id="indikator1"
+                                                        style="max-width: 100px;">
+                                                        <option value="" disabled selected>Pilih</option>
+                                                        <option value="5">5</option>
+                                                        <option value="4">4</option>
+                                                        <option value="3">3</option>
+                                                        <option value="2">2</option>
+                                                        <option value="1">1</option>
+                                                    </select>
                                                 </div>
                                                 <div class="card-body pt-4 p-3">
                                                     <ul class="list-group">
@@ -320,11 +324,15 @@
                                                     style="display: flex; justify-content: space-between; align-items: center;">
                                                     <h6 class="mb-0" style="margin: 0;">2. Kesiapan Akademik dan
                                                         Kesiapan Mengikuti Peraturan Akademik</h6>
-                                                    <input type="number" class="form-control indikator"
-                                                        name="indikator2" id="indikator2" class="indikator"
-                                                        placeholder="bobot" aria-label="indikator1"
-                                                        aria-describedby="email-addon" style="max-width: 100px;"
-                                                        min="1" max="5">
+                                                    <select class="form-control indikator" name="indikator2" id="indikator2"
+                                                        style="max-width: 100px;">
+                                                        <option value="" disabled selected>Pilih</option>
+                                                        <option value="5">5</option>
+                                                        <option value="4">4</option>
+                                                        <option value="3">3</option>
+                                                        <option value="2">2</option>
+                                                        <option value="1">1</option>
+                                                    </select>
                                                 </div>
                                                 <div class="card-body pt-4 p-3">
                                                     <ul class="list-group">
@@ -379,11 +387,15 @@
                                                     style="display: flex; justify-content: space-between; align-items: center;">
                                                     <h6 class="mb-0" style="margin: 0;">3. Komitmen, Keseriusan, dan
                                                         Kemandirian dalam Kuliah</h6>
-                                                    <input type="number" class="form-control indikator"
-                                                        name="indikator3" id="indikator3" class="indikator"
-                                                        placeholder="bobot" aria-label="indikator1"
-                                                        aria-describedby="email-addon" style="max-width: 100px;"
-                                                        min="1" max="5">
+                                                    <select class="form-control indikator" name="indikator3" id="indikator3"
+                                                        style="max-width: 100px;">
+                                                        <option value="" disabled selected>Pilih</option>
+                                                        <option value="5">5</option>
+                                                        <option value="4">4</option>
+                                                        <option value="3">3</option>
+                                                        <option value="2">2</option>
+                                                        <option value="1">1</option>
+                                                    </select>
                                                 </div>
                                                 <div class="card-body pt-4 p-3">
                                                     <ul class="list-group">
@@ -440,11 +452,15 @@
                                                     style="display: flex; justify-content: space-between; align-items: center;">
                                                     <h6 class="mb-0" style="margin: 0;">4. Kepribadian, Etika, dan
                                                         Kemampuan Berkomunikasi</h6>
-                                                    <input type="number" class="form-control indikator"
-                                                        name="indikator4" id="indikator4" class="indikator"
-                                                        placeholder="bobot" aria-label="indikator1"
-                                                        aria-describedby="email-addon" style="max-width: 100px;"
-                                                        min="1" max="5">
+                                                    <select class="form-control indikator" name="indikator4" id="indikator4"
+                                                        style="max-width: 100px;">
+                                                        <option value="" disabled selected>Pilih</option>
+                                                        <option value="5">5</option>
+                                                        <option value="4">4</option>
+                                                        <option value="3">3</option>
+                                                        <option value="2">2</option>
+                                                        <option value="1">1</option>
+                                                    </select>
                                                 </div>
                                                 <div class="card-body pt-4 p-3">
                                                     <ul class="list-group">
@@ -497,11 +513,15 @@
                                                 <div class="card-header pb-0 px-3"
                                                     style="display: flex; justify-content: space-between; align-items: center;">
                                                     <h6 class="mb-0" style="margin: 0;">5. Kesiapan Finansial</h6>
-                                                    <input type="number" class="form-control indikator"
-                                                        name="indikator5" id="indikator5" class="indikator"
-                                                        placeholder="bobot" aria-label="indikator1"
-                                                        aria-describedby="email-addon" style="max-width: 100px;"
-                                                        min="1" max="5">
+                                                    <select class="form-control indikator" name="indikator5" id="indikator5"
+                                                        style="max-width: 100px;">
+                                                        <option value="" disabled selected>Pilih</option>
+                                                        <option value="5">5</option>
+                                                        <option value="4">4</option>
+                                                        <option value="3">3</option>
+                                                        <option value="2">2</option>
+                                                        <option value="1">1</option>
+                                                    </select>
                                                 </div>
                                                 <div class="card-body pt-4 p-3">
                                                     <ul class="list-group">
@@ -554,11 +574,15 @@
                                                     style="display: flex; justify-content: space-between; align-items: center;">
                                                     <h6 class="mb-0" style="margin: 0;">6. Adaptasi terhadap Lingkungan
                                                         Kampus</h6>
-                                                    <input type="number" class="form-control indikator"
-                                                        name="indikator6" id="indikator6" class="indikator"
-                                                        placeholder="bobot" aria-label="indikator1"
-                                                        aria-describedby="email-addon" style="max-width: 100px;"
-                                                        min="1" max="5">
+                                                    <select class="form-control indikator" name="indikator6" id="indikator6"
+                                                        style="max-width: 100px;">
+                                                        <option value="" disabled selected>Pilih</option>
+                                                        <option value="5">5</option>
+                                                        <option value="4">4</option>
+                                                        <option value="3">3</option>
+                                                        <option value="2">2</option>
+                                                        <option value="1">1</option>
+                                                    </select>
                                                 </div>
                                                 <div class="card-body pt-4 p-3">
                                                     <ul class="list-group">
@@ -821,7 +845,7 @@
             }
 
             // Menangani perubahan nilai indikator
-            $('.indikator').on('input', function() {
+            $('.indikator').on('change input', function() {
                 // Menghitung total nilai berdasarkan indikator
                 var totalPoints = 0;
 

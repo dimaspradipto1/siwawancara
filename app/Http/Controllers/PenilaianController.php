@@ -9,6 +9,7 @@ use App\Exports\PenilaianExport;
 use Illuminate\Support\Facades\Auth;
 use Maatwebsite\Excel\Facades\Excel;
 use App\DataTables\PenilaianDataTable;
+use Illuminate\Support\Facades\DB;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class PenilaianController extends Controller
@@ -18,7 +19,30 @@ class PenilaianController extends Controller
      */
     public function index(PenilaianDataTable $dataTable)
     {
-        return $dataTable->render('penilaian.index');
+        $totalMahasiswa = Mahasiswa::count();
+        $sudahWawancara = Mahasiswa::has('penilaians')->count();
+        $belumWawancara = $totalMahasiswa - $sudahWawancara;
+
+        // Hitung per prodi
+        $prodiCounts = Mahasiswa::has('penilaians')
+            ->select('prodi_pilihan1', DB::raw('count(*) as total'))
+            ->groupBy('prodi_pilihan1')
+            ->pluck('total', 'prodi_pilihan1')
+            ->toArray();
+
+        $prodiBelumCounts = Mahasiswa::doesntHave('penilaians')
+            ->select('prodi_pilihan1', DB::raw('count(*) as total'))
+            ->groupBy('prodi_pilihan1')
+            ->pluck('total', 'prodi_pilihan1')
+            ->toArray();
+
+        return $dataTable->render('penilaian.index', compact(
+            'totalMahasiswa',
+            'sudahWawancara',
+            'belumWawancara',
+            'prodiCounts',
+            'prodiBelumCounts'
+        ));
     }
 
     /**
@@ -156,6 +180,33 @@ class PenilaianController extends Controller
 
         return response()->json([
             'exists' => $exists
+        ]);
+    }
+
+    public function getStats()
+    {
+        $totalMahasiswa = Mahasiswa::count();
+        $sudahWawancara = Mahasiswa::has('penilaians')->count();
+        $belumWawancara = $totalMahasiswa - $sudahWawancara;
+
+        $prodiCounts = Mahasiswa::has('penilaians')
+            ->select('prodi_pilihan1', DB::raw('count(*) as total'))
+            ->groupBy('prodi_pilihan1')
+            ->pluck('total', 'prodi_pilihan1')
+            ->toArray();
+
+        $prodiBelumCounts = Mahasiswa::doesntHave('penilaians')
+            ->select('prodi_pilihan1', DB::raw('count(*) as total'))
+            ->groupBy('prodi_pilihan1')
+            ->pluck('total', 'prodi_pilihan1')
+            ->toArray();
+
+        return response()->json([
+            'totalMahasiswa' => number_format($totalMahasiswa),
+            'sudahWawancara' => number_format($sudahWawancara),
+            'belumWawancara' => number_format($belumWawancara),
+            'prodiCounts' => $prodiCounts,
+            'prodiBelumCounts' => $prodiBelumCounts
         ]);
     }
 }
