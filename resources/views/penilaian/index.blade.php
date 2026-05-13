@@ -149,13 +149,19 @@
                     </div>
                     <div class="card-body p-3">
                         @php
-                            $febProdis = ['S1 - S1 Manajemen', 'S1 - S1 Akuntansi'];
+                            $febProdis = ['S1 - S1 Manajemen', 'S1 - S1 Akuntansi', 'S2 - S2 Manajemen'];
+                            $febTotalAll = 0;
+                            $febSudahAll = 0;
+                            $febBelumAll = 0;
                         @endphp
                         @foreach ($febProdis as $prodi)
                             @php
                                 $sudah = $prodiCounts[$prodi] ?? 0;
                                 $belum = $prodiBelumCounts[$prodi] ?? 0;
                                 $total = $sudah + $belum;
+                                $febTotalAll += $total;
+                                $febSudahAll += $sudah;
+                                $febBelumAll += $belum;
                                 $slug = Str::slug($prodi);
                             @endphp
                             <div class="d-flex justify-content-between align-items-start mb-2 p-2 bg-light rounded-3">
@@ -170,6 +176,15 @@
                                 </div>
                             </div>
                         @endforeach
+                        {{-- Total FEB --}}
+                        <div class="d-flex justify-content-between align-items-center mt-3 p-2 bg-dark rounded-3">
+                            <span class="text-xs font-weight-bold text-white me-2">TOTAL FEB</span>
+                            <div class="d-flex gap-1">
+                                <span class="badge bg-secondary rounded-pill" id="total-feb-all">{{ $febTotalAll }}</span>
+                                <span class="badge bg-success rounded-pill" id="sudah-feb-all">{{ $febSudahAll }}</span>
+                                <span class="badge bg-danger text-white rounded-pill" id="belum-feb-all">{{ $febBelumAll }}</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -195,12 +210,18 @@
                                 'S1 - Teknik Logistik',
                                 'S1 - Sistem Informasi',
                             ];
+                            $fstTotalAll = 0;
+                            $fstSudahAll = 0;
+                            $fstBelumAll = 0;
                         @endphp
                         @foreach ($fstProdis as $prodi)
                             @php
                                 $sudah = $prodiCounts[$prodi] ?? 0;
                                 $belum = $prodiBelumCounts[$prodi] ?? 0;
                                 $total = $sudah + $belum;
+                                $fstTotalAll += $total;
+                                $fstSudahAll += $sudah;
+                                $fstBelumAll += $belum;
                                 $slug = Str::slug($prodi);
                             @endphp
                             <div class="d-flex justify-content-between align-items-start mb-2 p-2 bg-light rounded-3">
@@ -215,6 +236,15 @@
                                 </div>
                             </div>
                         @endforeach
+                        {{-- Total FST --}}
+                        <div class="d-flex justify-content-between align-items-center mt-3 p-2 bg-dark rounded-3">
+                            <span class="text-xs font-weight-bold text-white me-2">TOTAL FST</span>
+                            <div class="d-flex gap-1">
+                                <span class="badge bg-secondary rounded-pill" id="total-fst-all">{{ $fstTotalAll }}</span>
+                                <span class="badge bg-success rounded-pill" id="sudah-fst-all">{{ $fstSudahAll }}</span>
+                                <span class="badge bg-danger text-white rounded-pill" id="belum-fst-all">{{ $fstBelumAll }}</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -233,13 +263,19 @@
                     </div>
                     <div class="card-body p-3">
                         @php
-                            $fikesProdis = ['S1 - Kesehatan dan Keselamatan Kerja', 'S1 - Kesehatan Lingkungan'];
+                            $fikesProdis = ['S1 - Kesehatan dan Keselamatan Kerja', 'S1 - Kesehatan Lingkungan', 'S2 - Magister Kesehatan Masyarakat'];
+                            $fikesTotalAll = 0;
+                            $fikesSudahAll = 0;
+                            $fikesBelumAll = 0;
                         @endphp
                         @foreach ($fikesProdis as $prodi)
                             @php
                                 $sudah = $prodiCounts[$prodi] ?? 0;
                                 $belum = $prodiBelumCounts[$prodi] ?? 0;
                                 $total = $sudah + $belum;
+                                $fikesTotalAll += $total;
+                                $fikesSudahAll += $sudah;
+                                $fikesBelumAll += $belum;
                                 $slug = Str::slug($prodi);
                             @endphp
                             <div class="d-flex justify-content-between align-items-start mb-2 p-2 bg-light rounded-3">
@@ -254,6 +290,15 @@
                                 </div>
                             </div>
                         @endforeach
+                        {{-- Total FIKES --}}
+                        <div class="d-flex justify-content-between align-items-center mt-3 p-2 bg-dark rounded-3">
+                            <span class="text-xs font-weight-bold text-white me-2">TOTAL FIKES</span>
+                            <div class="d-flex gap-1">
+                                <span class="badge bg-secondary rounded-pill" id="total-fikes-all">{{ $fikesTotalAll }}</span>
+                                <span class="badge bg-success rounded-pill" id="sudah-fikes-all">{{ $fikesSudahAll }}</span>
+                                <span class="badge bg-danger text-white rounded-pill" id="belum-fikes-all">{{ $fikesBelumAll }}</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -336,14 +381,24 @@
                     $('#stat-sudah-wawancara').text(data.sudahWawancara);
                     $('#stat-belum-wawancara').text(data.belumWawancara);
 
-                    // Update prodi stats
-                    const allProdis = [
-                        'S1 - S1 Manajemen', 'S1 - S1 Akuntansi',
+                    // Update prodi stats and calculate faculty totals
+                    const febProdis = ['S1 - S1 Manajemen', 'S1 - S1 Akuntansi', 'S2 - S2 Manajemen'];
+                    const fstProdis = [
                         'S1 - Teknik Industri', 'S1 - Teknik Informatika',
                         'S1 - Teknik Perkapalan', 'S1 - Teknik Logistik',
-                        'S1 - Sistem Informasi',
-                        'S1 - Kesehatan dan Keselamatan Kerja', 'S1 - Kesehatan Lingkungan'
+                        'S1 - Sistem Informasi'
                     ];
+                    const fikesProdis = [
+                        'S1 - Kesehatan dan Keselamatan Kerja', 
+                        'S1 - Kesehatan Lingkungan',
+                        'S2 - Magister Kesehatan Masyarakat'
+                    ];
+
+                    let febT = 0, febS = 0, febB = 0;
+                    let fstT = 0, fstS = 0, fstB = 0;
+                    let fikesT = 0, fikesS = 0, fikesB = 0;
+
+                    const allProdis = [...febProdis, ...fstProdis, ...fikesProdis];
 
                     allProdis.forEach(prodi => {
                         const slug = prodi.toLowerCase().replace(/[^a-z0-9]/g, '-').replace(/-+/g, '-')
@@ -355,7 +410,29 @@
                         $(`#total-${slug}`).text(total);
                         $(`#sudah-${slug}`).text(sudah);
                         $(`#belum-${slug}`).text(belum);
+
+                        // Accumulate faculty totals
+                        if (febProdis.includes(prodi)) {
+                            febT += total; febS += sudah; febB += belum;
+                        } else if (fstProdis.includes(prodi)) {
+                            fstT += total; fstS += sudah; fstB += belum;
+                        } else if (fikesProdis.includes(prodi)) {
+                            fikesT += total; fikesS += sudah; fikesB += belum;
+                        }
                     });
+
+                    // Update Faculty Summary UI
+                    $('#total-feb-all').text(febT);
+                    $('#sudah-feb-all').text(febS);
+                    $('#belum-feb-all').text(febB);
+
+                    $('#total-fst-all').text(fstT);
+                    $('#sudah-fst-all').text(fstS);
+                    $('#belum-fst-all').text(fstB);
+
+                    $('#total-fikes-all').text(fikesT);
+                    $('#sudah-fikes-all').text(fikesS);
+                    $('#belum-fikes-all').text(fikesB);
                 },
                 error: function(err) {
                     console.error("Gagal memperbarui statistik:", err);
