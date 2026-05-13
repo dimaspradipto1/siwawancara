@@ -26,7 +26,7 @@
                             <span class="d-sm-inline d-none">{{ Auth::user()->name }}</span>
                         </a>
                     </li>
-                    <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
+                    <li class="nav-item ps-3 d-flex align-items-center">
                         <a href="javascript:;" class="nav-link text-body p-0" id="iconNavbarSidenav">
                             <div class="sidenav-toggler-inner">
                                 <i class="sidenav-toggler-line"></i>
@@ -78,51 +78,57 @@
         {{-- Stat Cards --}}
         <div class="row mb-4 g-3">
             {{-- Total Mahasiswa --}}
-            <div class="col-xl-4 col-sm-6">
-                <div class="card h-100" style="border-left: 4px solid #344767; border-radius: 12px;">
-                    <div class="card-body d-flex align-items-center gap-3 py-3">
-                        <div class="d-flex align-items-center justify-content-center rounded-circle text-white"
-                            style="width:56px;height:56px;background:linear-gradient(135deg,#344767,#627594);flex-shrink:0;">
-                            <i class="fas fa-users fa-lg"></i>
-                        </div>
-                        <div>
-                            <p class="text-xs font-weight-bold text-uppercase text-secondary mb-1">Total Mahasiswa</p>
-                            <h4 class="font-weight-bolder mb-0" id="stat-total-mahasiswa">{{ number_format($totalMahasiswa) }}</h4>
+            <div class="col-lg-4 col-md-4 col-sm-6">
+                <a href="{{ route('mahasiswa.index') }}" class="text-decoration-none">
+                    <div class="card h-100 stat-card" style="border-left: 4px solid #344767; border-radius: 12px; transition: all 0.3s ease;">
+                        <div class="card-body d-flex align-items-center gap-2 gap-md-3 py-3">
+                            <div class="d-flex align-items-center justify-content-center rounded-circle text-white"
+                                style="width:48px;height:48px;width:md-56px;height:md-56px;background:linear-gradient(135deg,#344767,#627594);flex-shrink:0;">
+                                <i class="fas fa-users fa-sm fa-md-lg"></i>
+                            </div>
+                            <div class="overflow-hidden">
+                                <p class="text-xxs text-md-xs font-weight-bold text-uppercase text-secondary mb-1 text-truncate">Total Mahasiswa</p>
+                                <h4 class="font-weight-bolder mb-0 fs-6 fs-md-4 text-dark" id="stat-total-mahasiswa">{{ number_format($totalMahasiswa) }}</h4>
+                            </div>
                         </div>
                     </div>
-                </div>
+                </a>
             </div>
 
             {{-- Sudah Wawancara --}}
-            <div class="col-xl-4 col-sm-6">
-                <div class="card h-100" style="border-left: 4px solid #2dce89; border-radius: 12px;">
-                    <div class="card-body d-flex align-items-center gap-3 py-3">
-                        <div class="d-flex align-items-center justify-content-center rounded-circle text-white"
-                            style="width:56px;height:56px;background:linear-gradient(135deg,#2dce89,#1aae6f);flex-shrink:0;">
-                            <i class="fas fa-check-circle fa-lg"></i>
-                        </div>
-                        <div>
-                            <p class="text-xs font-weight-bold text-uppercase text-secondary mb-1">Sudah Wawancara</p>
-                            <h4 class="font-weight-bolder mb-0" id="stat-sudah-wawancara">{{ number_format($sudahWawancara) }}</h4>
+            <div class="col-lg-4 col-md-4 col-sm-6">
+                <a href="{{ route('penilaian.index') }}" class="text-decoration-none">
+                    <div class="card h-100 stat-card" style="border-left: 4px solid #2dce89; border-radius: 12px; transition: all 0.3s ease;">
+                        <div class="card-body d-flex align-items-center gap-2 gap-md-3 py-3">
+                            <div class="d-flex align-items-center justify-content-center rounded-circle text-white"
+                                style="width:48px;height:48px;width:md-56px;height:md-56px;background:linear-gradient(135deg,#2dce89,#1aae6f);flex-shrink:0;">
+                                <i class="fas fa-check-circle fa-sm fa-md-lg"></i>
+                            </div>
+                            <div class="overflow-hidden">
+                                <p class="text-xxs text-md-xs font-weight-bold text-uppercase text-secondary mb-1 text-truncate">Sudah Wawancara</p>
+                                <h4 class="font-weight-bolder mb-0 fs-6 fs-md-4 text-dark" id="stat-sudah-wawancara">{{ number_format($sudahWawancara) }}</h4>
+                            </div>
                         </div>
                     </div>
-                </div>
+                </a>
             </div>
 
             {{-- Belum Wawancara --}}
-            <div class="col-xl-4 col-sm-6">
-                <div class="card h-100" style="border-left: 4px solid #f5365c; border-radius: 12px;">
-                    <div class="card-body d-flex align-items-center gap-3 py-3">
-                        <div class="d-flex align-items-center justify-content-center rounded-circle text-white"
-                            style="width:56px;height:56px;background:linear-gradient(135deg,#f5365c,#c8063d);flex-shrink:0;">
-                            <i class="fas fa-clock fa-lg"></i>
-                        </div>
-                        <div>
-                            <p class="text-xs font-weight-bold text-uppercase text-secondary mb-1">Belum Wawancara</p>
-                            <h4 class="font-weight-bolder mb-0" id="stat-belum-wawancara">{{ number_format($belumWawancara) }}</h4>
+            <div class="col-lg-4 col-md-4 col-sm-6">
+                <a href="{{ route('penilaian.belum') }}" class="text-decoration-none">
+                    <div class="card h-100 stat-card" style="border-left: 4px solid #f5365c; border-radius: 12px; transition: all 0.3s ease;">
+                        <div class="card-body d-flex align-items-center gap-2 gap-md-3 py-3">
+                            <div class="d-flex align-items-center justify-content-center rounded-circle text-white"
+                                style="width:48px;height:48px;width:md-56px;height:md-56px;background:linear-gradient(135deg,#f5365c,#c8063d);flex-shrink:0;">
+                                <i class="fas fa-clock fa-sm fa-md-lg"></i>
+                            </div>
+                            <div class="overflow-hidden">
+                                <p class="text-xxs text-md-xs font-weight-bold text-uppercase text-secondary mb-1 text-truncate">Belum Wawancara</p>
+                                <h4 class="font-weight-bolder mb-0 fs-6 fs-md-4 text-dark" id="stat-belum-wawancara">{{ number_format($belumWawancara) }}</h4>
+                            </div>
                         </div>
                     </div>
-                </div>
+                </a>
             </div>
         </div>
         {{-- End Stat Cards --}}
@@ -130,7 +136,7 @@
         {{-- Faculty Stats --}}
         <div class="row mb-4">
             {{-- FEB --}}
-            <div class="col-lg-4 col-md-6 mb-4">
+            <div class="col-lg-4 col-md-4 mb-4">
                 <div class="card shadow-sm border-0" style="border-radius: 15px; overflow: hidden;">
                     <div class="card-header py-3 d-flex justify-content-between align-items-center"
                         style="background-color: #F5A423;">
@@ -152,9 +158,8 @@
                                 $total = $sudah + $belum;
                                 $slug = Str::slug($prodi);
                             @endphp
-                            <div class="d-flex justify-content-between align-items-center mb-2 p-2 bg-light rounded-3">
-                                <span class="text-xs font-weight-bold text-dark text-truncate"
-                                    style="max-width: 150px;">{{ $prodi }}</span>
+                            <div class="d-flex justify-content-between align-items-start mb-2 p-2 bg-light rounded-3">
+                                <span class="text-xs font-weight-bold text-dark me-2">{{ $prodi }}</span>
                                 <div class="d-flex gap-1">
                                     <span class="badge bg-secondary rounded-pill prodi-total" id="total-{{ $slug }}"
                                         title="Total Mahasiswa">{{ $total }}</span>
@@ -170,7 +175,7 @@
             </div>
 
             {{-- FST --}}
-            <div class="col-lg-4 col-md-6 mb-4">
+            <div class="col-lg-4 col-md-4 mb-4">
                 <div class="card shadow-sm border-0" style="border-radius: 15px; overflow: hidden;">
                     <div class="card-header py-3 d-flex justify-content-between align-items-center"
                         style="background-color: #2C583F;">
@@ -198,9 +203,8 @@
                                 $total = $sudah + $belum;
                                 $slug = Str::slug($prodi);
                             @endphp
-                            <div class="d-flex justify-content-between align-items-center mb-2 p-2 bg-light rounded-3">
-                                <span class="text-xs font-weight-bold text-dark text-truncate"
-                                    style="max-width: 150px;">{{ $prodi }}</span>
+                            <div class="d-flex justify-content-between align-items-start mb-2 p-2 bg-light rounded-3">
+                                <span class="text-xs font-weight-bold text-dark me-2">{{ $prodi }}</span>
                                 <div class="d-flex gap-1">
                                     <span class="badge bg-secondary rounded-pill prodi-total" id="total-{{ $slug }}"
                                         title="Total Mahasiswa">{{ $total }}</span>
@@ -216,7 +220,7 @@
             </div>
 
             {{-- FIKES --}}
-            <div class="col-lg-4 col-md-6 mb-4">
+            <div class="col-lg-4 col-md-4 mb-4">
                 <div class="card shadow-sm border-0" style="border-radius: 15px; overflow: hidden;">
                     <div class="card-header py-3 d-flex justify-content-between align-items-center"
                         style="background-color: #4534A5;">
@@ -238,9 +242,8 @@
                                 $total = $sudah + $belum;
                                 $slug = Str::slug($prodi);
                             @endphp
-                            <div class="d-flex justify-content-between align-items-center mb-2 p-2 bg-light rounded-3">
-                                <span class="text-xs font-weight-bold text-dark text-truncate"
-                                    style="max-width: 150px;">{{ $prodi }}</span>
+                            <div class="d-flex justify-content-between align-items-start mb-2 p-2 bg-light rounded-3">
+                                <span class="text-xs font-weight-bold text-dark me-2">{{ $prodi }}</span>
                                 <div class="d-flex gap-1">
                                     <span class="badge bg-secondary rounded-pill prodi-total" id="total-{{ $slug }}"
                                         title="Total Mahasiswa">{{ $total }}</span>
@@ -307,6 +310,15 @@
 
 
 @push('scripts')
+    <style>
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        }
+        .stat-card {
+            cursor: pointer;
+        }
+    </style>
     @if (app()->environment('production'))
         {!! str_replace('http:', 'https:', $dataTable->scripts()) !!}
     @else
@@ -351,7 +363,7 @@
             });
         }
 
-        // Jalankan setiap 10 detik
-        setInterval(updateDashboardStats, 10000);
+        // Jalankan setiap 1 detik
+        setInterval(updateDashboardStats, 1000);
     </script>
 @endpush

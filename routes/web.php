@@ -52,9 +52,10 @@ Route::middleware(['auth', 'checkrole'])->group(function () {
         ->name('mahasiswa.bulkDelete');
     Route::post('/mahasiswa/delete-all', [MahasiswaController::class, 'deleteAll'])
         ->name('mahasiswa.deleteAll');
-    Route::resource('penilaian', PenilaianController::class);
     Route::post('/penilaian/cariPendaftar', [PenilaianController::class, 'cariPendaftar'])->name('penilaian.cariPendaftar');
     Route::post('/penilaian/checkExisting', [PenilaianController::class, 'checkExisting'])->name('penilaian.checkExisting');
+    Route::get('/penilaian/belum', [PenilaianController::class, 'belumWawancara'])->name('penilaian.belum');
     Route::get('/penilaian/get-stats', [PenilaianController::class, 'getStats'])->name('penilaian.get-stats');
+    Route::resource('penilaian', PenilaianController::class);
     Route::get('/export', [PenilaianController::class, 'export'])->name('export');
 });

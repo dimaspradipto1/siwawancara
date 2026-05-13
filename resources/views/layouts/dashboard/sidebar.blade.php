@@ -40,10 +40,10 @@
             </li>
             @if(auth()->user()->is_admin || auth()->user()->is_timtes)
             <li class="nav-item">
-                <a class="nav-link  " href="{{ route('mahasiswa.index') }}">
+                <a class="nav-link {{ request()->routeIs('mahasiswa.*') ? 'active' : '' }}" href="{{ route('mahasiswa.index') }}">
                     <div
                         class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="fa-solid fa-user-graduate"></i>
+                        <i class="fa-solid fa-user-graduate {{ request()->routeIs('mahasiswa.*') ? 'text-white' : 'text-dark' }}"></i>
                     </div>
                     <span class="nav-link-text ms-1 text-capitalize">mahasiswa</span>
                 </a>
@@ -51,19 +51,28 @@
             @endif
 
             <li class="nav-item">
-                <a class="nav-link  " href="{{ route('penilaian.create') }}">
+                <a class="nav-link {{ request()->routeIs('penilaian.belum') ? 'active' : '' }}" href="{{ route('penilaian.belum') }}">
                     <div
                         class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-user-clock {{ request()->routeIs('penilaian.belum') ? 'text-white' : 'text-dark' }}"></i>
+                    </div>
+                    <span class="nav-link-text ms-1 text-capitalize">Belum Wawancara</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link {{ request()->routeIs('penilaian.create') ? 'active' : '' }}" href="{{ route('penilaian.create') }}">
+                    <div
+                        class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="fa-solid fa-star {{ request()->routeIs('penilaian.create') ? 'text-white' : 'text-dark' }}"></i>
                     </div>
                     <span class="nav-link-text ms-1">form penilaian</span>
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link  " href="{{ route('penilaian.index') }}">
+                <a class="nav-link {{ request()->routeIs('penilaian.index') ? 'active' : '' }}" href="{{ route('penilaian.index') }}">
                     <div
                         class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="fa-solid fa-table"></i>
+                        <i class="fa-solid fa-table {{ request()->routeIs('penilaian.index') ? 'text-white' : 'text-dark' }}"></i>
                     </div>
                     <span class="nav-link-text ms-1 text-capitalize">data penilaian</span>
                 </a>

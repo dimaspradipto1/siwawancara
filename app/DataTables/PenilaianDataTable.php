@@ -82,7 +82,7 @@ class PenilaianDataTable extends DataTable
             $query->where('user_id', Auth::user()->id);
         }
 
-        return $query;
+        return $query->oldest();
     }
 
     /**
@@ -94,7 +94,7 @@ class PenilaianDataTable extends DataTable
             ->setTableId('penilaian-table')
             ->columns($this->getColumns())
             ->minifiedAjax(route('penilaian.index'))
-            ->orderBy(1)
+            ->orderBy(0, 'asc')
             ->selectStyleSingle()
             ->scrollX(true)
             ->buttons([

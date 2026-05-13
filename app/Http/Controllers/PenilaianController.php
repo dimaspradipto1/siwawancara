@@ -209,4 +209,10 @@ class PenilaianController extends Controller
             'prodiBelumCounts' => $prodiBelumCounts
         ]);
     }
+
+    public function belumWawancara()
+    {
+        $mahasiswas = Mahasiswa::doesntHave('penilaians')->get();
+        return view('penilaian.belum', compact('mahasiswas'));
+    }
 }
