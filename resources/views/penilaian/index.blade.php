@@ -13,13 +13,13 @@
                 <h6 class="font-weight-bolder mb-0">Penilaian</h6>
             </nav>
             <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
-                <div class="ms-md-auto pe-md-3 d-flex align-items-center">
+                {{-- <div class="ms-md-auto pe-md-3 d-flex align-items-center">
                     <div class="input-group">
                         <span class="input-group-text text-body"><i class="fas fa-search" aria-hidden="true"></i></span>
                         <input type="text" class="form-control" placeholder="Type here...">
                     </div>
-                </div>
-                <ul class="navbar-nav  justify-content-end">
+                </div> --}}
+                <ul class="navbar-nav justify-content-end ms-auto">
                     <li class="nav-item d-flex align-items-center">
                         <a href="javascript:;" class="nav-link text-body font-weight-bold px-0">
                             <i class="fa fa-user me-sm-1"></i>
@@ -35,7 +35,7 @@
                             </div>
                         </a>
                     </li>
-                    <li class="nav-item px-3 d-flex align-items-center">
+                    {{-- <li class="nav-item px-3 d-flex align-items-center">
                         <a href="#" class="nav-link text-body p-0">
                             <i class="fa fa-cog fixed-plugin-button-nav cursor-pointer"></i>
                         </a>
@@ -65,7 +65,7 @@
                                 </a>
                             </li>
                         </ul>
-                    </li>
+                    </li> --}}
                 </ul>
             </div>
         </div>
@@ -138,52 +138,49 @@
             {{-- FEB --}}
             <div class="col-lg-4 col-md-4 mb-4">
                 <div class="card shadow-sm border-0" style="border-radius: 15px; overflow: hidden;">
+                    @php
+                        $febProdis = ['S1 - S1 Manajemen', 'S1 - S1 Akuntansi', 'S2 - S2 Manajemen'];
+                        $febTotalAll = 0;
+                        $febSudahAll = 0;
+                        $febBelumAll = 0;
+                        foreach ($febProdis as $prodi) {
+                            $sudah = $prodiCounts[$prodi] ?? 0;
+                            $belum = $prodiBelumCounts[$prodi] ?? 0;
+                            $febTotalAll += ($sudah + $belum);
+                            $febSudahAll += $sudah;
+                            $febBelumAll += $belum;
+                        }
+                    @endphp
                     <div class="card-header py-3 d-flex justify-content-between align-items-center"
-                        style="background-color: #F5A423;">
-                        <h6 class="text-white mb-0 font-weight-bold">FEB</h6>
-                        <div class="text-xs text-white-50">
-                            <span class="badge bg-secondary me-1">T</span> Total
-                            <span class="badge bg-success ms-2 me-1">S</span> Sudah
-                            <span class="badge bg-danger text-white ms-2">B</span> Belum
+                        style="background-color: #F5A423; cursor: pointer;" data-bs-toggle="collapse" data-bs-target="#collapseFEB" aria-expanded="false">
+                        <h6 class="text-white mb-0 font-weight-bold">FEB <i class="fas fa-chevron-down ms-2 text-xs"></i></h6>
+                        <div class="d-flex gap-1">
+                            <span class="badge bg-secondary rounded-pill" title="Total"><span class="me-1 opacity-7">T:</span><span id="total-feb-all">{{ $febTotalAll }}</span></span>
+                            <span class="badge bg-success rounded-pill" title="Sudah"><span class="me-1 opacity-7">S:</span><span id="sudah-feb-all">{{ $febSudahAll }}</span></span>
+                            <span class="badge bg-danger text-white rounded-pill" title="Belum"><span class="me-1 opacity-7">B:</span><span id="belum-feb-all">{{ $febBelumAll }}</span></span>
                         </div>
                     </div>
-                    <div class="card-body p-3">
-                        @php
-                            $febProdis = ['S1 - S1 Manajemen', 'S1 - S1 Akuntansi', 'S2 - S2 Manajemen'];
-                            $febTotalAll = 0;
-                            $febSudahAll = 0;
-                            $febBelumAll = 0;
-                        @endphp
-                        @foreach ($febProdis as $prodi)
-                            @php
-                                $sudah = $prodiCounts[$prodi] ?? 0;
-                                $belum = $prodiBelumCounts[$prodi] ?? 0;
-                                $total = $sudah + $belum;
-                                $febTotalAll += $total;
-                                $febSudahAll += $sudah;
-                                $febBelumAll += $belum;
-                                $slug = Str::slug($prodi);
-                            @endphp
-                            <div class="d-flex justify-content-between align-items-start mb-2 p-2 bg-light rounded-3">
-                                <span class="text-xs font-weight-bold text-dark me-2">{{ $prodi }}</span>
-                                <div class="d-flex gap-1">
-                                    <span class="badge bg-secondary rounded-pill prodi-total" id="total-{{ $slug }}"
-                                        title="Total Mahasiswa">{{ $total }}</span>
-                                    <span class="badge bg-success rounded-pill prodi-sudah" id="sudah-{{ $slug }}"
-                                        title="Sudah Wawancara">{{ $sudah }}</span>
-                                    <span class="badge bg-danger text-white rounded-pill prodi-belum"
-                                        id="belum-{{ $slug }}" title="Belum Wawancara">{{ $belum }}</span>
+                    <div class="collapse" id="collapseFEB">
+                        <div class="card-body p-3">
+                            @foreach ($febProdis as $prodi)
+                                @php
+                                    $sudah = $prodiCounts[$prodi] ?? 0;
+                                    $belum = $prodiBelumCounts[$prodi] ?? 0;
+                                    $total = $sudah + $belum;
+                                    $slug = Str::slug($prodi);
+                                @endphp
+                                <div class="d-flex justify-content-between align-items-start mb-2 p-2 bg-light rounded-3">
+                                    <span class="text-xs font-weight-bold text-dark me-2">{{ $prodi }}</span>
+                                    <div class="d-flex gap-1">
+                                        <span class="badge bg-secondary rounded-pill prodi-total" id="total-{{ $slug }}"
+                                            title="Total Mahasiswa">{{ $total }}</span>
+                                        <span class="badge bg-success rounded-pill prodi-sudah" id="sudah-{{ $slug }}"
+                                            title="Sudah Wawancara">{{ $sudah }}</span>
+                                        <span class="badge bg-danger text-white rounded-pill prodi-belum"
+                                            id="belum-{{ $slug }}" title="Belum Wawancara">{{ $belum }}</span>
+                                    </div>
                                 </div>
-                            </div>
-                        @endforeach
-                        {{-- Total FEB --}}
-                        <div class="d-flex justify-content-between align-items-center mt-3 p-2 bg-dark rounded-3">
-                            <span class="text-xs font-weight-bold text-white me-2">TOTAL FEB</span>
-                            <div class="d-flex gap-1">
-                                <span class="badge bg-secondary rounded-pill" id="total-feb-all">{{ $febTotalAll }}</span>
-                                <span class="badge bg-success rounded-pill" id="sudah-feb-all">{{ $febSudahAll }}</span>
-                                <span class="badge bg-danger text-white rounded-pill" id="belum-feb-all">{{ $febBelumAll }}</span>
-                            </div>
+                            @endforeach
                         </div>
                     </div>
                 </div>
@@ -192,58 +189,55 @@
             {{-- FST --}}
             <div class="col-lg-4 col-md-4 mb-4">
                 <div class="card shadow-sm border-0" style="border-radius: 15px; overflow: hidden;">
+                    @php
+                        $fstProdis = [
+                            'S1 - Teknik Industri',
+                            'S1 - Teknik Informatika',
+                            'S1 - Teknik Perkapalan',
+                            'S1 - Teknik Logistik',
+                            'S1 - Sistem Informasi',
+                        ];
+                        $fstTotalAll = 0;
+                        $fstSudahAll = 0;
+                        $fstBelumAll = 0;
+                        foreach ($fstProdis as $prodi) {
+                            $sudah = $prodiCounts[$prodi] ?? 0;
+                            $belum = $prodiBelumCounts[$prodi] ?? 0;
+                            $fstTotalAll += ($sudah + $belum);
+                            $fstSudahAll += $sudah;
+                            $fstBelumAll += $belum;
+                        }
+                    @endphp
                     <div class="card-header py-3 d-flex justify-content-between align-items-center"
-                        style="background-color: #2C583F;">
-                        <h6 class="text-white mb-0 font-weight-bold">FST</h6>
-                        <div class="text-xs text-white-50">
-                            <span class="badge bg-secondary me-1">T</span> Total
-                            <span class="badge bg-success ms-2 me-1">S</span> Sudah
-                            <span class="badge bg-danger text-white ms-2">B</span> Belum
+                        style="background-color: #2C583F; cursor: pointer;" data-bs-toggle="collapse" data-bs-target="#collapseFST" aria-expanded="false">
+                        <h6 class="text-white mb-0 font-weight-bold">FST <i class="fas fa-chevron-down ms-2 text-xs"></i></h6>
+                        <div class="d-flex gap-1">
+                            <span class="badge bg-secondary rounded-pill" title="Total"><span class="me-1 opacity-7">T:</span><span id="total-fst-all">{{ $fstTotalAll }}</span></span>
+                            <span class="badge bg-success rounded-pill" title="Sudah"><span class="me-1 opacity-7">S:</span><span id="sudah-fst-all">{{ $fstSudahAll }}</span></span>
+                            <span class="badge bg-danger text-white rounded-pill" title="Belum"><span class="me-1 opacity-7">B:</span><span id="belum-fst-all">{{ $fstBelumAll }}</span></span>
                         </div>
                     </div>
-                    <div class="card-body p-3">
-                        @php
-                            $fstProdis = [
-                                'S1 - Teknik Industri',
-                                'S1 - Teknik Informatika',
-                                'S1 - Teknik Perkapalan',
-                                'S1 - Teknik Logistik',
-                                'S1 - Sistem Informasi',
-                            ];
-                            $fstTotalAll = 0;
-                            $fstSudahAll = 0;
-                            $fstBelumAll = 0;
-                        @endphp
-                        @foreach ($fstProdis as $prodi)
-                            @php
-                                $sudah = $prodiCounts[$prodi] ?? 0;
-                                $belum = $prodiBelumCounts[$prodi] ?? 0;
-                                $total = $sudah + $belum;
-                                $fstTotalAll += $total;
-                                $fstSudahAll += $sudah;
-                                $fstBelumAll += $belum;
-                                $slug = Str::slug($prodi);
-                            @endphp
-                            <div class="d-flex justify-content-between align-items-start mb-2 p-2 bg-light rounded-3">
-                                <span class="text-xs font-weight-bold text-dark me-2">{{ $prodi }}</span>
-                                <div class="d-flex gap-1">
-                                    <span class="badge bg-secondary rounded-pill prodi-total" id="total-{{ $slug }}"
-                                        title="Total Mahasiswa">{{ $total }}</span>
-                                    <span class="badge bg-success rounded-pill prodi-sudah" id="sudah-{{ $slug }}"
-                                        title="Sudah Wawancara">{{ $sudah }}</span>
-                                    <span class="badge bg-danger text-white rounded-pill prodi-belum"
-                                        id="belum-{{ $slug }}" title="Belum Wawancara">{{ $belum }}</span>
+                    <div class="collapse" id="collapseFST">
+                        <div class="card-body p-3">
+                            @foreach ($fstProdis as $prodi)
+                                @php
+                                    $sudah = $prodiCounts[$prodi] ?? 0;
+                                    $belum = $prodiBelumCounts[$prodi] ?? 0;
+                                    $total = $sudah + $belum;
+                                    $slug = Str::slug($prodi);
+                                @endphp
+                                <div class="d-flex justify-content-between align-items-start mb-2 p-2 bg-light rounded-3">
+                                    <span class="text-xs font-weight-bold text-dark me-2">{{ $prodi }}</span>
+                                    <div class="d-flex gap-1">
+                                        <span class="badge bg-secondary rounded-pill prodi-total" id="total-{{ $slug }}"
+                                            title="Total Mahasiswa">{{ $total }}</span>
+                                        <span class="badge bg-success rounded-pill prodi-sudah" id="sudah-{{ $slug }}"
+                                            title="Sudah Wawancara">{{ $sudah }}</span>
+                                        <span class="badge bg-danger text-white rounded-pill prodi-belum"
+                                            id="belum-{{ $slug }}" title="Belum Wawancara">{{ $belum }}</span>
+                                    </div>
                                 </div>
-                            </div>
-                        @endforeach
-                        {{-- Total FST --}}
-                        <div class="d-flex justify-content-between align-items-center mt-3 p-2 bg-dark rounded-3">
-                            <span class="text-xs font-weight-bold text-white me-2">TOTAL FST</span>
-                            <div class="d-flex gap-1">
-                                <span class="badge bg-secondary rounded-pill" id="total-fst-all">{{ $fstTotalAll }}</span>
-                                <span class="badge bg-success rounded-pill" id="sudah-fst-all">{{ $fstSudahAll }}</span>
-                                <span class="badge bg-danger text-white rounded-pill" id="belum-fst-all">{{ $fstBelumAll }}</span>
-                            </div>
+                            @endforeach
                         </div>
                     </div>
                 </div>
@@ -252,52 +246,49 @@
             {{-- FIKES --}}
             <div class="col-lg-4 col-md-4 mb-4">
                 <div class="card shadow-sm border-0" style="border-radius: 15px; overflow: hidden;">
+                    @php
+                        $fikesProdis = ['S1 - Kesehatan dan Keselamatan Kerja', 'S1 - Kesehatan Lingkungan', 'S2 - Magister Kesehatan Masyarakat'];
+                        $fikesTotalAll = 0;
+                        $fikesSudahAll = 0;
+                        $fikesBelumAll = 0;
+                        foreach ($fikesProdis as $prodi) {
+                            $sudah = $prodiCounts[$prodi] ?? 0;
+                            $belum = $prodiBelumCounts[$prodi] ?? 0;
+                            $fikesTotalAll += ($sudah + $belum);
+                            $fikesSudahAll += $sudah;
+                            $fikesBelumAll += $belum;
+                        }
+                    @endphp
                     <div class="card-header py-3 d-flex justify-content-between align-items-center"
-                        style="background-color: #4534A5;">
-                        <h6 class="text-white mb-0 font-weight-bold">FIKES</h6>
-                        <div class="text-xs text-white-50">
-                            <span class="badge bg-secondary me-1">T</span> Total
-                            <span class="badge bg-success ms-2 me-1">S</span> Sudah
-                            <span class="badge bg-danger text-white ms-2">B</span> Belum
+                        style="background-color: #4534A5; cursor: pointer;" data-bs-toggle="collapse" data-bs-target="#collapseFIKES" aria-expanded="false">
+                        <h6 class="text-white mb-0 font-weight-bold">FIKES <i class="fas fa-chevron-down ms-2 text-xs"></i></h6>
+                        <div class="d-flex gap-1">
+                            <span class="badge bg-secondary rounded-pill" title="Total"><span class="me-1 opacity-7">T:</span><span id="total-fikes-all">{{ $fikesTotalAll }}</span></span>
+                            <span class="badge bg-success rounded-pill" title="Sudah"><span class="me-1 opacity-7">S:</span><span id="sudah-fikes-all">{{ $fikesSudahAll }}</span></span>
+                            <span class="badge bg-danger text-white rounded-pill" title="Belum"><span class="me-1 opacity-7">B:</span><span id="belum-fikes-all">{{ $fikesBelumAll }}</span></span>
                         </div>
                     </div>
-                    <div class="card-body p-3">
-                        @php
-                            $fikesProdis = ['S1 - Kesehatan dan Keselamatan Kerja', 'S1 - Kesehatan Lingkungan', 'S2 - Magister Kesehatan Masyarakat'];
-                            $fikesTotalAll = 0;
-                            $fikesSudahAll = 0;
-                            $fikesBelumAll = 0;
-                        @endphp
-                        @foreach ($fikesProdis as $prodi)
-                            @php
-                                $sudah = $prodiCounts[$prodi] ?? 0;
-                                $belum = $prodiBelumCounts[$prodi] ?? 0;
-                                $total = $sudah + $belum;
-                                $fikesTotalAll += $total;
-                                $fikesSudahAll += $sudah;
-                                $fikesBelumAll += $belum;
-                                $slug = Str::slug($prodi);
-                            @endphp
-                            <div class="d-flex justify-content-between align-items-start mb-2 p-2 bg-light rounded-3">
-                                <span class="text-xs font-weight-bold text-dark me-2">{{ $prodi }}</span>
-                                <div class="d-flex gap-1">
-                                    <span class="badge bg-secondary rounded-pill prodi-total" id="total-{{ $slug }}"
-                                        title="Total Mahasiswa">{{ $total }}</span>
-                                    <span class="badge bg-success rounded-pill prodi-sudah" id="sudah-{{ $slug }}"
-                                        title="Sudah Wawancara">{{ $sudah }}</span>
-                                    <span class="badge bg-danger text-white rounded-pill prodi-belum"
-                                        id="belum-{{ $slug }}" title="Belum Wawancara">{{ $belum }}</span>
+                    <div class="collapse" id="collapseFIKES">
+                        <div class="card-body p-3">
+                            @foreach ($fikesProdis as $prodi)
+                                @php
+                                    $sudah = $prodiCounts[$prodi] ?? 0;
+                                    $belum = $prodiBelumCounts[$prodi] ?? 0;
+                                    $total = $sudah + $belum;
+                                    $slug = Str::slug($prodi);
+                                @endphp
+                                <div class="d-flex justify-content-between align-items-start mb-2 p-2 bg-light rounded-3">
+                                    <span class="text-xs font-weight-bold text-dark me-2">{{ $prodi }}</span>
+                                    <div class="d-flex gap-1">
+                                        <span class="badge bg-secondary rounded-pill prodi-total" id="total-{{ $slug }}"
+                                            title="Total Mahasiswa">{{ $total }}</span>
+                                        <span class="badge bg-success rounded-pill prodi-sudah" id="sudah-{{ $slug }}"
+                                            title="Sudah Wawancara">{{ $sudah }}</span>
+                                        <span class="badge bg-danger text-white rounded-pill prodi-belum"
+                                            id="belum-{{ $slug }}" title="Belum Wawancara">{{ $belum }}</span>
+                                    </div>
                                 </div>
-                            </div>
-                        @endforeach
-                        {{-- Total FIKES --}}
-                        <div class="d-flex justify-content-between align-items-center mt-3 p-2 bg-dark rounded-3">
-                            <span class="text-xs font-weight-bold text-white me-2">TOTAL FIKES</span>
-                            <div class="d-flex gap-1">
-                                <span class="badge bg-secondary rounded-pill" id="total-fikes-all">{{ $fikesTotalAll }}</span>
-                                <span class="badge bg-success rounded-pill" id="sudah-fikes-all">{{ $fikesSudahAll }}</span>
-                                <span class="badge bg-danger text-white rounded-pill" id="belum-fikes-all">{{ $fikesBelumAll }}</span>
-                            </div>
+                            @endforeach
                         </div>
                     </div>
                 </div>
@@ -309,30 +300,32 @@
         <div class="row mb-4">
             <div class="col-12">
                 <div class="card shadow-sm border-0" style="border-radius: 15px; overflow: hidden;">
-                    <div class="card-header py-3 d-flex justify-content-between align-items-center" style="background-color: #17a2b8;">
-                        <h6 class="text-white mb-0 font-weight-bold">Rekapitulasi Interviewer</h6>
+                    <div class="card-header py-3 d-flex justify-content-between align-items-center" style="background-color: #17a2b8; cursor: pointer;" data-bs-toggle="collapse" data-bs-target="#collapseRekapInterviewer" aria-expanded="false">
+                        <h6 class="text-white mb-0 font-weight-bold">Rekapitulasi Interviewer <i class="fas fa-chevron-down ms-2 text-xs"></i></h6>
                     </div>
-                    <div class="card-body p-3">
-                        <div class="row" id="interviewer-stats-container">
-                            @foreach ($interviewerStats as $stat)
-                                <div class="col-md-4 col-sm-6 mb-3">
-                                    <div class="p-3 bg-light rounded-3 border h-100">
-                                        <div class="d-flex justify-content-between align-items-center mb-2">
-                                            <span class="text-sm font-weight-bold text-dark text-truncate" title="{{ $stat['name'] }}">{{ $stat['name'] }}</span>
-                                            <span class="badge bg-primary rounded-pill">{{ $stat['total'] }}</span>
-                                        </div>
-                                        <hr class="my-2">
-                                        <div class="d-flex flex-column gap-1">
-                                            @foreach ($stat['prodis'] as $prodi)
-                                                <div class="d-flex justify-content-between align-items-center">
-                                                    <span class="text-xs text-secondary text-truncate" title="{{ $prodi['prodi'] }}"><i class="fas fa-chevron-right me-1 text-xxs"></i> {{ $prodi['prodi'] }}</span>
-                                                    <span class="text-xs font-weight-bold text-dark">{{ $prodi['count'] }}</span>
-                                                </div>
-                                            @endforeach
+                    <div class="collapse" id="collapseRekapInterviewer">
+                        <div class="card-body p-3">
+                            <div class="row" id="interviewer-stats-container">
+                                @foreach ($interviewerStats as $stat)
+                                    <div class="col-md-4 col-sm-6 mb-3">
+                                        <div class="p-3 bg-light rounded-3 border h-100">
+                                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                                <span class="text-sm font-weight-bold text-dark text-truncate" title="{{ $stat['name'] }}">{{ $stat['name'] }}</span>
+                                                <span class="badge bg-primary rounded-pill">{{ $stat['total'] }}</span>
+                                            </div>
+                                            <hr class="my-2">
+                                            <div class="d-flex flex-column gap-1">
+                                                @foreach ($stat['prodis'] as $prodi)
+                                                    <div class="d-flex justify-content-between align-items-center">
+                                                        <span class="text-xs text-secondary text-truncate" title="{{ $prodi['prodi'] }}"><i class="fas fa-chevron-right me-1 text-xxs"></i> {{ $prodi['prodi'] }}</span>
+                                                        <span class="text-xs font-weight-bold text-dark">{{ $prodi['count'] }}</span>
+                                                    </div>
+                                                @endforeach
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            @endforeach
+                                @endforeach
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -472,7 +465,7 @@
                     // Update Interviewer Stats
                     if (data.interviewerStats) {
                         let interviewerHtml = '';
-                        data.interviewerStats.forEach(stat => {
+                        data.interviewerStats.forEach((stat, index) => {
                             let prodiHtml = '';
                             stat.prodis.forEach(prodi => {
                                 prodiHtml += `
@@ -482,7 +475,7 @@
                                     </div>
                                 `;
                             });
-
+                            
                             interviewerHtml += `
                                 <div class="col-md-4 col-sm-6 mb-3">
                                     <div class="p-3 bg-light rounded-3 border h-100">

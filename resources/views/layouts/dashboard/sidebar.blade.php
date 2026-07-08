@@ -79,7 +79,7 @@
             </li>
 
             @if(auth()->user()->is_admin)
-            <li class="nav-item mt-3">
+            <li class="nav-item mt-3 sidenav-mini-hide">
                 <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Account pages</h6>
             </li>
             <li class="nav-item">
@@ -112,29 +112,18 @@
                 </a>
             </li>
             @endif
-            
-            <div class="sidenav-footer mx-3 ">
-                <div class="card card-background shadow-none card-background-mask-secondary" id="sidenavCard">
-                    <div class="full-background"
-                        style="background-image: url('../assets/img/curved-images/white-curved.jpeg')"></div>
-                    {{-- <div class="card-body text-start p-3 w-100">
+            <li class="nav-item mt-3 sidenav-mini-hide">
+                <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Lainnya</h6>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('logout') }}">
                     <div
-                        class="icon icon-shape icon-sm bg-white shadow text-center mb-3 d-flex align-items-center justify-content-center border-radius-md">
-                        <i class="ni ni-diamond text-dark text-gradient text-lg top-0" aria-hidden="true"
-                            id="sidenavCardIcon"></i>
+                        class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="fa-solid fa-right-from-bracket text-danger"></i>
                     </div>
-                    <div class="docs-info">
-                        <h6 class="text-white up mb-0">Need help?</h6>
-                        <p class="text-xs font-weight-bold">Please check our docs</p>
-                        <a href="https://www.creative-tim.com/learning-lab/bootstrap/license/soft-ui-dashboard"
-                            target="_blank" class="btn btn-white btn-sm w-100 mb-0">Documentation</a>
-                    </div>
-                </div> --}}
-                </div>
-                <a class="btn bg-gradient-primary mt-4 w-100"
-                    href="{{ route('logout') }}"
-                    type="button">logout</a>
-            </div>
+                    <span class="nav-link-text ms-1 text-danger font-weight-bold">Logout</span>
+                </a>
+            </li>
         </ul>
     </div>
     {{-- <div class="sidenav-footer mx-3 ">

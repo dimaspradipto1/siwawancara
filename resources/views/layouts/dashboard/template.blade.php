@@ -32,6 +32,22 @@
             .main-content {
                 overflow-y: hidden !important;
             }
+            .g-sidenav-hidden .navbar-vertical .sidenav-mini-hide {
+                opacity: 0;
+                width: 0;
+                height: 0;
+                overflow: hidden;
+                margin: 0 !important;
+                padding: 0 !important;
+            }
+            .g-sidenav-hidden .navbar-vertical:hover .sidenav-mini-hide {
+                opacity: 1;
+                width: auto;
+                height: auto;
+                margin-top: 1rem !important;
+                padding-left: 1.5rem !important;
+                margin-left: 0.5rem !important;
+            }
         }
     </style>
 </head>
@@ -254,6 +270,19 @@
     <script src="https://cdn.datatables.net/2.3.4/js/dataTables.js"></script>
     <script src="https://cdn.datatables.net/2.3.4/js/dataTables.bootstrap5.js"></script>
     {{-- end datatables --}}
+
+    {{-- Fix Sidebar Toggle --}}
+    <script>
+        $(document).ready(function() {
+            $('#iconNavbarSidenav').on('click', function(e) {
+                e.preventDefault();
+                $('body').toggleClass('g-sidenav-pinned');
+                if ($(window).width() >= 1200) {
+                    $('body').toggleClass('g-sidenav-hidden');
+                }
+            });
+        });
+    </script>
     @stack('scripts')
     @stack('style')
 </body>
