@@ -76,7 +76,7 @@
             <div class="col-12">
                 <div class="card mb-4">
                     <div class="d-flex justify-content-end">
-                        <a href="{{ route('penilaian.index') }}" class="btn btn-danger text-white text-capitalize"><i
+                        <a href="{{ route('penilaian.index') }}" class="btn btn-uis-green text-white text-capitalize"><i
                                 class="fa-solid fa-arrow-left"></i> Kembali ke halaman penilaian</a>
                     </div>
                     <div class="card-header pb-0">
@@ -92,108 +92,142 @@
                                     id="pendaftarForm">
                                     @csrf
 
-                                    <table class="table mb-3">
-                                        <tbody>
-                                            <tr>
-                                                <td class="text-uppercase font-weight-bold" style="width: 10%;">Kode
-                                                    Pendaftar</td>
-                                                <td>
-                                                    <input type="number" class="form-control" name="kode_pendaftar"
+                                    <div class="data-peserta-form">
+
+                                    <div class="row mb-3 align-items-center">
+                                        <div class="col-md-3 col-12 mb-2 mb-md-0">
+                                            <label class="text-uppercase font-weight-bold mb-0">Kode
+                                                    Pendaftar</label>
+                                        </div>
+                                        <div class="col-md-9 col-12">
+                                            <input type="number" class="form-control" name="kode_pendaftar"
                                                         id="kode_pendaftar" placeholder="Kode Pendaftar"
                                                         style="max-width: 800px;" autocomplete="off">
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="text-uppercase font-weight-bold">Mahasiswa ID</td>
-                                                <td>
-                                                    <input type="text" class="form-control" name="mahasiswa_id"
+                                        </div>
+                                    </div>
+
+                                    <div class="row mb-3 align-items-center">
+                                        <div class="col-md-3 col-12 mb-2 mb-md-0">
+                                            <label class="text-uppercase font-weight-bold mb-0">Mahasiswa ID</label>
+                                        </div>
+                                        <div class="col-md-9 col-12">
+                                            <input type="text" class="form-control" name="mahasiswa_id"
                                                         id="mahasiswa_id" style="max-width: 800px;" readonly>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="text-uppercase font-weight-bold">Nama Pendaftar</td>
-                                                <td>
-                                                    <input type="text" class="form-control" name="nama_mahasiswa"
+                                        </div>
+                                    </div>
+
+                                    <div class="row mb-3 align-items-center">
+                                        <div class="col-md-3 col-12 mb-2 mb-md-0">
+                                            <label class="text-uppercase font-weight-bold mb-0">Nama Pendaftar</label>
+                                        </div>
+                                        <div class="col-md-9 col-12">
+                                            <input type="text" class="form-control" name="nama_mahasiswa"
                                                         placeholder="nama pendaftar" id="nama_mahasiswa"
                                                         style="max-width: 800px;" readonly>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="text-uppercase font-weight-bold">Jalur Pendaftar</td>
-                                                <td>
-                                                    <input type="text" class="form-control" name="jalur_pendaftar"
+                                        </div>
+                                    </div>
+
+                                    <div class="row mb-3 align-items-center">
+                                        <div class="col-md-3 col-12 mb-2 mb-md-0">
+                                            <label class="text-uppercase font-weight-bold mb-0">Jalur Pendaftar</label>
+                                        </div>
+                                        <div class="col-md-9 col-12">
+                                            <input type="text" class="form-control" name="jalur_pendaftar"
                                                         id="jalur_pendaftar" placeholder="jalur pendaftar"
                                                         style="max-width: 800px;" readonly>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="text-uppercase font-weight-bold">Sistem Kuliah</td>
-                                                <td>
-                                                    <input type="text" class="form-control" name="sistem_kuliah"
+                                        </div>
+                                    </div>
+
+                                    <div class="row mb-3 align-items-center">
+                                        <div class="col-md-3 col-12 mb-2 mb-md-0">
+                                            <label class="text-uppercase font-weight-bold mb-0">Sistem Kuliah</label>
+                                        </div>
+                                        <div class="col-md-9 col-12">
+                                            <input type="text" class="form-control" name="sistem_kuliah"
                                                         id="sistem_kuliah" style="max-width: 800px;" readonly>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="text-uppercase font-weight-bold">Prodi Pilihan 1</td>
-                                                <td>
-                                                    <input type="text" class="form-control" name="prodi_pilihan1"
+                                        </div>
+                                    </div>
+
+                                    <div class="row mb-3 align-items-center">
+                                        <div class="col-md-3 col-12 mb-2 mb-md-0">
+                                            <label class="text-uppercase font-weight-bold mb-0">Prodi Pilihan 1</label>
+                                        </div>
+                                        <div class="col-md-9 col-12">
+                                            <input type="text" class="form-control" name="prodi_pilihan1"
                                                         id="prodi_pilihan1" placeholder="prodi pilihan 1"
                                                         style="max-width: 800px;" readonly>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="text-uppercase font-weight-bold">Prodi Pilihan 2</td>
-                                                <td>
-                                                    <input type="text" class="form-control" name="prodi_pilihan2"
+                                        </div>
+                                    </div>
+
+                                    <div class="row mb-3 align-items-center">
+                                        <div class="col-md-3 col-12 mb-2 mb-md-0">
+                                            <label class="text-uppercase font-weight-bold mb-0">Prodi Pilihan 2</label>
+                                        </div>
+                                        <div class="col-md-9 col-12">
+                                            <input type="text" class="form-control" name="prodi_pilihan2"
                                                         id="prodi_pilihan2" placeholder="prodi pilihan 2"
                                                         style="max-width: 800px;" readonly>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="text-uppercase font-weight-bold">Jenis Kelamin</td>
-                                                <td>
-                                                    <input type="text" class="form-control" name="jk"
+                                        </div>
+                                    </div>
+
+                                    <div class="row mb-3 align-items-center">
+                                        <div class="col-md-3 col-12 mb-2 mb-md-0">
+                                            <label class="text-uppercase font-weight-bold mb-0">Jenis Kelamin</label>
+                                        </div>
+                                        <div class="col-md-9 col-12">
+                                            <input type="text" class="form-control" name="jk"
                                                         id="jk" placeholder="jenis kelamin"
                                                         style="max-width: 800px;" readonly>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="text-uppercase font-weight-bold">Nomor HP</td>
-                                                <td>
-                                                    <input type="text" class="form-control" name="nowa"
+                                        </div>
+                                    </div>
+
+                                    <div class="row mb-3 align-items-center">
+                                        <div class="col-md-3 col-12 mb-2 mb-md-0">
+                                            <label class="text-uppercase font-weight-bold mb-0">Nomor HP</label>
+                                        </div>
+                                        <div class="col-md-9 col-12">
+                                            <input type="text" class="form-control" name="nowa"
                                                         id="nowa" placeholder="no hp" style="max-width: 800px;"
                                                         readonly>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="text-uppercase font-weight-bold">Email</td>
-                                                <td>
-                                                    <input type="email" class="form-control" name="email"
+                                        </div>
+                                    </div>
+
+                                    <div class="row mb-3 align-items-center">
+                                        <div class="col-md-3 col-12 mb-2 mb-md-0">
+                                            <label class="text-uppercase font-weight-bold mb-0">Email</label>
+                                        </div>
+                                        <div class="col-md-9 col-12">
+                                            <input type="email" class="form-control" name="email"
                                                         id="email" placeholder="email" style="max-width: 800px;"
                                                         readonly>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="text-uppercase font-weight-bold">Alamat</td>
-                                                <td>
-                                                    <textarea name="alamat" id="alamat" cols="30" rows="3" class="form-control"
+                                        </div>
+                                    </div>
+
+                                    <div class="row mb-3 align-items-center">
+                                        <div class="col-md-3 col-12 mb-2 mb-md-0">
+                                            <label class="text-uppercase font-weight-bold mb-0">Alamat</label>
+                                        </div>
+                                        <div class="col-md-9 col-12">
+                                            <textarea name="alamat" id="alamat" cols="30" rows="3" class="form-control"
                                                         style="max-width: 800px;" placeholder="alamat" readonly></textarea>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="text-uppercase font-weight-bold">Status Pekerjaan</td>
-                                                <td>
-                                                    <input type="text" class="form-control" name="status_pekerjaan"
+                                        </div>
+                                    </div>
+
+                                    <div class="row mb-3 align-items-center">
+                                        <div class="col-md-3 col-12 mb-2 mb-md-0">
+                                            <label class="text-uppercase font-weight-bold mb-0">Status Pekerjaan</label>
+                                        </div>
+                                        <div class="col-md-9 col-12">
+                                            <input type="text" class="form-control" name="status_pekerjaan"
                                                         id="status_pekerjaan" placeholder="status pekerjaan"
                                                         style="max-width: 800px;" readonly>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                                        </div>
+                                    </div>
+                                    </div>
 
                                     <hr>
-                                    <h3 class="text-center text-uppercase text-bold">penilaian wawancara</h3>
-                                    <p class="text-left text-capitalize text-bold text-danger">Silahkan isi nilai sesuai
+                                    <h3 class="text-start text-uppercase text-bold">penilaian wawancara</h3>
+                                    <p class="text-start text-capitalize text-bold text-uis-green">Silahkan isi nilai sesuai
                                         bobot penilaian</p>
                                     <hr>
 
@@ -219,46 +253,47 @@
                                                     <ul class="list-group">
                                                         <li
                                                             class="list-group-item border-0 d-flex p-4 mb-2 bg-gray-100 border-radius-lg">
-                                                            <div class="d-flex flex-grow-1">
-                                                                <!-- Kolom kiri (Indikator Penilaian) -->
-                                                                <div class="flex-fill">
-                                                                    <h6
-                                                                        class="font-weight-bold text-uppercase text-danger">
-                                                                        Indikator Penilaian:</h6>
-                                                                    <hr>
-                                                                    <p class="text-dark text-xs font-weight-bold">Memiliki
+                                                            
+                                                                <div class="w-100">
+                                                                    <div class="d-flex justify-content-between border-bottom pb-2 mb-3">
+                                                                        <h6 class="font-weight-bold text-uppercase text-uis-green mb-0">Indikator Penilaian:</h6>
+                                                                        <h6 class="font-weight-bold text-uis-green text-uppercase mb-0 text-center" style="width: 80px;">bobot:</h6>
+                                                                    </div>
+                                                                    
+                                                                    <div class="d-flex justify-content-between align-items-center mb-3">
+                                                                        <p class="text-dark text-xs font-weight-bold mb-0 flex-fill me-3">Memiliki
                                                                         alasan yang kuat dalam memilih program studi,
                                                                         memahami prospek karier, dan menunjukkan antusiasme
                                                                         tinggi terhadap bidangnya.</p>
-                                                                    <p class="text-dark text-xs font-weight-bold">Memiliki
+                                                                        <span class="badge bg-primary px-3 py-2 fs-6">5</span>
+                                                                    </div>
+                                                                    <div class="d-flex justify-content-between align-items-center mb-3">
+                                                                        <p class="text-dark text-xs font-weight-bold mb-0 flex-fill me-3">Memiliki
                                                                         alasan yang cukup jelas dalam memilih program studi,
                                                                         tetapi masih perlu pemahaman lebih mendalam tentang
                                                                         prospek karier.</p>
-                                                                    <p class="text-dark text-xs font-weight-bold">Alasan
+                                                                        <span class="badge bg-primary px-3 py-2 fs-6">4</span>
+                                                                    </div>
+                                                                    <div class="d-flex justify-content-between align-items-center mb-3">
+                                                                        <p class="text-dark text-xs font-weight-bold mb-0 flex-fill me-3">Alasan
                                                                         memilih program studi masih kurang jelas dan
                                                                         pemahaman tentang prospek karier terbatas.</p>
-                                                                    <p class="text-dark text-xs font-weight-bold">Memilih
+                                                                        <span class="badge bg-primary px-3 py-2 fs-6">3</span>
+                                                                    </div>
+                                                                    <div class="d-flex justify-content-between align-items-center mb-3">
+                                                                        <p class="text-dark text-xs font-weight-bold mb-0 flex-fill me-3">Memilih
                                                                         program studi tanpa alasan yang kuat dan kurang
                                                                         memiliki pemahaman tentang bidang yang dipilih.</p>
-                                                                    <p class="text-dark text-xs font-weight-bold">Tidak
+                                                                        <span class="badge bg-primary px-3 py-2 fs-6">2</span>
+                                                                    </div>
+                                                                    <div class="d-flex justify-content-between align-items-center mb-3">
+                                                                        <p class="text-dark text-xs font-weight-bold mb-0 flex-fill me-3">Tidak
                                                                         memiliki alasan yang jelas dalam memilih program
                                                                         studi dan menunjukkan kurangnya minat serta motivasi
                                                                         belajar.</p>
+                                                                        <span class="badge bg-primary px-3 py-2 fs-6">1</span>
+                                                                    </div>
                                                                 </div>
-
-                                                                <!-- Kolom kanan (Bobot) -->
-                                                                <div class="ms-3 text-end">
-                                                                    <h6
-                                                                        class="font-weight-bold text-danger text-uppercase">
-                                                                        bobot:</h6>
-                                                                    <hr>
-                                                                    <p class="text-dark text-center">5</p>
-                                                                    <p class="text-dark text-center">4</p>
-                                                                    <p class="text-dark text-center">3</p>
-                                                                    <p class="text-dark text-center">2</p>
-                                                                    <p class="text-dark text-center">1</p>
-                                                                </div>
-                                                            </div>
                                                         </li>
                                                     </ul>
                                                 </div>
@@ -281,48 +316,46 @@
                                                     <ul class="list-group">
                                                         <li
                                                             class="list-group-item border-0 d-flex p-4 mb-2 bg-gray-100 border-radius-lg">
-                                                            <div class="d-flex flex-grow-1">
-                                                                <!-- Kolom kiri (Indikator Penilaian) -->
-                                                                <div class="flex-fill">
-                                                                    <h6
-                                                                        class="font-weight-bold text-uppercase text-danger">
-                                                                        Indikator Penilaian:</h6>
-                                                                    <hr>
-                                                                    <p class="text-dark text-xs font-weight-bold">Memiliki
+                                                            
+                                                                <div class="w-100">
+                                                                    <div class="d-flex justify-content-between border-bottom pb-2 mb-3">
+                                                                        <h6 class="font-weight-bold text-uppercase text-uis-green mb-0">Indikator Penilaian:</h6>
+                                                                        <h6 class="font-weight-bold text-uis-green text-uppercase mb-0 text-center" style="width: 80px;">bobot:</h6>
+                                                                    </div>
+                                                                    
+                                                                    <div class="d-flex justify-content-between align-items-center mb-3">
+                                                                        <p class="text-dark text-xs font-weight-bold mb-0 flex-fill me-3">Memiliki
                                                                         pengetahuan dasar yang kuat terkait bidang studi
                                                                         yang dipilih dan siap mengikuti aturan akademik
                                                                         perguruan tinggi.</p>
-                                                                    <p class="text-dark text-xs font-weight-bold">
-                                                                        Mengetahui dasar-dasar yang relevan dengan bidang
+                                                                        <span class="badge bg-primary px-3 py-2 fs-6">5</span>
+                                                                    </div>
+                                                                    <div class="d-flex justify-content-between align-items-center mb-3">
+                                                                        <p class="text-dark text-xs font-weight-bold mb-0 flex-fill me-3">Mengetahui dasar-dasar yang relevan dengan bidang
                                                                         studi dan sudah memiliki pemahaman yang baik tentang
                                                                         peraturan akademik.</p>
-                                                                    <p class="text-dark text-xs font-weight-bold">Memiliki
+                                                                        <span class="badge bg-primary px-3 py-2 fs-6">4</span>
+                                                                    </div>
+                                                                    <div class="d-flex justify-content-between align-items-center mb-3">
+                                                                        <p class="text-dark text-xs font-weight-bold mb-0 flex-fill me-3">Memiliki
                                                                         pengetahuan dasar yang cukup, tetapi masih perlu
                                                                         lebih banyak persiapan dalam memahami aturan
                                                                         akademik.</p>
-                                                                    <p class="text-dark text-xs font-weight-bold">
-                                                                        Pengetahuan dasar yang dimiliki masih terbatas dan
-                                                                        belum sepenuhnya siap mengikuti peraturan akademik.
-                                                                    </p>
-                                                                    <p class="text-dark text-xs font-weight-bold">Tidak
+                                                                        <span class="badge bg-primary px-3 py-2 fs-6">3</span>
+                                                                    </div>
+                                                                    <div class="d-flex justify-content-between align-items-center mb-3">
+                                                                        <p class="text-dark text-xs font-weight-bold mb-0 flex-fill me-3">Pengetahuan dasar yang dimiliki masih terbatas dan
+                                                                        belum sepenuhnya siap mengikuti peraturan akademik.</p>
+                                                                        <span class="badge bg-primary px-3 py-2 fs-6">2</span>
+                                                                    </div>
+                                                                    <div class="d-flex justify-content-between align-items-center mb-3">
+                                                                        <p class="text-dark text-xs font-weight-bold mb-0 flex-fill me-3">Tidak
                                                                         memiliki pengetahuan dasar yang cukup dan tidak
                                                                         menunjukkan kesiapan untuk mengikuti peraturan
                                                                         akademik.</p>
+                                                                        <span class="badge bg-primary px-3 py-2 fs-6">1</span>
+                                                                    </div>
                                                                 </div>
-
-                                                                <!-- Kolom kanan (Bobot) -->
-                                                                <div class="ms-3 text-end">
-                                                                    <h6
-                                                                        class="font-weight-bold text-danger text-uppercase">
-                                                                        bobot:</h6>
-                                                                    <hr>
-                                                                    <p class="text-dark text-center">5</p>
-                                                                    <p class="text-dark text-center">4</p>
-                                                                    <p class="text-dark text-center">3</p>
-                                                                    <p class="text-dark text-center">2</p>
-                                                                    <p class="text-dark text-center">1</p>
-                                                                </div>
-                                                            </div>
                                                         </li>
                                                     </ul>
                                                 </div>
@@ -344,49 +377,46 @@
                                                     <ul class="list-group">
                                                         <li
                                                             class="list-group-item border-0 d-flex p-4 mb-2 bg-gray-100 border-radius-lg">
-                                                            <div class="d-flex flex-grow-1">
-                                                                <!-- Kolom kiri (Indikator Penilaian) -->
-                                                                <div class="flex-fill">
-                                                                    <h6
-                                                                        class="font-weight-bold text-uppercase text-danger">
-                                                                        Indikator Penilaian:</h6>
-                                                                    <hr>
-                                                                    <p class="text-dark text-xs font-weight-bold">
-                                                                        Menunjukkan komitmen dan keseriusan tinggi dalam
+                                                            
+                                                                <div class="w-100">
+                                                                    <div class="d-flex justify-content-between border-bottom pb-2 mb-3">
+                                                                        <h6 class="font-weight-bold text-uppercase text-uis-green mb-0">Indikator Penilaian:</h6>
+                                                                        <h6 class="font-weight-bold text-uis-green text-uppercase mb-0 text-center" style="width: 80px;">bobot:</h6>
+                                                                    </div>
+                                                                    
+                                                                    <div class="d-flex justify-content-between align-items-center mb-3">
+                                                                        <p class="text-dark text-xs font-weight-bold mb-0 flex-fill me-3">Menunjukkan komitmen dan keseriusan tinggi dalam
                                                                         kuliah, serta memiliki kemampuan belajar mandiri
                                                                         yang baik dan mampu mengambil inisiatif dalam
                                                                         kegiatan akademik.</p>
-                                                                    <p class="text-dark text-xs font-weight-bold">
-                                                                        Menunjukkan komitmen yang baik dalam kuliah dan
+                                                                        <span class="badge bg-primary px-3 py-2 fs-6">5</span>
+                                                                    </div>
+                                                                    <div class="d-flex justify-content-between align-items-center mb-3">
+                                                                        <p class="text-dark text-xs font-weight-bold mb-0 flex-fill me-3">Menunjukkan komitmen yang baik dalam kuliah dan
                                                                         memiliki kemampuan belajar mandiri meskipun perlu
                                                                         sedikit bimbingan.</p>
-                                                                    <p class="text-dark text-xs font-weight-bold">
-                                                                        Menunjukkan komitmen yang cukup baik, tetapi
+                                                                        <span class="badge bg-primary px-3 py-2 fs-6">4</span>
+                                                                    </div>
+                                                                    <div class="d-flex justify-content-between align-items-center mb-3">
+                                                                        <p class="text-dark text-xs font-weight-bold mb-0 flex-fill me-3">Menunjukkan komitmen yang cukup baik, tetapi
                                                                         kemampuan mandiri dan inisiatif dalam kuliah masih
                                                                         terbatas.</p>
-                                                                    <p class="text-dark text-xs font-weight-bold">
-                                                                        Menunjukkan komitmen yang rendah dalam kuliah dan
+                                                                        <span class="badge bg-primary px-3 py-2 fs-6">3</span>
+                                                                    </div>
+                                                                    <div class="d-flex justify-content-between align-items-center mb-3">
+                                                                        <p class="text-dark text-xs font-weight-bold mb-0 flex-fill me-3">Menunjukkan komitmen yang rendah dalam kuliah dan
                                                                         kurang memiliki kemampuan belajar mandiri serta
                                                                         inisiatif.</p>
-                                                                    <p class="text-dark text-xs font-weight-bold">Tidak
+                                                                        <span class="badge bg-primary px-3 py-2 fs-6">2</span>
+                                                                    </div>
+                                                                    <div class="d-flex justify-content-between align-items-center mb-3">
+                                                                        <p class="text-dark text-xs font-weight-bold mb-0 flex-fill me-3">Tidak
                                                                         menunjukkan komitmen yang cukup terhadap kuliah dan
                                                                         kurang memiliki kemampuan untuk belajar mandiri atau
                                                                         mengambil inisiatif.</p>
+                                                                        <span class="badge bg-primary px-3 py-2 fs-6">1</span>
+                                                                    </div>
                                                                 </div>
-
-                                                                <!-- Kolom kanan (Bobot) -->
-                                                                <div class="ms-3 text-end">
-                                                                    <h6
-                                                                        class="font-weight-bold text-danger text-uppercase">
-                                                                        bobot:</h6>
-                                                                    <hr>
-                                                                    <p class="text-dark text-center">5</p>
-                                                                    <p class="text-dark text-center">4</p>
-                                                                    <p class="text-dark text-center">3</p>
-                                                                    <p class="text-dark text-center">2</p>
-                                                                    <p class="text-dark text-center">1</p>
-                                                                </div>
-                                                            </div>
                                                         </li>
                                                     </ul>
                                                 </div>
@@ -409,46 +439,44 @@
                                                     <ul class="list-group">
                                                         <li
                                                             class="list-group-item border-0 d-flex p-4 mb-2 bg-gray-100 border-radius-lg">
-                                                            <div class="d-flex flex-grow-1">
-                                                                <!-- Kolom kiri (Indikator Penilaian) -->
-                                                                <div class="flex-fill">
-                                                                    <h6
-                                                                        class="font-weight-bold text-uppercase text-danger">
-                                                                        Indikator Penilaian:</h6>
-                                                                    <hr>
-                                                                    <p class="text-dark text-xs font-weight-bold">
-                                                                        Menunjukkan sikap yang sangat baik, nilai-nilai
+                                                            
+                                                                <div class="w-100">
+                                                                    <div class="d-flex justify-content-between border-bottom pb-2 mb-3">
+                                                                        <h6 class="font-weight-bold text-uppercase text-uis-green mb-0">Indikator Penilaian:</h6>
+                                                                        <h6 class="font-weight-bold text-uis-green text-uppercase mb-0 text-center" style="width: 80px;">bobot:</h6>
+                                                                    </div>
+                                                                    
+                                                                    <div class="d-flex justify-content-between align-items-center mb-3">
+                                                                        <p class="text-dark text-xs font-weight-bold mb-0 flex-fill me-3">Menunjukkan sikap yang sangat baik, nilai-nilai
                                                                         moral yang tinggi, dan kemampuan komunikasi yang
                                                                         sangat efektif.</p>
-                                                                    <p class="text-dark text-xs font-weight-bold">Memiliki
+                                                                        <span class="badge bg-primary px-3 py-2 fs-6">5</span>
+                                                                    </div>
+                                                                    <div class="d-flex justify-content-between align-items-center mb-3">
+                                                                        <p class="text-dark text-xs font-weight-bold mb-0 flex-fill me-3">Memiliki
                                                                         sikap yang baik, nilai-nilai moral yang positif, dan
                                                                         kemampuan komunikasi yang cukup baik.</p>
-                                                                    <p class="text-dark text-xs font-weight-bold">Memiliki
+                                                                        <span class="badge bg-primary px-3 py-2 fs-6">4</span>
+                                                                    </div>
+                                                                    <div class="d-flex justify-content-between align-items-center mb-3">
+                                                                        <p class="text-dark text-xs font-weight-bold mb-0 flex-fill me-3">Memiliki
                                                                         sikap yang cukup baik, tetapi kemampuan komunikasi
-                                                                        dan nilai-nilai moralnya masih perlu pengembangan.
-                                                                    </p>
-                                                                    <p class="text-dark text-xs font-weight-bold">Sikap dan
+                                                                        dan nilai-nilai moralnya masih perlu pengembangan.</p>
+                                                                        <span class="badge bg-primary px-3 py-2 fs-6">3</span>
+                                                                    </div>
+                                                                    <div class="d-flex justify-content-between align-items-center mb-3">
+                                                                        <p class="text-dark text-xs font-weight-bold mb-0 flex-fill me-3">Sikap dan
                                                                         nilai-nilai moral yang dimiliki cukup biasa, dengan
                                                                         kemampuan komunikasi yang masih terbatas.</p>
-                                                                    <p class="text-dark text-xs font-weight-bold">Memiliki
+                                                                        <span class="badge bg-primary px-3 py-2 fs-6">2</span>
+                                                                    </div>
+                                                                    <div class="d-flex justify-content-between align-items-center mb-3">
+                                                                        <p class="text-dark text-xs font-weight-bold mb-0 flex-fill me-3">Memiliki
                                                                         sikap yang kurang baik, nilai-nilai moral yang
-                                                                        rendah, dan kemampuan komunikasi yang tidak memadai.
-                                                                    </p>
+                                                                        rendah, dan kemampuan komunikasi yang tidak memadai.</p>
+                                                                        <span class="badge bg-primary px-3 py-2 fs-6">1</span>
+                                                                    </div>
                                                                 </div>
-
-                                                                <!-- Kolom kanan (Bobot) -->
-                                                                <div class="ms-3 text-end">
-                                                                    <h6
-                                                                        class="font-weight-bold text-danger text-uppercase">
-                                                                        bobot:</h6>
-                                                                    <hr>
-                                                                    <p class="text-dark text-center">5</p>
-                                                                    <p class="text-dark text-center">4</p>
-                                                                    <p class="text-dark text-center">3</p>
-                                                                    <p class="text-dark text-center">2</p>
-                                                                    <p class="text-dark text-center">1</p>
-                                                                </div>
-                                                            </div>
                                                         </li>
                                                     </ul>
                                                 </div>
@@ -470,45 +498,46 @@
                                                     <ul class="list-group">
                                                         <li
                                                             class="list-group-item border-0 d-flex p-4 mb-2 bg-gray-100 border-radius-lg">
-                                                            <div class="d-flex flex-grow-1">
-                                                                <!-- Kolom kiri (Indikator Penilaian) -->
-                                                                <div class="flex-fill">
-                                                                    <h6
-                                                                        class="font-weight-bold text-uppercase text-danger">
-                                                                        Indikator Penilaian:</h6>
-                                                                    <hr>
-                                                                    <p class="text-dark text-xs font-weight-bold">Memiliki
+                                                            
+                                                                <div class="w-100">
+                                                                    <div class="d-flex justify-content-between border-bottom pb-2 mb-3">
+                                                                        <h6 class="font-weight-bold text-uppercase text-uis-green mb-0">Indikator Penilaian:</h6>
+                                                                        <h6 class="font-weight-bold text-uis-green text-uppercase mb-0 text-center" style="width: 80px;">bobot:</h6>
+                                                                    </div>
+                                                                    
+                                                                    <div class="d-flex justify-content-between align-items-center mb-3">
+                                                                        <p class="text-dark text-xs font-weight-bold mb-0 flex-fill me-3">Memiliki
                                                                         semangat tinggi untuk menyelesaikan studi tanpa
                                                                         hambatan finansial dan sudah memiliki perencanaan
                                                                         finansial yang matang.</p>
-                                                                    <p class="text-dark text-xs font-weight-bold">Cukup
+                                                                        <span class="badge bg-primary px-3 py-2 fs-6">5</span>
+                                                                    </div>
+                                                                    <div class="d-flex justify-content-between align-items-center mb-3">
+                                                                        <p class="text-dark text-xs font-weight-bold mb-0 flex-fill me-3">Cukup
                                                                         siap secara finansial, meskipun masih ada beberapa
                                                                         ketidakpastian.</p>
-                                                                    <p class="text-dark text-xs font-weight-bold">Cukup
+                                                                        <span class="badge bg-primary px-3 py-2 fs-6">4</span>
+                                                                    </div>
+                                                                    <div class="d-flex justify-content-between align-items-center mb-3">
+                                                                        <p class="text-dark text-xs font-weight-bold mb-0 flex-fill me-3">Cukup
                                                                         baik untuk menyelesaikan studi, tetapi kesiapan
                                                                         finansial masih perlu perhatian lebih.</p>
-                                                                    <p class="text-dark text-xs font-weight-bold">Sikap dan
+                                                                        <span class="badge bg-primary px-3 py-2 fs-6">3</span>
+                                                                    </div>
+                                                                    <div class="d-flex justify-content-between align-items-center mb-3">
+                                                                        <p class="text-dark text-xs font-weight-bold mb-0 flex-fill me-3">Sikap dan
                                                                         nilai-nilai moral yang dimiliki cukup biasa, dengan
                                                                         kemampuan komunikasi yang masih terbatas.Cukup
                                                                         rendah dan kesiapan finansial terbatas atau tidak
                                                                         terencana dengan baik.</p>
-                                                                    <p class="text-dark text-xs font-weight-bold">Tidak
+                                                                        <span class="badge bg-primary px-3 py-2 fs-6">2</span>
+                                                                    </div>
+                                                                    <div class="d-flex justify-content-between align-items-center mb-3">
+                                                                        <p class="text-dark text-xs font-weight-bold mb-0 flex-fill me-3">Tidak
                                                                         menunjukkan kesiapan finansial yang memadai</p>
+                                                                        <span class="badge bg-primary px-3 py-2 fs-6">1</span>
+                                                                    </div>
                                                                 </div>
-
-                                                                <!-- Kolom kanan (Bobot) -->
-                                                                <div class="ms-3 text-end">
-                                                                    <h6
-                                                                        class="font-weight-bold text-danger text-uppercase">
-                                                                        bobot:</h6>
-                                                                    <hr>
-                                                                    <p class="text-dark text-center">5</p>
-                                                                    <p class="text-dark text-center">4</p>
-                                                                    <p class="text-dark text-center">3</p>
-                                                                    <p class="text-dark text-center">2</p>
-                                                                    <p class="text-dark text-center">1</p>
-                                                                </div>
-                                                            </div>
                                                         </li>
                                                     </ul>
                                                 </div>
@@ -531,48 +560,47 @@
                                                     <ul class="list-group">
                                                         <li
                                                             class="list-group-item border-0 d-flex p-4 mb-2 bg-gray-100 border-radius-lg">
-                                                            <div class="d-flex flex-grow-1">
-                                                                <!-- Kolom kiri (Indikator Penilaian) -->
-                                                                <div class="flex-fill">
-                                                                    <h6
-                                                                        class="font-weight-bold text-uppercase text-danger">
-                                                                        Indikator Penilaian:</h6>
-                                                                    <hr>
-                                                                    <p class="text-dark text-xs font-weight-bold">Sangat
+                                                            
+                                                                <div class="w-100">
+                                                                    <div class="d-flex justify-content-between border-bottom pb-2 mb-3">
+                                                                        <h6 class="font-weight-bold text-uppercase text-uis-green mb-0">Indikator Penilaian:</h6>
+                                                                        <h6 class="font-weight-bold text-uis-green text-uppercase mb-0 text-center" style="width: 80px;">bobot:</h6>
+                                                                    </div>
+                                                                    
+                                                                    <div class="d-flex justify-content-between align-items-center mb-3">
+                                                                        <p class="text-dark text-xs font-weight-bold mb-0 flex-fill me-3">Sangat
                                                                         siap untuk menyesuaikan diri dengan lingkungan
                                                                         kampus, baik dalam sistem pembelajaran maupun
                                                                         interaksi sosial.</p>
-                                                                    <p class="text-dark text-xs font-weight-bold">Cukup
+                                                                        <span class="badge bg-primary px-3 py-2 fs-6">5</span>
+                                                                    </div>
+                                                                    <div class="d-flex justify-content-between align-items-center mb-3">
+                                                                        <p class="text-dark text-xs font-weight-bold mb-0 flex-fill me-3">Cukup
                                                                         siap untuk beradaptasi dengan lingkungan kampus,
                                                                         meskipun ada beberapa tantangan yang mungkin
                                                                         dihadapi.</p>
-                                                                    <p class="text-dark text-xs font-weight-bold">
-                                                                        Menunjukkan kesiapan yang cukup dalam beradaptasi,
+                                                                        <span class="badge bg-primary px-3 py-2 fs-6">4</span>
+                                                                    </div>
+                                                                    <div class="d-flex justify-content-between align-items-center mb-3">
+                                                                        <p class="text-dark text-xs font-weight-bold mb-0 flex-fill me-3">Menunjukkan kesiapan yang cukup dalam beradaptasi,
                                                                         tetapi perlu waktu lebih lama untuk menyesuaikan
                                                                         diri.</p>
-                                                                    <p class="text-dark text-xs font-weight-bold">Adaptasi
+                                                                        <span class="badge bg-primary px-3 py-2 fs-6">3</span>
+                                                                    </div>
+                                                                    <div class="d-flex justify-content-between align-items-center mb-3">
+                                                                        <p class="text-dark text-xs font-weight-bold mb-0 flex-fill me-3">Adaptasi
                                                                         terhadap lingkungan kampus kurang baik dan mungkin
-                                                                        membutuhkan banyak waktu untuk menyesuaikan diri.
-                                                                    </p>
-                                                                    <p class="text-dark text-xs font-weight-bold">Tidak
+                                                                        membutuhkan banyak waktu untuk menyesuaikan diri.</p>
+                                                                        <span class="badge bg-primary px-3 py-2 fs-6">2</span>
+                                                                    </div>
+                                                                    <div class="d-flex justify-content-between align-items-center mb-3">
+                                                                        <p class="text-dark text-xs font-weight-bold mb-0 flex-fill me-3">Tidak
                                                                         menunjukkan kesiapan untuk beradaptasi dengan
                                                                         lingkungan kampus dan kurang siap dalam hal
                                                                         interaksi sosial atau pembelajaran.</p>
+                                                                        <span class="badge bg-primary px-3 py-2 fs-6">1</span>
+                                                                    </div>
                                                                 </div>
-
-                                                                <!-- Kolom kanan (Bobot) -->
-                                                                <div class="ms-3 text-end">
-                                                                    <h6
-                                                                        class="font-weight-bold text-danger text-uppercase">
-                                                                        bobot:</h6>
-                                                                    <hr>
-                                                                    <p class="text-dark text-center">5</p>
-                                                                    <p class="text-dark text-center">4</p>
-                                                                    <p class="text-dark text-center">3</p>
-                                                                    <p class="text-dark text-center">2</p>
-                                                                    <p class="text-dark text-center">1</p>
-                                                                </div>
-                                                            </div>
                                                         </li>
                                                     </ul>
                                                 </div>

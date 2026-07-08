@@ -76,13 +76,13 @@
         <div class="row">
             <div class="col-12">
                 <div class="card mb-4 shadow-sm border-0" style="border-radius: 15px;">
-                    <div class="card-header pb-0 d-flex justify-content-between align-items-center">
-                        <h6 class="font-weight-bold mb-0">Daftar Camaba Belum Diwawancara</h6>
-                        <div>
-                            <a href="{{ route('export.belum') }}" class="btn btn-sm btn-success mb-0 me-2">
+                    <div class="card-header pb-0 d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3">
+                        <h6 class="font-weight-bold mb-0 text-center text-md-start">Daftar Camaba Belum Diwawancara</h6>
+                        <div class="d-flex flex-column flex-md-row align-items-stretch align-items-md-center gap-2">
+                            <a href="{{ route('export.belum') }}" class="btn btn-sm btn-success mb-0 w-100 text-center">
                                 <i class="fas fa-file-excel"></i> Export Excel
                             </a>
-                            <span class="badge bg-danger">Total: {{ $mahasiswas->count() }} Orang</span>
+                            <span class="badge bg-uis-green py-2 w-100 text-center">Total: {{ $mahasiswas->count() }} Orang</span>
                         </div>
                     </div>
                     <div class="card-body px-0 pt-0 pb-2">
@@ -148,6 +148,7 @@
     <script>
         $(document).ready(function() {
             $('#table-belum').DataTable({
+                "scrollX": true,
                 "language": {
                     "paginate": {
                         "previous": "<i class='fas fa-angle-left'></i>",

@@ -17,12 +17,37 @@
     <link href="{{ asset('assets/css/nucleo-svg.css') }}" rel="stylesheet" />
 
     <!-- CSS Files -->
-    <link id="pagestyle" href="{{ asset('assets/css/soft-ui-dashboard.css?v=1.0.3') }}" rel="stylesheet" />
+    <link id="pagestyle" href="{{ asset('assets/css/soft-ui-dashboard.css?v=1.0.4') }}" rel="stylesheet" />
 
     {{--  datatables CSS  --}}
     <link rel="stylesheet" href="https://cdn.datatables.net/2.3.4/css/dataTables.bootstrap5.css">
 
     <style>
+        /* UIS Green Colors */
+        .bg-uis-green { background-color: #077c39 !important; color: white !important; }
+        .text-uis-green { color: #077c39 !important; }
+        .btn-uis-green { background-color: #077c39 !important; color: white !important; border-color: #077c39 !important; }
+        .btn-uis-green:hover, .btn-uis-green:focus, .btn-uis-green:active { background-color: #06662f !important; color: white !important; border-color: #06662f !important; }
+
+        @media (min-width: 768px) {
+            .w-md-auto {
+                width: auto !important;
+            }
+        }
+
+        /* Override Pagination Active Color to UIS Green */
+        .page-item.active .page-link, 
+        .pagination .page-item.active .page-link,
+        .dataTables_wrapper .dataTables_paginate .paginate_button.current,
+        .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover,
+        .dataTables_wrapper .dataTables_paginate .paginate_button.active > .page-link {
+            background-color: #077c39 !important;
+            border-color: #077c39 !important;
+            color: #ffffff !important;
+            background-image: none !important;
+            box-shadow: 0 3px 5px -1px rgba(7, 124, 57, 0.2), 0 2px 4px -1px rgba(7, 124, 57, 0.07) !important;
+        }
+
         /* Fix double scrollbar */
         html, body {
             overflow-x: hidden !important;
@@ -275,8 +300,7 @@
     <script>
         $(document).ready(function() {
             $('#iconNavbarSidenav').on('click', function(e) {
-                e.preventDefault();
-                $('body').toggleClass('g-sidenav-pinned');
+                // e.preventDefault(); // Keep if necessary, but don't toggle g-sidenav-pinned on mobile to avoid conflicting with soft-ui-dashboard.min.js
                 if ($(window).width() >= 1200) {
                     $('body').toggleClass('g-sidenav-hidden');
                 }

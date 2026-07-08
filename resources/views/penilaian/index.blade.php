@@ -155,9 +155,9 @@
                         style="background-color: #F5A423; cursor: pointer;" data-bs-toggle="collapse" data-bs-target="#collapseFEB" aria-expanded="false">
                         <h6 class="text-white mb-0 font-weight-bold">FEB <i class="fas fa-chevron-down ms-2 text-xs"></i></h6>
                         <div class="d-flex gap-1">
-                            <span class="badge bg-secondary rounded-pill" title="Total"><span class="me-1 opacity-7">T:</span><span id="total-feb-all">{{ $febTotalAll }}</span></span>
-                            <span class="badge bg-success rounded-pill" title="Sudah"><span class="me-1 opacity-7">S:</span><span id="sudah-feb-all">{{ $febSudahAll }}</span></span>
-                            <span class="badge bg-danger text-white rounded-pill" title="Belum"><span class="me-1 opacity-7">B:</span><span id="belum-feb-all">{{ $febBelumAll }}</span></span>
+                            <span class="badge bg-secondary rounded-pill" title="Total"><span class="me-1 opacity-7">Total:</span><span id="total-feb-all">{{ $febTotalAll }}</span></span>
+                            <span class="badge bg-success rounded-pill" title="Sudah"><span class="me-1 opacity-7">Sudah:</span><span id="sudah-feb-all">{{ $febSudahAll }}</span></span>
+                            <span class="badge bg-danger text-white rounded-pill" title="Belum"><span class="me-1 opacity-7">Belum:</span><span id="belum-feb-all">{{ $febBelumAll }}</span></span>
                         </div>
                     </div>
                     <div class="collapse" id="collapseFEB">
@@ -212,9 +212,9 @@
                         style="background-color: #2C583F; cursor: pointer;" data-bs-toggle="collapse" data-bs-target="#collapseFST" aria-expanded="false">
                         <h6 class="text-white mb-0 font-weight-bold">FST <i class="fas fa-chevron-down ms-2 text-xs"></i></h6>
                         <div class="d-flex gap-1">
-                            <span class="badge bg-secondary rounded-pill" title="Total"><span class="me-1 opacity-7">T:</span><span id="total-fst-all">{{ $fstTotalAll }}</span></span>
-                            <span class="badge bg-success rounded-pill" title="Sudah"><span class="me-1 opacity-7">S:</span><span id="sudah-fst-all">{{ $fstSudahAll }}</span></span>
-                            <span class="badge bg-danger text-white rounded-pill" title="Belum"><span class="me-1 opacity-7">B:</span><span id="belum-fst-all">{{ $fstBelumAll }}</span></span>
+                            <span class="badge bg-secondary rounded-pill" title="Total"><span class="me-1 opacity-7">Total:</span><span id="total-fst-all">{{ $fstTotalAll }}</span></span>
+                            <span class="badge bg-success rounded-pill" title="Sudah"><span class="me-1 opacity-7">Sudah:</span><span id="sudah-fst-all">{{ $fstSudahAll }}</span></span>
+                            <span class="badge bg-danger text-white rounded-pill" title="Belum"><span class="me-1 opacity-7">Belum:</span><span id="belum-fst-all">{{ $fstBelumAll }}</span></span>
                         </div>
                     </div>
                     <div class="collapse" id="collapseFST">
@@ -263,9 +263,9 @@
                         style="background-color: #4534A5; cursor: pointer;" data-bs-toggle="collapse" data-bs-target="#collapseFIKES" aria-expanded="false">
                         <h6 class="text-white mb-0 font-weight-bold">FIKES <i class="fas fa-chevron-down ms-2 text-xs"></i></h6>
                         <div class="d-flex gap-1">
-                            <span class="badge bg-secondary rounded-pill" title="Total"><span class="me-1 opacity-7">T:</span><span id="total-fikes-all">{{ $fikesTotalAll }}</span></span>
-                            <span class="badge bg-success rounded-pill" title="Sudah"><span class="me-1 opacity-7">S:</span><span id="sudah-fikes-all">{{ $fikesSudahAll }}</span></span>
-                            <span class="badge bg-danger text-white rounded-pill" title="Belum"><span class="me-1 opacity-7">B:</span><span id="belum-fikes-all">{{ $fikesBelumAll }}</span></span>
+                            <span class="badge bg-secondary rounded-pill" title="Total"><span class="me-1 opacity-7">Total:</span><span id="total-fikes-all">{{ $fikesTotalAll }}</span></span>
+                            <span class="badge bg-success rounded-pill" title="Sudah"><span class="me-1 opacity-7">Sudah:</span><span id="sudah-fikes-all">{{ $fikesSudahAll }}</span></span>
+                            <span class="badge bg-danger text-white rounded-pill" title="Belum"><span class="me-1 opacity-7">Belum:</span><span id="belum-fikes-all">{{ $fikesBelumAll }}</span></span>
                         </div>
                     </div>
                     <div class="collapse" id="collapseFIKES">
@@ -337,8 +337,8 @@
             <div class="col-12">
                 <div class="card mb-4">
                     <div class="card-header pb-0 d-flex align-items-center justify-content-end gap-2">
-                        <div class="dropdown">
-                            <button class="btn btn-dark text-white text-uppercase d-flex align-items-center gap-2"
+                        <div class="dropdown w-100 w-md-auto">
+                            <button class="btn btn-dark text-white text-uppercase d-flex align-items-center justify-content-center gap-2 w-100 w-md-auto"
                                 type="button" id="actionDropdown" data-bs-toggle="dropdown" aria-expanded="false">
                                 <i class="fas fa-plus"></i> Pilih Aksi <i class="fas fa-chevron-down ms-1"></i>
                             </button>

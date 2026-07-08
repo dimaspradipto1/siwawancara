@@ -6,6 +6,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\MahasiswaController;
 use App\Http\Controllers\PenilaianController;
+use App\Http\Controllers\BannerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -58,5 +59,8 @@ Route::middleware(['auth', 'checkrole'])->group(function () {
     Route::get('/penilaian/get-stats', [PenilaianController::class, 'getStats'])->name('penilaian.get-stats');
     Route::resource('penilaian', PenilaianController::class);
     Route::get('/export', [PenilaianController::class, 'export'])->name('export');
+    Route::get('/banner', [BannerController::class, 'index'])->name('banner.index');
+    Route::post('/banner', [BannerController::class, 'update'])->name('banner.update');
+
     Route::get('/export-belum', [PenilaianController::class, 'exportBelum'])->name('export.belum');
 });

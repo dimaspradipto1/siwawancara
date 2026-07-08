@@ -93,8 +93,8 @@
                             <i class="fa-solid fa-trash-can"></i> Hapus Semua
                         </button> --}}
 
-                        <div class="dropdown">
-                            <button class="btn btn-dark text-white text-uppercase d-flex align-items-center gap-2"
+                        <div class="dropdown w-100 w-md-auto">
+                            <button class="btn btn-dark text-white text-uppercase d-flex align-items-center justify-content-center gap-2 w-100 w-md-auto"
                                 type="button" id="actionDropdown" data-bs-toggle="dropdown" aria-expanded="false">
                                 <i class="fas fa-plus"></i> Pilih Aksi <i class="fas fa-chevron-down ms-1"></i>
                             </button>
