@@ -46,8 +46,13 @@
             <div class="col-12">
                 <div class="card mb-4 shadow-sm border-0" style="border-radius: 15px;">
                     <div class="card-header pb-0 d-flex justify-content-between align-items-center">
-                        <h6 class="font-weight-bold">Daftar Camaba Belum Diwawancara</h6>
-                        <span class="badge bg-danger">Total: {{ $mahasiswas->count() }} Orang</span>
+                        <h6 class="font-weight-bold mb-0">Daftar Camaba Belum Diwawancara</h6>
+                        <div>
+                            <a href="{{ route('export.belum') }}" class="btn btn-sm btn-success mb-0 me-2">
+                                <i class="fas fa-file-excel"></i> Export Excel
+                            </a>
+                            <span class="badge bg-danger">Total: {{ $mahasiswas->count() }} Orang</span>
+                        </div>
                     </div>
                     <div class="card-body px-0 pt-0 pb-2">
                         <div class="table-responsive p-4">

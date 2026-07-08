@@ -305,6 +305,41 @@
         </div>
         {{-- End Faculty Stats --}}
 
+        {{-- Interviewer Stats --}}
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="card shadow-sm border-0" style="border-radius: 15px; overflow: hidden;">
+                    <div class="card-header py-3 d-flex justify-content-between align-items-center" style="background-color: #17a2b8;">
+                        <h6 class="text-white mb-0 font-weight-bold">Rekapitulasi Interviewer</h6>
+                    </div>
+                    <div class="card-body p-3">
+                        <div class="row" id="interviewer-stats-container">
+                            @foreach ($interviewerStats as $stat)
+                                <div class="col-md-4 col-sm-6 mb-3">
+                                    <div class="p-3 bg-light rounded-3 border h-100">
+                                        <div class="d-flex justify-content-between align-items-center mb-2">
+                                            <span class="text-sm font-weight-bold text-dark text-truncate" title="{{ $stat['name'] }}">{{ $stat['name'] }}</span>
+                                            <span class="badge bg-primary rounded-pill">{{ $stat['total'] }}</span>
+                                        </div>
+                                        <hr class="my-2">
+                                        <div class="d-flex flex-column gap-1">
+                                            @foreach ($stat['prodis'] as $prodi)
+                                                <div class="d-flex justify-content-between align-items-center">
+                                                    <span class="text-xs text-secondary text-truncate" title="{{ $prodi['prodi'] }}"><i class="fas fa-chevron-right me-1 text-xxs"></i> {{ $prodi['prodi'] }}</span>
+                                                    <span class="text-xs font-weight-bold text-dark">{{ $prodi['count'] }}</span>
+                                                </div>
+                                            @endforeach
+                                        </div>
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{-- End Interviewer Stats --}}
+
         <div class="row">
             <div class="col-12">
                 <div class="card mb-4">
@@ -433,6 +468,38 @@
                     $('#total-fikes-all').text(fikesT);
                     $('#sudah-fikes-all').text(fikesS);
                     $('#belum-fikes-all').text(fikesB);
+
+                    // Update Interviewer Stats
+                    if (data.interviewerStats) {
+                        let interviewerHtml = '';
+                        data.interviewerStats.forEach(stat => {
+                            let prodiHtml = '';
+                            stat.prodis.forEach(prodi => {
+                                prodiHtml += `
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <span class="text-xs text-secondary text-truncate" title="${prodi.prodi}"><i class="fas fa-chevron-right me-1 text-xxs"></i> ${prodi.prodi}</span>
+                                        <span class="text-xs font-weight-bold text-dark">${prodi.count}</span>
+                                    </div>
+                                `;
+                            });
+
+                            interviewerHtml += `
+                                <div class="col-md-4 col-sm-6 mb-3">
+                                    <div class="p-3 bg-light rounded-3 border h-100">
+                                        <div class="d-flex justify-content-between align-items-center mb-2">
+                                            <span class="text-sm font-weight-bold text-dark text-truncate" title="${stat.name}">${stat.name}</span>
+                                            <span class="badge bg-primary rounded-pill">${stat.total}</span>
+                                        </div>
+                                        <hr class="my-2">
+                                        <div class="d-flex flex-column gap-1">
+                                            ${prodiHtml}
+                                        </div>
+                                    </div>
+                                </div>
+                            `;
+                        });
+                        $('#interviewer-stats-container').html(interviewerHtml);
+                    }
                 },
                 error: function(err) {
                     console.error("Gagal memperbarui statistik:", err);

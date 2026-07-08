@@ -6,6 +6,7 @@ use App\Models\Mahasiswa;
 use App\Models\Penilaian;
 use Illuminate\Http\Request;
 use App\Exports\PenilaianExport;
+use App\Exports\BelumWawancaraExport;
 use Illuminate\Support\Facades\Auth;
 use Maatwebsite\Excel\Facades\Excel;
 use App\DataTables\PenilaianDataTable;
@@ -36,12 +37,37 @@ class PenilaianController extends Controller
             ->pluck('total', 'prodi_pilihan1')
             ->toArray();
 
+        $interviewerData = DB::table('penilaians')
+            ->join('users', 'penilaians.user_id', '=', 'users.id')
+            ->join('mahasiswas', 'penilaians.mahasiswa_id', '=', 'mahasiswas.id')
+            ->select('users.name as name', 'mahasiswas.prodi_pilihan1 as prodi', DB::raw('count(*) as total'))
+            ->groupBy('users.name', 'mahasiswas.prodi_pilihan1')
+            ->get();
+
+        $interviewerStats = [];
+        foreach ($interviewerData as $data) {
+            if (!isset($interviewerStats[$data->name])) {
+                $interviewerStats[$data->name] = [
+                    'name' => $data->name,
+                    'total' => 0,
+                    'prodis' => []
+                ];
+            }
+            $interviewerStats[$data->name]['total'] += $data->total;
+            $interviewerStats[$data->name]['prodis'][] = [
+                'prodi' => $data->prodi,
+                'count' => $data->total
+            ];
+        }
+        $interviewerStats = array_values($interviewerStats);
+
         return $dataTable->render('penilaian.index', compact(
             'totalMahasiswa',
             'sudahWawancara',
             'belumWawancara',
             'prodiCounts',
-            'prodiBelumCounts'
+            'prodiBelumCounts',
+            'interviewerStats'
         ));
     }
 
@@ -151,6 +177,11 @@ class PenilaianController extends Controller
         return Excel::download(new PenilaianExport, 'Penilaian_Mahasiswa.xlsx');
     }
 
+    public function exportBelum()
+    {
+        return Excel::download(new BelumWawancaraExport, 'Belum_Wawancara.xlsx');
+    }
+
     public function cariPendaftar(Request $request)
     {
         $kodePendaftar = $request->kode_pendaftar;
@@ -201,12 +232,37 @@ class PenilaianController extends Controller
             ->pluck('total', 'prodi_pilihan1')
             ->toArray();
 
+        $interviewerData = DB::table('penilaians')
+            ->join('users', 'penilaians.user_id', '=', 'users.id')
+            ->join('mahasiswas', 'penilaians.mahasiswa_id', '=', 'mahasiswas.id')
+            ->select('users.name as name', 'mahasiswas.prodi_pilihan1 as prodi', DB::raw('count(*) as total'))
+            ->groupBy('users.name', 'mahasiswas.prodi_pilihan1')
+            ->get();
+
+        $interviewerStats = [];
+        foreach ($interviewerData as $data) {
+            if (!isset($interviewerStats[$data->name])) {
+                $interviewerStats[$data->name] = [
+                    'name' => $data->name,
+                    'total' => 0,
+                    'prodis' => []
+                ];
+            }
+            $interviewerStats[$data->name]['total'] += $data->total;
+            $interviewerStats[$data->name]['prodis'][] = [
+                'prodi' => $data->prodi,
+                'count' => $data->total
+            ];
+        }
+        $interviewerStats = array_values($interviewerStats);
+
         return response()->json([
             'totalMahasiswa' => number_format($totalMahasiswa),
             'sudahWawancara' => number_format($sudahWawancara),
             'belumWawancara' => number_format($belumWawancara),
             'prodiCounts' => $prodiCounts,
-            'prodiBelumCounts' => $prodiBelumCounts
+            'prodiBelumCounts' => $prodiBelumCounts,
+            'interviewerStats' => $interviewerStats
         ]);
     }
 

@@ -32,6 +32,9 @@ class PenilaianDataTable extends DataTable
             ->addColumn('mahasiswa', function ($query) {
                 return $query->mahasiswa->nama_mahasiswa;
             })
+            ->addColumn('tanggal', function ($query) {
+                return $query->created_at ? $query->created_at->timezone('Asia/Jakarta')->format('d-m-Y H:i:s') : '-';
+            })
             ->addColumn('action', function ($query) {
                 if (auth()->user()->is_admin) {
                     return '
@@ -143,6 +146,10 @@ class PenilaianDataTable extends DataTable
                 ->searchable(false),
             Column::make('nilai_akhir')
                 ->title('Nilai Akhir')
+                ->addClass('text-center')
+                ->searchable(false),
+            Column::make('tanggal')
+                ->title('Tanggal Penilaian')
                 ->addClass('text-center')
                 ->searchable(false),
         ]);

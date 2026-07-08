@@ -6,8 +6,11 @@ use App\Models\Penilaian;
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\WithHeadings;
 use Maatwebsite\Excel\Concerns\WithMapping;
+use Maatwebsite\Excel\Concerns\WithStyles;
+use PhpOffice\PhpSpreadsheet\Worksheet\Worksheet;
+use PhpOffice\PhpSpreadsheet\Style\Border;
 
-class PenilaianExport implements FromCollection, WithHeadings, WithMapping
+class PenilaianExport implements FromCollection, WithHeadings, WithMapping, WithStyles
 {
     /**
      * Mengambil seluruh data Penilaian.
@@ -51,6 +54,7 @@ class PenilaianExport implements FromCollection, WithHeadings, WithMapping
             'Prestasi Akademik',
             'Nilai Keislaman',
             'Komentar Interviewer',
+            'Tanggal Penilaian',
         ];
     }
 
@@ -89,6 +93,35 @@ class PenilaianExport implements FromCollection, WithHeadings, WithMapping
             $penilaian->prestasi_akademik, // Prestasi Akademik
             $penilaian->nilai_keislaman, // Nilai Keislaman
             $penilaian->komentar_interviewer, // Komentar Interviewer
+            $penilaian->created_at ? $penilaian->created_at->timezone('Asia/Jakarta')->format('d-m-Y H:i:s') : 'N/A', // Tanggal Penilaian
+        ];
+    }
+
+    /**
+     * Menambahkan style untuk Excel.
+     *
+     * @param Worksheet $sheet
+     * @return array
+     */
+    public function styles(Worksheet $sheet)
+    {
+        $lastRow = $sheet->getHighestRow();
+        $lastColumn = $sheet->getHighestColumn();
+        $range = 'A1:' . $lastColumn . $lastRow;
+
+        return [
+            // Style header baris 1
+            1    => ['font' => ['bold' => true]],
+            
+            // Tambahkan border untuk semua cell yang memiliki data
+            $range => [
+                'borders' => [
+                    'allBorders' => [
+                        'borderStyle' => Border::BORDER_THIN,
+                        'color' => ['argb' => 'FF000000'],
+                    ],
+                ],
+            ],
         ];
     }
 }

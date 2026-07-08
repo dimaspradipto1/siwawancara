@@ -58,4 +58,5 @@ Route::middleware(['auth', 'checkrole'])->group(function () {
     Route::get('/penilaian/get-stats', [PenilaianController::class, 'getStats'])->name('penilaian.get-stats');
     Route::resource('penilaian', PenilaianController::class);
     Route::get('/export', [PenilaianController::class, 'export'])->name('export');
+    Route::get('/export-belum', [PenilaianController::class, 'exportBelum'])->name('export.belum');
 });
