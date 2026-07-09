@@ -12,10 +12,18 @@ class DashboardController extends Controller
 {
     public function dashboard()
     {
-        $penilaian = Penilaian::count();
-        $mahasiswa = Mahasiswa::count();
-        $user = User::count();
-        $interviewer = User::where('is_interviewer', 1)->count();
-        return view('layouts.dashboard.index', compact('penilaian', 'mahasiswa', 'user', 'interviewer'));
+        $totalMahasiswa = Mahasiswa::count();
+        $totalPenilaian = Penilaian::count();
+        $totalUsers = User::count();
+        $totalInterviewers = User::where('is_interviewer', 1)->count();
+        $belumWawancara = Mahasiswa::doesntHave('penilaians')->count();
+
+        return view('layouts.dashboard.index', compact(
+            'totalMahasiswa',
+            'totalPenilaian',
+            'totalUsers',
+            'totalInterviewers',
+            'belumWawancara'
+        ));
     }
 }
