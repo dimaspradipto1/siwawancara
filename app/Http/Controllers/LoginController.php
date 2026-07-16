@@ -14,7 +14,7 @@ class LoginController extends Controller
 {
     public function login()
     {
-        return view('layouts.auth.login');
+        return view('layouts.auth.logiupdate');
     }
 
     public function register()
