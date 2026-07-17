@@ -39,6 +39,10 @@ Route::controller(LoginController::class)->group(function () {
     Route::post('/loginproses', 'loginproses')->name('loginproses');
     Route::post('/registerproses', 'registerproses')->name('registerproses');
     Route::get('/logout', 'logout')->name('logout');
+    
+    // Google OAuth Routes
+    Route::get('auth/google', 'redirectToGoogle')->name('google.login');
+    Route::get('auth/google/callback', 'handleGoogleCallback');
 });
 
 Route::middleware(['auth', 'checkrole'])->group(function () {

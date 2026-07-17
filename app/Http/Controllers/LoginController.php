@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Password;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\Validator;
+use Laravel\Socialite\Facades\Socialite;
 
 class LoginController extends Controller
 {
@@ -26,6 +27,49 @@ class LoginController extends Controller
     {
         Auth::logout();
         return redirect(route('login'));
+    }
+
+    public function redirectToGoogle()
+    {
+        return Socialite::driver('google')->redirect();
+    }
+
+    public function handleGoogleCallback()
+    {
+        try {
+            $googleUser = Socialite::driver('google')->user();
+            
+            // Check if user exists by email or google_id
+            $user = User::where('email', $googleUser->getEmail())->first();
+
+            if ($user) {
+                // User exists, update google_id if empty and log them in
+                if (!$user->google_id) {
+                    $user->update(['google_id' => $googleUser->getId()]);
+                }
+                Auth::login($user);
+                Alert::success('success', 'Login successful')->autoclose(2000)->toToast();
+                return redirect(route('dashboard'));
+            } else {
+                // User doesn't exist, create a new one
+                $newUser = User::create([
+                    'name' => $googleUser->getName(),
+                    'email' => $googleUser->getEmail(),
+                    'google_id' => $googleUser->getId(),
+                    'password' => Hash::make(uniqid()), // Random password since they use Google
+                    'is_admin' => false,
+                    'is_timtes' => false,
+                    'is_interviewer' => false,
+                ]);
+
+                Auth::login($newUser);
+                Alert::success('success', 'Akun berhasil dibuat dan login')->autoclose(2000)->toToast();
+                return redirect(route('dashboard'));
+            }
+        } catch (\Exception $e) {
+            Alert::error('error', 'Gagal login dengan Google')->autoclose(2000)->toToast();
+            return redirect(route('login'));
+        }
     }
 
     public function loginproses(Request $request)

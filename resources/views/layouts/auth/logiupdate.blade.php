@@ -816,10 +816,10 @@
                     
                     <div class="divider">atau</div>
                     
-                    <button type="button" class="btn-sso" style="gap: 12px; justify-content: center; color: #4b5563; border-color: #d1d5db; box-shadow: 0 2px 4px rgba(0,0,0,0.05); transition: all 0.2s;">
+                    <a href="{{ route('google.login') }}" class="btn-sso" style="gap: 12px; justify-content: center; color: #4b5563; border-color: #d1d5db; box-shadow: 0 2px 4px rgba(0,0,0,0.05); transition: all 0.2s; text-decoration: none;">
                         <img src="https://www.svgrepo.com/show/475656/google-color.svg" alt="Google" style="width: 18px; height: 18px;">
                         Masuk dengan Google
-                    </button>
+                    </a>
                 </form>
 
                 <div class="help-section">
