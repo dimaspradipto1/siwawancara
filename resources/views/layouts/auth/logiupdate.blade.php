@@ -600,9 +600,6 @@
         }
 
         @media (max-width: 1200px) and (min-width: 768px) {
-            html {
-                font-size: 8px; /* Scale down the desktop layout to perfectly fit a tablet */
-            }
             body {
                 overflow-y: auto !important;
             }
@@ -612,14 +609,20 @@
                 padding: 4rem 2%;
             }
             .login-layout {
-                gap: 2rem;
+                justify-content: center;
+                gap: 0;
+            }
+            .left-panel {
+                display: none !important; /* Hide left panel on tablet as requested */
             }
             .right-panel {
-                flex: 0 0 380px;
-                max-width: 380px;
+                flex: none;
+                width: 100%;
+                max-width: 480px;
+                margin: 0 auto;
             }
             .bottom-waves {
-                width: 70vw;
+                width: 100vw;
                 height: 35vh;
             }
             .footer {
@@ -809,6 +812,13 @@
 
                     <button type="submit" class="btn-primary-custom" style="margin-top: 1.5rem;">
                         Masuk <i class="fas fa-arrow-right"></i>
+                    </button>
+                    
+                    <div class="divider">atau</div>
+                    
+                    <button type="button" class="btn-sso" style="gap: 12px; justify-content: center; color: #4b5563; border-color: #d1d5db; box-shadow: 0 2px 4px rgba(0,0,0,0.05); transition: all 0.2s;">
+                        <img src="https://www.svgrepo.com/show/475656/google-color.svg" alt="Google" style="width: 18px; height: 18px;">
+                        Masuk dengan Google
                     </button>
                 </form>
 
